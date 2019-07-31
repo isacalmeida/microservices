@@ -37,7 +37,7 @@
         <module>eureka-server</module>
         <module>zuul-server</module>
         <module>pessoa-service</module>
-        <module>pessoa-ui-service</module>
+        <module>ui-service</module>
     </modules>
     <!-- sub modules -->
 

@@ -14,11 +14,12 @@
     <!-- parent pom -->
 
 
-    <!-- pessoa-ui-service info -->
-    <artifactId>pessoa-ui-service</artifactId>
+    <!-- ui-service info -->
+    <artifactId>ui-service</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <!-- pessoa-ui-service info -->
+    <!-- ui-service info -->
+
 
     <!-- specific modules dependencies -->
     <dependencies>
