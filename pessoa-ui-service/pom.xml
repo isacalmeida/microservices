@@ -14,40 +14,23 @@
     <!-- parent pom -->
 
 
-    <!-- zuul-server info -->
-    <artifactId>zuul-server</artifactId>
+    <!-- pessoa-ui-service info -->
+    <artifactId>pessoa-ui-service</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <!-- zuul-server info -->
-
+    <!-- pessoa-ui-service info -->
 
     <!-- specific modules dependencies -->
     <dependencies>
 
         <!-- default dependencies -->
         <dependency>
-            <groupId>org.springframework.amqp</groupId>
-            <artifactId>spring-rabbit</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!-- default dependencies -->
 

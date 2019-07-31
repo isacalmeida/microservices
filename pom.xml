@@ -36,6 +36,8 @@
         <module>config-server</module>
         <module>eureka-server</module>
         <module>zuul-server</module>
+        <module>pessoa-service</module>
+        <module>pessoa-ui-service</module>
     </modules>
     <!-- sub modules -->
 
@@ -51,6 +53,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <!-- default dependencies -->
 
