@@ -3,12 +3,14 @@ package br.edu.unoesc.pessoaservice.controller;
 import br.edu.unoesc.pessoaservice.model.Estado;
 import br.edu.unoesc.pessoaservice.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -16,11 +18,13 @@ import java.util.Optional;
 public class EstadoController {
 
     // == fields ==
+    private Environment environment;
     private EstadoService estadoService;
 
     // == constructors ==
     @Autowired
-    public EstadoController(EstadoService estadoService){
+    public EstadoController(Environment environment, EstadoService estadoService){
+        this.environment = environment;
         this.estadoService = estadoService;
     }
 
@@ -84,4 +88,12 @@ public class EstadoController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

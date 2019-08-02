@@ -21,19 +21,131 @@
     <!-- ui-service info -->
 
 
+    <!-- properties -->
+    <properties>
+        <webjars-locator.version>0.36</webjars-locator.version>
+        <webjars-jquery.version>3.4.1</webjars-jquery.version>
+        <webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
+        <webjars-fa.version>5.9.0</webjars-fa.version>
+        <webjars-select2.version>4.0.7</webjars-select2.version>
+        <webjars-datepicker.version>1.9.0</webjars-datepicker.version>
+        <webjars-autocomplete.version>0.36.0</webjars-autocomplete.version>
+        <webjars-mask.version>1.14.15</webjars-mask.version>
+        <webjars-adminlte.version>2.4.15</webjars-adminlte.version>
+    </properties>
+    <!-- properties -->
+
     <!-- specific modules dependencies -->
     <dependencies>
 
+        <!-- sub-modules dependencies -->
+        <dependency>
+            <groupId>br.edu.unoesc</groupId>
+            <artifactId>pessoa-service</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- sub-modules dependencies -->
+
         <!-- default dependencies -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency> -->
         <!-- default dependencies -->
+
+        <!-- provided dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- provided dependencies -->
+
+        <!-- specific dependencies -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>${webjars-locator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${webjars-jquery.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${webjars-bootstrap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>${webjars-fa.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>select2</artifactId>
+            <version>${webjars-select2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-datepicker</artifactId>
+            <version>${webjars-datepicker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>autocomplete.js</artifactId>
+            <version>${webjars-autocomplete.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>jquery-mask-plugin</artifactId>
+            <version>${webjars-mask.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>AdminLTE</artifactId>
+            <version>${webjars-adminlte.version}</version>
+        </dependency>
+        <!-- specific dependencies -->
 
     </dependencies>
     <!-- specific modules dependencies -->

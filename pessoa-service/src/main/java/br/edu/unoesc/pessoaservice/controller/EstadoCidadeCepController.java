@@ -3,21 +3,25 @@ package br.edu.unoesc.pessoaservice.controller;
 import br.edu.unoesc.pessoaservice.model.Cep;
 import br.edu.unoesc.pessoaservice.service.CepService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/estados/{idEstado}/cidades/{idCidade}/ceps")
 public class EstadoCidadeCepController {
 
     // == fields ==
+    private Environment environment;
     private CepService cepService;
 
     // == constructors ==
     @Autowired
-    public EstadoCidadeCepController(CepService cepService){
+    public EstadoCidadeCepController(Environment environment, CepService cepService){
+        this.environment = environment;
         this.cepService = cepService;
     }
 
@@ -54,4 +58,12 @@ public class EstadoCidadeCepController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

@@ -4,22 +4,26 @@ import br.edu.unoesc.pessoaservice.model.Endereco;
 import br.edu.unoesc.pessoaservice.service.EnderecoService;
 import br.edu.unoesc.pessoaservice.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/pessoas/{idPessoa}/enderecos")
 public class PessoaEnderecoController {
 
     // == fields ==
+    private Environment environment;
     private PessoaService pessoaService;
     private EnderecoService enderecoService;
 
     // == constructors ==
     @Autowired
-    public PessoaEnderecoController(PessoaService pessoaService, EnderecoService enderecoService){
+    public PessoaEnderecoController(Environment environment, PessoaService pessoaService, EnderecoService enderecoService){
+        this.environment = environment;
         this.pessoaService = pessoaService;
         this.enderecoService = enderecoService;
     }
@@ -57,4 +61,12 @@ public class PessoaEnderecoController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

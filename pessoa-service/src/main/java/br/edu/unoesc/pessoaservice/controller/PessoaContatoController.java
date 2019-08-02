@@ -4,22 +4,26 @@ import br.edu.unoesc.pessoaservice.model.Contato;
 import br.edu.unoesc.pessoaservice.service.ContatoService;
 import br.edu.unoesc.pessoaservice.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/pessoas/{idPessoa}/contatos", consumes = "application/json", produces = "application/json")
 public class PessoaContatoController {
 
     // == fields ==
+    private Environment environment;
     private PessoaService pessoaService;
     private ContatoService contatoService;
 
     // == constructors ==
     @Autowired
-    public PessoaContatoController(PessoaService pessoaService, ContatoService contatoService){
+    public PessoaContatoController(Environment environment, PessoaService pessoaService, ContatoService contatoService){
+        this.environment = environment;
         this.pessoaService = pessoaService;
         this.contatoService = contatoService;
     }
@@ -57,4 +61,12 @@ public class PessoaContatoController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

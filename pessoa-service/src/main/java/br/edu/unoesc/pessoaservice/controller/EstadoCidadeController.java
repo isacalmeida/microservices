@@ -5,6 +5,7 @@ import br.edu.unoesc.pessoaservice.model.Estado;
 import br.edu.unoesc.pessoaservice.service.CidadeService;
 import br.edu.unoesc.pessoaservice.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -20,12 +22,14 @@ import java.util.Optional;
 public class EstadoCidadeController {
 
     // == fields ==
+    private Environment environment;
     private EstadoService estadoService;
     private CidadeService cidadeService;
 
     // == constructors ==
     @Autowired
-    public EstadoCidadeController(EstadoService estadoService, CidadeService cidadeService){
+    public EstadoCidadeController(Environment environment, EstadoService estadoService, CidadeService cidadeService){
+        this.environment = environment;
         this.estadoService = estadoService;
         this.cidadeService = cidadeService;
     }
@@ -147,4 +151,12 @@ public class EstadoCidadeController {
         }
     }
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

@@ -5,23 +5,27 @@ import br.edu.unoesc.pessoaservice.service.CepService;
 import br.edu.unoesc.pessoaservice.service.EnderecoService;
 import br.edu.unoesc.pessoaservice.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(value = "/pessoas/{idPessoa}/enderecos/{idEndereco}/cep", consumes = "application/json", produces = "application/json")
 public class PessoaEnderecoCepController {
 
     // == fields ==
+    private Environment environment;
     private PessoaService pessoaService;
     private EnderecoService enderecoService;
     private CepService cepService;
 
     // == constructors ==
     @Autowired
-    public PessoaEnderecoCepController(PessoaService pessoaService, EnderecoService enderecoService, CepService cepService){
+    public PessoaEnderecoCepController(Environment environment, PessoaService pessoaService, EnderecoService enderecoService, CepService cepService){
+        this.environment = environment;
         this.pessoaService = pessoaService;
         this.enderecoService = enderecoService;
         this.cepService = cepService;
@@ -60,4 +64,12 @@ public class PessoaEnderecoCepController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }

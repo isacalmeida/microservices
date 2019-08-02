@@ -4,12 +4,14 @@ import br.edu.unoesc.pessoaservice.model.Pessoa;
 import br.edu.unoesc.pessoaservice.repository.PessoaRepository;
 import br.edu.unoesc.pessoaservice.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -17,11 +19,13 @@ import java.util.Optional;
 public class PessoaController {
 
     // == fields ==
+    private Environment environment;
     private PessoaService pessoaService;
 
     // == constructor ==
     @Autowired
-    public PessoaController(PessoaService pessoaService){
+    public PessoaController(Environment environment, PessoaService pessoaService){
+        this.environment = environment;
         this.pessoaService = pessoaService;
     }
 
@@ -85,4 +89,12 @@ public class PessoaController {
     // == HATEOAS HTTP methods ==
 
     // == HATEOAS HTTP methods ==
+
+
+    // == Specific HTTP methods ==
+    @GetMapping("/port")
+    public Integer getPort(){
+        return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+    // == Specific HTTP methods ==
 }
