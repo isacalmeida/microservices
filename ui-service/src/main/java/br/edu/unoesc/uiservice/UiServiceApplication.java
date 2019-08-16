@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@EnableFeignClients("br.edu.unoesc")
+@EnableFeignClients
 @EnableDiscoveryClient
 public class UiServiceApplication extends SpringBootServletInitializer {
 

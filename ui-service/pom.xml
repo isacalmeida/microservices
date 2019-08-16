@@ -5,6 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
 
+    <!-- ui-service info -->
+    <artifactId>ui-service</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+    <!-- ui-service info -->
+
+
     <!-- parent pom -->
     <parent>
         <artifactId>sistema-web-gpsti</artifactId>
@@ -12,13 +19,6 @@
         <version>1.0.0</version>
     </parent>
     <!-- parent pom -->
-
-
-    <!-- ui-service info -->
-    <artifactId>ui-service</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
-    <!-- ui-service info -->
 
 
     <!-- properties -->
@@ -39,12 +39,12 @@
     <dependencies>
 
         <!-- sub-modules dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>br.edu.unoesc</groupId>
             <artifactId>pessoa-service</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency> -->
         <!-- sub-modules dependencies -->
 
         <!-- default dependencies -->
@@ -52,13 +52,21 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
         <!-- <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
         </dependency> -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -87,7 +95,7 @@
         <!-- default dependencies -->
 
         <!-- provided dependencies -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
@@ -96,7 +104,7 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
         <!-- provided dependencies -->
 
         <!-- specific dependencies -->

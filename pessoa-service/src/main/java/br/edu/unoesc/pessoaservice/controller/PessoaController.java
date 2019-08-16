@@ -1,7 +1,6 @@
 package br.edu.unoesc.pessoaservice.controller;
 
 import br.edu.unoesc.pessoaservice.model.Pessoa;
-import br.edu.unoesc.pessoaservice.repository.PessoaRepository;
 import br.edu.unoesc.pessoaservice.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
