@@ -1,10 +1,10 @@
+<%@ page contentType='text/html;charset=ISO-8859-1' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title> Menu </title>
 </head>
 <body>

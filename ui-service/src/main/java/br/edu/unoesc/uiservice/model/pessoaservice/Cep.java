@@ -21,6 +21,10 @@ public class Cep {
     private Long id;
 
     @NotNull
+    @Max(9)
+    private String cep;
+
+    @NotNull
     @Max(100)
     private String logradouro;
 

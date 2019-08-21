@@ -23,13 +23,16 @@ public class Cep {
     @Column(name = "cep_id")
     private Long id;
 
-    @Column(name = "cde_logradouro", length = 100, nullable = false)
+    @Column(name = "cep_cep", length = 9, nullable = false)
+    private String cep;
+
+    @Column(name = "cep_logradouro", length = 100, nullable = false)
     private String logradouro;
 
-    @Column(name = "cde_bairro", length = 50, nullable = false)
+    @Column(name = "cep_bairro", length = 50, nullable = false)
     private String bairro;
 
-    @Column(name = "cde_ibge", length = 10, nullable = false)
+    @Column(name = "cep_ibge", length = 10, nullable = false)
     private String ibge;
 
 

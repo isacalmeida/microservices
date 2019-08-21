@@ -1,3 +1,4 @@
+<%@ page contentType='text/html;charset=ISO-8859-1' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%-- <%@ page import="br.edu.unoesc.util.Constants" %> --%>
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
     <jsp:include page="../header.jsp" />
 
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
