@@ -1,9 +1,0 @@
-server:
-  port: 8000
-
-spring:
-  application:
-    name: pessoa-service
-  cloud:
-    config:
-      uri: http://localhost:8888
