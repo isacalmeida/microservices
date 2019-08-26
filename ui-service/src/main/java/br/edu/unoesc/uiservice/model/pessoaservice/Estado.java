@@ -40,7 +40,6 @@ public class Estado {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @NotNull
     private Date dataAlteracao;
 
 }

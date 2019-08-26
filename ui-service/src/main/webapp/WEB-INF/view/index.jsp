@@ -1,10 +1,10 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Início</title>
+    <meta charset="UTF-8" />
+    <title>InÃ­cio</title>
 
     <jsp:include page="header.jsp" />
 
@@ -24,7 +24,7 @@
                 <small>Painel de Controle</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> InÃ­cio</a></li>
                 <li class="active">Dashboard</li>
             </ol>
         </section>

@@ -1,10 +1,10 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" />
     <title>Pessoas</title>
 
     <jsp:include page="../header.jsp" />
@@ -25,7 +25,7 @@
                 <small>Cadastro de Pessoas</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-dashboard"></i> InÌcio</a></li>
+                <li><a href="<c:url value='/' />" ><i class="fa fa-dashboard"></i> In√≠cio</a></li>
                 <li><a href="<c:url value='/pessoas' />" >Pessoas</a></li>
                 <li class="active">Editar</li>
             </ol>
@@ -57,7 +57,7 @@
                             <form:input path="cargo" class="form-control" />
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form:label path="dataDeAdmissao"> Data de Admiss„o </form:label>
+                            <form:label path="dataDeAdmissao"> Data de Admiss√£o </form:label>
                             <div class="input-group date datepicker" data-provide="datepicker">
 							<span class="input-group-btn">
 								<button class="btn btn-default btn-flat" type="button">
@@ -81,7 +81,7 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">ConfirmaÁ„o</h4>
+                                    <h4 class="modal-title">Confirma√ß√£o</h4>
                                 </div>
                                 <div class="modal-body">
                                     <p>Tem certeza que deseja excluir?</p>

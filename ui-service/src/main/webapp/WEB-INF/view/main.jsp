@@ -1,10 +1,9 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title> Main </title>
 </head>
 <body>
@@ -25,18 +24,15 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="webjars/AdminLTE/2.4.15/dist/img/default-50x50.gif" class="user-image" alt="User Image">
+						<img src="${pageContext.request.contextPath}/webjars/AdminLTE/2.4.15/dist/img/default-50x50.gif" class="user-image" alt="User Image">
 						<span class="hidden-xs">Isac Haran de Almeida</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li class="user-header">
-							<img src="webjars/AdminLTE/2.4.15/dist/img/default-50x50.gif" class="img-circle" alt="User Image">
+							<img src="${pageContext.request.contextPath}/webjars/AdminLTE/2.4.15/dist/img/default-50x50.gif" class="img-circle" alt="User Image">
 							<p>
 								Isac Haran de Almeida - Administrador
 								<small>Colaborador desde 2019</small>
-							</p>
-							<p>
-								Porta de serviço: ${port}
 							</p>
 						</li>
 						<li class="user-footer">

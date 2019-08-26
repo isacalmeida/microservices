@@ -1,10 +1,10 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%@ taglib uri='http://www.springframework.org/tags/form' prefix='form' %>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8" />
 	<title>Pessoas</title>
 
 	<jsp:include page="../header.jsp" />
@@ -25,7 +25,7 @@
 				<small>Cadastro de Pessoas</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<c:url value='/' />" ><i class="fa fa-dashboard"></i> Início</a></li>
+				<li><a href="<c:url value='/' />" ><i class="fa fa-dashboard"></i> InÃ­cio</a></li>
 				<li><a href="<c:url value='/pessoas' />" >Pessoas</a></li>
 				<li class="active">Novo</li>
 			</ol>
@@ -39,11 +39,11 @@
 							<form:input path="id" class="form-control" readonly="true" />
 						</div>
 						<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<form:label path="dataCriacao"> Data de Criação </form:label>
+							<form:label path="dataCriacao"> Data de CriaÃ§Ã£o </form:label>
 							<form:input path="dataCriacao" class="form-control" readonly="true" />
 						</div>
 						<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<form:label path="dataAlteracao"> Data de Alteração </form:label>
+							<form:label path="dataAlteracao"> Data de AlteraÃ§Ã£o </form:label>
 							<form:input path="dataAlteracao" class="form-control" readonly="true" />
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 							<form:input path="cargo" class="form-control" />
 						</div>
 						<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<form:label path="dataDeAdmissao"> Data de Admissão </form:label>
+							<form:label path="dataDeAdmissao"> Data de AdmissÃ£o </form:label>
 							<div class="input-group date datepicker" data-provide="datepicker">
 							<span class="input-group-btn">
 								<button class="btn btn-default btn-flat" type="button">

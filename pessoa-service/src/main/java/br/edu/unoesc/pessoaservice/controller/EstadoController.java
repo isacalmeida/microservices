@@ -2,6 +2,7 @@ package br.edu.unoesc.pessoaservice.controller;
 
 import br.edu.unoesc.pessoaservice.model.Estado;
 import br.edu.unoesc.pessoaservice.service.EstadoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/estados")
 public class EstadoController {
@@ -43,6 +46,7 @@ public class EstadoController {
 
     @PostMapping
     public ResponseEntity create(@RequestBody Estado estado){
+        System.out.println("Salvando estado: " + estado);
         if(estado == null) {
             return ResponseEntity.noContent().build();
         }
@@ -69,6 +73,8 @@ public class EstadoController {
             }
             else {
                 estado.setId(estadoUpdated.get().getId());
+                estado.setDataAlteracao(Calendar.getInstance().getTime());
+                log.info("Atualizando estado: {}", estado);
                 return ResponseEntity.ok(estadoService.update(estado));
             }
         }

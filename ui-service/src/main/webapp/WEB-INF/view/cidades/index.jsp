@@ -1,10 +1,10 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%-- <%@ page import="br.edu.unoesc.util.Constants" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="UTF-8" />
     <title> Cidades </title>
 
     <jsp:include page="../header.jsp" />
@@ -25,7 +25,7 @@
                 <small>Cadastro de Cidades</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> InÃ­cio</a></li>
                 <li class="active">Cidades</li>
             </ol>
         </section>
@@ -68,7 +68,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Descrição</th>
+                            <th>DescriÃ§Ã£o</th>
                             <th>Estado</th>
                             <th>Data de Cadastro</th>
                         </tr>

@@ -23,16 +23,17 @@
 
     <!-- properties -->
     <properties>
-        <webjars-locator.version>0.36</webjars-locator.version>
-        <webjars-jquery.version>1.12.4</webjars-jquery.version>
+        <webjars-locator.version>0.37</webjars-locator.version>
+        <webjars-jquery.version>3.4.1</webjars-jquery.version>
         <webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
-        <webjars-fa.version>5.9.0</webjars-fa.version>
-        <webjars-select2.version>4.0.7</webjars-select2.version>
+        <webjars-fa.version>5.10.1</webjars-fa.version>
+        <webjars-select2.version>4.0.8</webjars-select2.version>
         <webjars-datepicker.version>1.9.0</webjars-datepicker.version>
         <webjars-autocomplete.version>0.36.0</webjars-autocomplete.version>
         <webjars-mask.version>1.14.15</webjars-mask.version>
         <webjars-adminlte.version>2.4.15</webjars-adminlte.version>
         <webjars-switch.version>3.3.4</webjars-switch.version>
+        <webjars-jqueryui.version>1.12.1</webjars-jqueryui.version>
     </properties>
     <!-- properties -->
 
@@ -162,7 +163,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery-ui</artifactId>
-            <version>1.12.1</version>
+            <version>${webjars-jqueryui.version}</version>
         </dependency>
         <!-- specific dependencies -->
 

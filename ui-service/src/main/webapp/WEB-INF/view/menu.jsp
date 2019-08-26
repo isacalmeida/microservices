@@ -1,10 +1,9 @@
-<%@ page contentType='text/html;charset=ISO-8859-1' %>
+<%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title> Menu </title>
 </head>
 <body>
@@ -25,7 +24,7 @@
             <li class="treeview menu-open">
                 <a href="<c:url value='/' />" >
                     <i class="fa fa-folder"></i>
-                    <span>Início</span>
+                    <span>InÃ­cio</span>
                     <span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>

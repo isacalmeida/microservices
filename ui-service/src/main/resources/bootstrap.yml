@@ -8,3 +8,6 @@ spring:
     config:
       uri: http://localhost:8888
 
+logging:
+  level:
+    root: INFO

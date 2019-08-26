@@ -3,8 +3,7 @@ package br.edu.unoesc.uiservice.proxy;
 import br.edu.unoesc.uiservice.model.pessoaservice.*;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +17,15 @@ public interface PessoaServiceProxy {
 
     @GetMapping("/pessoa-service/pessoas/{idPessoa}")
     Pessoa getOnePessoa(@PathVariable Long idPessoa);
+
+    @PostMapping("/pessoa-service/pessoas")
+    Pessoa createPessoa(@ModelAttribute Pessoa pessoa);
+
+    @PutMapping("/pessoa-service/pessoas/{idPessoa}")
+    Pessoa updatePessoa(@PathVariable Long idPessoa, @ModelAttribute Pessoa pessoa);
+
+    @DeleteMapping("/pessoa-service/pessoas/{idPessoa}")
+    void deletePessoa(@PathVariable Long idPessoa);
 
     @GetMapping("/pessoa-service/pessoas/port")
     Integer getPortPessoa();
@@ -62,6 +70,15 @@ public interface PessoaServiceProxy {
 
     @GetMapping("/pessoa-service/estados/{idEstado}")
     Estado getOneEstado(@PathVariable Long idEstado);
+
+    @PostMapping("/pessoa-service/estados")
+    Estado createEstado(Estado estado);
+
+    @PutMapping("/pessoa-service/estados/{idEstado}")
+    Estado updateEstado(@PathVariable Long idEstado, Estado estado);
+
+    @DeleteMapping("/pessoa-service/estados/{idEstado}")
+    void deleteEstado(@PathVariable Long idEstado);
 
     @GetMapping("/pessoa-service/estados/port")
     Integer getPortEstado();
