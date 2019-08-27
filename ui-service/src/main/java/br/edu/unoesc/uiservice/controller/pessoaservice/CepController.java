@@ -39,13 +39,11 @@ public class CepController {
 
     @GetMapping("/novo")
     public ModelAndView novo(){
-        List<Estado> estados = pessoaServiceProxy.getAllEstado();
         List<Cidade> cidades = pessoaServiceProxy.getAllCidade();
         Integer port = pessoaServiceProxy.getPortCep();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cep", new Cep());
-        modelAndView.addObject("estados", estados);
         modelAndView.addObject("cidades", cidades);
         modelAndView.addObject("port", port);
         modelAndView.setViewName("ceps/novo");
@@ -54,14 +52,12 @@ public class CepController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView getOne(@PathVariable Long id){
-        List<Estado> estados = pessoaServiceProxy.getAllEstado();
         List<Cidade> cidades = pessoaServiceProxy.getAllCidade();
         Cep cep = pessoaServiceProxy.getOneCep(id);
         Integer port = pessoaServiceProxy.getPortCep();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cep", cep);
-        modelAndView.addObject("estados", estados);
         modelAndView.addObject("cidades", cidades);
         modelAndView.addObject("port", port);
         modelAndView.setViewName("ceps/editar");
@@ -70,7 +66,7 @@ public class CepController {
 
     @GetMapping("/{id}/excluir")
     public ModelAndView excluir(@PathVariable("id") Long id) {
-        Cep cep = pessoaServiceProxy.getOneCep(id);
+        pessoaServiceProxy.deleteCep(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
@@ -79,6 +75,7 @@ public class CepController {
 
     @PostMapping("/salvar")
     public ModelAndView salvar(@ModelAttribute Cep cep){
+        Cep cepCreated = pessoaServiceProxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
@@ -87,6 +84,7 @@ public class CepController {
 
     @PostMapping("/atualizar")
     public ModelAndView atualizar(@ModelAttribute Cep cep) {
+        Cep cepUpdated = pessoaServiceProxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");

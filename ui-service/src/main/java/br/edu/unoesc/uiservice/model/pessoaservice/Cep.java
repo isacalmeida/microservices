@@ -42,12 +42,12 @@ public class Cep {
     private Boolean ativo = true;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @NotNull
     private Date dataCriacao = Calendar.getInstance().getTime();
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @NotNull
     private Date dataAlteracao;
 

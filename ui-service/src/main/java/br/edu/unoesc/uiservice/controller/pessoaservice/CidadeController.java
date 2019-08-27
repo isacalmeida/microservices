@@ -74,6 +74,7 @@ public class CidadeController {
 
     @PostMapping("/salvar")
     public ModelAndView salvar(@ModelAttribute Cidade cidade){
+        Cidade cidadeCreated = pessoaServiceProxy.createEstadoCidade(cidade.getEstado().getId(), cidade);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");
@@ -82,6 +83,7 @@ public class CidadeController {
 
     @PostMapping("/atualizar")
     public ModelAndView atualizar(@ModelAttribute Cidade cidade) {
+        Cidade cidadeUpdated = pessoaServiceProxy.updateEstadoCidade(cidade.getEstado().getId(), cidade.getId(), cidade);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title> Estados </title>
+    <title> Ceps </title>
 
     <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/header.jsp" />
 
@@ -22,29 +22,42 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Estados (${port})
-                <small>Cadastro de Estados</small>
+                Ceps (${port})
+                <small>Cadastro de Ceps</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
-                <li><a href="<c:url value='/estados' />" >Estados</a></li>
+                <li><a href="<c:url value='/ceps' />" >Ceps</a></li>
                 <li class="active">Novo</li>
             </ol>
         </section>
         <section class="content">
             <div class="box">
-                <form:form method="post" action="/estados/salvar" modelAttribute="estado">
+                <form:form method="post" action="/ceps/salvar" modelAttribute="cep">
                     <div class="box-header with-border">
                         <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/forms/cabecalho.jsp" />
                     </div>
                     <div class="box-body">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form:label path="descricao"> Descrição </form:label>
-                            <form:input cssClass="form-control" path="descricao" maxlength="50" />
+                            <form:label path="cep"> Cep </form:label>
+                            <form:input cssClass="form-control" path="cep" maxlength="9" />
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form:label path="sigla"> Sigla </form:label>
-                            <form:input cssClass="form-control" path="sigla" maxlength="2" />
+                            <form:label path="cidade.id"> Cidade </form:label>
+                            <form:select cssClass="form-control select2" path="cidade.id"
+                                         items="${cidades}" itemLabel="descricao" itemValue="id" />
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <form:label path="logradouro"> Logradouro </form:label>
+                            <form:input cssClass="form-control" path="logradouro" maxlength="100" />
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <form:label path="bairro"> Bairro </form:label>
+                            <form:input cssClass="form-control" path="bairro" maxlength="50" />
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <form:label path="ibge"> Código IBGE </form:label>
+                            <form:input cssClass="form-control" path="ibge" maxlength="10" />
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <form:label path="ativo"> Ativo </form:label><br />
@@ -55,7 +68,7 @@
                     <div class="box-footer">
                         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                             <button name="submit" type="submit" class="btn btn-success btn-flat"> Salvar </button>
-                            <a href="<c:url value='/estados' />"><button type="button" class="btn btn-default btn-flat"> Voltar </button></a>
+                            <a href="<c:url value='/ceps' />"><button type="button" class="btn btn-default btn-flat"> Voltar </button></a>
                         </div>
                     </div>
                 </form:form>

@@ -46,7 +46,6 @@ public class EstadoController {
 
     @PostMapping
     public ResponseEntity create(@RequestBody Estado estado){
-        System.out.println("Salvando estado: " + estado);
         if(estado == null) {
             return ResponseEntity.noContent().build();
         }
@@ -74,7 +73,6 @@ public class EstadoController {
             else {
                 estado.setId(estadoUpdated.get().getId());
                 estado.setDataAlteracao(Calendar.getInstance().getTime());
-                log.info("Atualizando estado: {}", estado);
                 return ResponseEntity.ok(estadoService.update(estado));
             }
         }

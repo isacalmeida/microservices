@@ -91,6 +91,15 @@ public interface PessoaServiceProxy {
     @GetMapping("/pessoa-service/cidades/{idCidade}")
     Cidade getOneCidade(@PathVariable Long idCidade);
 
+    @PostMapping("/pessoa-service/cidades")
+    Cidade createCidade(Cidade cidade);
+
+    @PutMapping("/pessoa-service/cidades/{idCidade}")
+    Cidade updateCidade(@PathVariable Long idCidade, Cidade cidade);
+
+    @DeleteMapping("/pessoa-service/cidades/{idCidade}")
+    void deleteCidade(@PathVariable Long idCidade);
+
     @GetMapping("/pessoa-service/cidades/port")
     Integer getPortCidade();
 
@@ -102,6 +111,15 @@ public interface PessoaServiceProxy {
     @GetMapping("/pessoa-service/ceps/{idCeps}")
     Cep getOneCep(@PathVariable Long idCeps);
 
+    @PostMapping("/pessoa-service/ceps")
+    Cep createCep(Cep cep);
+
+    @PutMapping("/pessoa-service/ceps/{idCeps}")
+    Cep updateCep(@PathVariable Long idCeps, Cep cep);
+
+    @DeleteMapping("/pessoa-service/ceps/{idCeps}")
+    void deleteCep(@PathVariable Long idCeps);
+
     @GetMapping("/pessoa-service/ceps/port")
     Integer getPortCep();
 
@@ -112,6 +130,15 @@ public interface PessoaServiceProxy {
 
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}")
     Cidade getOneEstadoCidade(@PathVariable Long idEstado, @PathVariable Long idCidade);
+
+    @PostMapping("/pessoa-service/estados/{idEstado}/cidades")
+    Cidade createEstadoCidade(@PathVariable Long idEstado, Cidade cidade);
+
+    @PutMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}")
+    Cidade updateEstadoCidade(@PathVariable Long idEstado, @PathVariable Long idCidade, Cidade cidade);
+
+    @DeleteMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}")
+    void deleteEstadoCidade(@PathVariable Long idEstado, @PathVariable Long idCidade);
 
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/port")
     Integer getPortEstadoCidade(@PathVariable Long idEstado);

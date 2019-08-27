@@ -1,0 +1,23 @@
+.bootstrap-switch {
+    border-color: #d2d6de;
+    border-radius: 0;
+}
+.bootstrap-switch .bootstrap-switch-container {
+    border-radius: 0;
+}
+.bootstrap-switch .bootstrap-switch-handle-on {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.bootstrap-switch .bootstrap-switch-handle-off {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
+    color: #fff;
+    background: #00a65a;
+}
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger {
+    color: #fff;
+    background: #dd4b39;
+}

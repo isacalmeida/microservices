@@ -7,16 +7,16 @@
     <meta charset="UTF-8" />
     <title> Ceps </title>
 
-    <jsp:include page="../header.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/header.jsp" />
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
 
-    <jsp:include page="../main.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/main.jsp" />
 
-    <jsp:include page="../menu.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/menu.jsp" />
 
     <div class="content-wrapper">
         <section class="content-header">
@@ -104,7 +104,7 @@
 
 </div>
 
-<jsp:include page="../footer.jsp" />
+<jsp:include page="${pageContext.request.contextPath}/static/fragmentos/footer.jsp" />
 
 </body>
 </html>

@@ -33,6 +33,42 @@
     </modules>
     <!-- sub modules -->
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>config-server</artifactId>
+                <groupId>br.edu.unoesc</groupId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <artifactId>eureka-server</artifactId>
+                <groupId>br.edu.unoesc</groupId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <artifactId>pessoa-service</artifactId>
+                <groupId>br.edu.unoesc</groupId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <artifactId>ui-service</artifactId>
+                <groupId>br.edu.unoesc</groupId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <artifactId>zuul-server</artifactId>
+                <groupId>br.edu.unoesc</groupId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- properties -->
     <properties>
@@ -84,21 +120,6 @@
 
     </dependencies>
     <!-- all modules dependencies -->
-
-
-    <!-- dependency management -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <!-- dependency management -->
 
 
     <!-- maven build -->

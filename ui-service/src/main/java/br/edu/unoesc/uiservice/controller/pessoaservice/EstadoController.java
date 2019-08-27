@@ -53,7 +53,6 @@ public class EstadoController {
     public ModelAndView getOne(@PathVariable Long id){
         Estado estado = pessoaServiceProxy.getOneEstado(id);
         Integer port = pessoaServiceProxy.getPortEstado();
-        estado.setDataAlteracao(Calendar.getInstance().getTime());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("estado", estado);
@@ -64,7 +63,6 @@ public class EstadoController {
 
     @GetMapping("/{id}/excluir")
     public ModelAndView excluir(@PathVariable Long id) {
-        //Estado estado = pessoaServiceProxy.getOneEstado(id);
         pessoaServiceProxy.deleteEstado(id);
 
         ModelAndView modelAndView = new ModelAndView();

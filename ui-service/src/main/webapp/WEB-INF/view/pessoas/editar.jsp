@@ -7,16 +7,16 @@
     <meta charset="UTF-8" />
     <title>Pessoas</title>
 
-    <jsp:include page="../header.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/header.jsp" />
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
 
-    <jsp:include page="../main.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/main.jsp" />
 
-    <jsp:include page="../menu.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/menu.jsp" />
 
     <div class="content-wrapper">
         <section class="content-header">
@@ -34,10 +34,7 @@
             <div class="box">
                 <form:form method="post" action="/pessoas/atualizar" modelAttribute="pessoa">
                     <div class="box-header with-border">
-                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form:label path="id"> Id </form:label>
-                            <form:input path="id" class="form-control" readonly="true" />
-                        </div>
+                        <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/forms/cabecalho.jsp" />
                     </div>
                     <div class="box-body">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -100,7 +97,7 @@
 
 </div>
 
-<jsp:include page="../footer.jsp" />
+<jsp:include page="${pageContext.request.contextPath}/static/fragmentos/footer.jsp" />
 
 </body>
 </html>

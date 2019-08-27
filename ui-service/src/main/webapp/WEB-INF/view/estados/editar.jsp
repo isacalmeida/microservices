@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <title> Estados </title>
 
-    <jsp:include page="../header.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/header.jsp" />
 
 </head>
 
@@ -15,9 +15,9 @@
 
 <div class="wrapper">
 
-    <jsp:include page="../main.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/main.jsp" />
 
-    <jsp:include page="../menu.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/menu.jsp" />
 
     <div class="content-wrapper">
         <section class="content-header">
@@ -35,18 +35,7 @@
             <div class="box">
                 <form:form method="post" action="/estados/atualizar" modelAttribute="estado">
                     <div class="box-header with-border">
-                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <form:label path="id"> Id </form:label>
-                            <form:input cssClass="form-control" path="id" readonly="true" />
-                        </div>
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <form:label path="dataCriacao"> Data de Criação </form:label>
-                            <form:input cssClass="form-control" path="dataCriacao" readonly="true" />
-                        </div>
-                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <form:label path="dataAlteracao"> Data de Alteração </form:label>
-                            <form:input cssClass="form-control" path="dataAlteracao" readonly="true" />
-                        </div>
+                        <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/forms/cabecalho.jsp" />
                     </div>
                     <div class="box-body">
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -93,7 +82,7 @@
         </section>
     </div>
 
-    <jsp:include page="../footer.jsp" />
+    <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/footer.jsp" />
 
 </div>
 
