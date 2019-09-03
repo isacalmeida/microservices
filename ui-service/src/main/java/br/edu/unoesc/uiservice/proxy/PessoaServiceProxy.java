@@ -143,6 +143,9 @@ public interface PessoaServiceProxy {
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/port")
     Integer getPortEstadoCidade(@PathVariable Long idEstado);
 
+    @GetMapping("/pessoa-service/estados/sigla/{sigla}/cidades/descricao/{descricao}")
+    List<Cidade> getOneCidadeBySiglaAndDescricao(@PathVariable String sigla, @PathVariable String descricao);
+
 
     // == Proxy REST de Estado/Cidade/Cep
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps")
@@ -150,6 +153,15 @@ public interface PessoaServiceProxy {
 
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps/{idCep}")
     Cep getOneEstadoCidadeCep(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long idCep);
+
+    @PostMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps")
+    Cep createEstadoCidadeCep(@PathVariable Long idEstado, @PathVariable Long idCidade, Cep cep);
+
+    @PutMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps/{idCep}")
+    Cep updateEstadoCidadeCep(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long idCep, Cep cep);
+
+    @DeleteMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps/{idCep}")
+    void deleteEstadoCidadeCep(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long idCep);
 
     @GetMapping("/pessoa-service/estados/{idEstado}/cidades/{idCidade}/ceps/port")
     Integer getPortEstadoCidadeCep(@PathVariable Long idEstado, @PathVariable Long idCidade);

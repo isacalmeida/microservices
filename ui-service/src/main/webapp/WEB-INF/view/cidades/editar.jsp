@@ -26,7 +26,7 @@
                 <small>Cadastro de Cidades</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/menu' />" ><i class="fa fa-tachometer-alt"></i> Menu</a></li>
                 <li><a href="<c:url value='/cidades' />" >Cidades</a></li>
                 <li class="active">Editar</li>
             </ol>

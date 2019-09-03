@@ -50,4 +50,9 @@ public class CidadeServiceImpl implements CidadeService{
     public void delete(Long id) {
         cidadeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Cidade> findAllCidadeBySiglaAndDescricao(String sigla, String descricao) {
+        return cidadeRepository.findAllByEstado_SiglaAndDescricao(sigla, descricao);
+    }
 }

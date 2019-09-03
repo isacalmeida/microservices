@@ -64,8 +64,8 @@ public class CidadeController {
     }
 
     @GetMapping("/{id}/excluir")
-    public ModelAndView excluir(@PathVariable("id") Long id) {
-        Cidade cidade = pessoaServiceProxy.getOneCidade(id);
+    public ModelAndView excluir(@PathVariable Long id) {
+        pessoaServiceProxy.deleteCidade(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");

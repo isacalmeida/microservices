@@ -12,23 +12,25 @@
                     </span>
                 </div>
             </form>
-            <ul class="sidebar-menu" data-widget="tree">
+            <ul class="sidebar-menu tree" data-widget="tree">
                 <li class="header">MENU PRINCIPAL</li>
-                <li class="treeview menu-open">
-                    <a href="<c:url value='/' />" >
-                        <i class="fa fa-folder"></i>
-                        <span>Início</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
+                <li id="menu-menu">
+                    <a href="<c:url value='/menu' />">
+                        <i class="fa fa-folder-plus"></i>
+                        <span>Menu</span>
                     </a>
-                    <ul class="treeview-menu" style="display: block;">
-                        <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-                        <li><a href="<c:url value='/pessoas' />" ><i class="fa fa-users"></i> Pessoas</a></li>
-                        <li><a href="<c:url value='/estados' />" ><i class="fa fa-landmark"></i> Estados</a></li>
-                        <li><a href="<c:url value='/cidades' />" ><i class="fa fa-money-bill"></i> Cidades</a></li>
-                        <li><a href="<c:url value='/ceps' />" ><i class="fa fa-money-bill"></i> CEPs</a></li>
-                    </ul>
+                </li>
+                <li id="menu-dashboard">
+                    <a href="<c:url value='/' />">
+                        <i class="fa fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li id="menu-pessoa">
+                    <a href="<c:url value='/menu/pessoa' />">
+                        <i class="fa fa-users"></i>
+                        <span>Pessoa</span>
+                    </a>
                 </li>
             </ul>
         </section>

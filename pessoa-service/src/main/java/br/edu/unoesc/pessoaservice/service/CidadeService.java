@@ -19,4 +19,6 @@ public interface CidadeService {
     Cidade update(Cidade cidade);
 
     void delete(Long id);
+
+    List<Cidade> findAllCidadeBySiglaAndDescricao(String sigla, String descricao);
 }

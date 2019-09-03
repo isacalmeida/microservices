@@ -1,5 +1,6 @@
 <%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt' %>
 <%-- <%@ page import="br.edu.unoesc.util.Constants" %> --%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@
                 <small>Cadastro de Ceps</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/menu' />" ><i class="fa fa-tachometer-alt"></i> Menu</a></li>
                 <li class="active">Ceps</li>
             </ol>
         </section>
@@ -60,7 +61,7 @@
                 <div class="box-header with-border">
                     <div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
                         <a href="<c:url value='/ceps/novo'/>" ><button type="button" class="btn btn-primary btn-flat">Novo</button></a>
-                        <a href="<c:url value='/' />"><button type="button" class="btn btn-info btn-flat">Voltar</button></a>
+                        <a href="<c:url value='/menu/pessoa' />"><button type="button" class="btn btn-info btn-flat">Voltar</button></a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -72,7 +73,9 @@
                             <th>Logradouro</th>
                             <th>Bairro</th>
                             <th>Cidade</th>
+                            <th>Estado</th>
                             <th>Data de Cadastro</th>
+                            <th>Última Alteração</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,11 +83,13 @@
                             <c:if test="${!empty(cep)}">
                                 <tr>
                                     <td>${cep.id }</td>
-                                    <td><a href="<c:url value='/cep/${cep.id }/editar' />"  >${cep.cep }</a></td>
+                                    <td><a href="<c:url value='/ceps/${cep.id }/editar' />"  >${cep.cep }</a></td>
                                     <td>${cep.logradouro }</td>
                                     <td>${cep.bairro}</td>
-                                    <td>${cep.cidade}</td>
-                                    <td>${cep.dataCriacao }</td>
+                                    <td>${cep.cidade.descricao}</td>
+                                    <td>${cep.cidade.estado.descricao} - ${cep.cidade.estado.sigla}</td>
+                                    <td><fmt:formatDate value="${cep.dataCriacao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
+                                    <td><fmt:formatDate value="${cep.dataAlteracao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -92,7 +97,7 @@
                         <c:if test="${empty(ceps)}">
                             <tfoot>
                                 <tr>
-                                    <td colspan="6">Nenhum registro localizado!</td>
+                                    <td colspan="7">Nenhum registro localizado!</td>
                                 </tr>
                             </tfoot>
                         </c:if>

@@ -1,5 +1,6 @@
 <%@ page contentType='text/html;charset=UTF-8' %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt' %>
 <%-- <%@ page import="br.edu.unoesc.util.Constants" %> --%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
                 <small>Cadastro de Estados</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/menu' />" ><i class="fa fa-tachometer-alt"></i> Menu</a></li>
                 <li class="active">Estados</li>
             </ol>
         </section>
@@ -61,7 +62,7 @@
                 <div class="box-header with-border">
                     <div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
                         <a href="<c:url value='/estados/novo'/>" ><button type="button" class="btn btn-primary btn-flat">Novo</button></a>
-                        <a href="<c:url value='/' />"><button type="button" class="btn btn-info btn-flat">Voltar</button></a>
+                        <a href="<c:url value='/menu/pessoa' />"><button type="button" class="btn btn-info btn-flat">Voltar</button></a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -72,6 +73,7 @@
                             <th>Descrição</th>
                             <th>Sigla</th>
                             <th>Data de Cadastro</th>
+                            <th>Última Alteração</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -81,7 +83,8 @@
                                     <td>${estado.id }</td>
                                     <td><a href="<c:url value='/estados/${estado.id }/editar' />"  >${estado.descricao }</a></td>
                                     <td>${estado.sigla }</td>
-                                    <td>${estado.dataCriacao }</td>
+                                    <td><fmt:formatDate value="${estado.dataCriacao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
+                                    <td><fmt:formatDate value="${estado.dataAlteracao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -89,7 +92,7 @@
                         <c:if test="${empty(estados)}">
                             <tfoot>
                                 <tr>
-                                    <td colspan="4">Nenhum registro localizado!</td>
+                                    <td colspan="5">Nenhum registro localizado!</td>
                                 </tr>
                             </tfoot>
                         </c:if>

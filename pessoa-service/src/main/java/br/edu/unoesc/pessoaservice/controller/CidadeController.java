@@ -37,7 +37,7 @@ public class CidadeController {
     @GetMapping("/{id}")
     public ResponseEntity findOne(@PathVariable Long id){
         return cidadeService.getOne(id)
-                .map(estado -> ResponseEntity.ok().body(estado))
+                .map(cidade -> ResponseEntity.ok().body(cidade))
                 .orElse(ResponseEntity.notFound().build());
     }
 

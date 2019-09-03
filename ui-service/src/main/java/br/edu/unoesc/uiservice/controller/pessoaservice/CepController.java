@@ -7,8 +7,13 @@ import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
@@ -65,7 +70,7 @@ public class CepController {
     }
 
     @GetMapping("/{id}/excluir")
-    public ModelAndView excluir(@PathVariable("id") Long id) {
+    public ModelAndView excluir(@PathVariable Long id) {
         pessoaServiceProxy.deleteCep(id);
 
         ModelAndView modelAndView = new ModelAndView();
@@ -75,6 +80,8 @@ public class CepController {
 
     @PostMapping("/salvar")
     public ModelAndView salvar(@ModelAttribute Cep cep){
+        Cidade cidade = pessoaServiceProxy.getOneCidade(cep.getCidade().getId());
+        cep.setCidade(cidade);
         Cep cepCreated = pessoaServiceProxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();
@@ -84,6 +91,8 @@ public class CepController {
 
     @PostMapping("/atualizar")
     public ModelAndView atualizar(@ModelAttribute Cep cep) {
+        Cidade cidade = pessoaServiceProxy.getOneCidade(cep.getCidade().getId());
+        cep.setCidade(cidade);
         Cep cepUpdated = pessoaServiceProxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();

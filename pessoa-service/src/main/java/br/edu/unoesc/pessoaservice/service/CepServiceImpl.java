@@ -27,6 +27,11 @@ public class CepServiceImpl implements CepService{
     }
 
     @Override
+    public List<Cep> getAllByEstadoAndCidade(Long idEstado, Long idCidade) {
+        return cepRepository.findAllByCidade_Estado_IdAndCidade_Id(idEstado, idCidade);
+    }
+
+    @Override
     public Optional<Cep> getOne(Long id) {
         return cepRepository.findById(id);
     }
@@ -45,4 +50,5 @@ public class CepServiceImpl implements CepService{
     public void delete(Long id) {
         cepRepository.deleteById(id);
     }
+
 }

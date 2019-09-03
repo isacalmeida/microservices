@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Início</title>
+    <title>Dashboard</title>
 
     <jsp:include page="${pageContext.request.contextPath}/static/fragmentos/header.jsp" />
 
@@ -25,6 +25,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="<c:url value='/' />" ><i class="fa fa-tachometer-alt"></i> Início</a></li>
+                <li><a href="<c:url value='/menu' />" >Menu</a></li>
                 <li class="active">Dashboard</li>
             </ol>
         </section>

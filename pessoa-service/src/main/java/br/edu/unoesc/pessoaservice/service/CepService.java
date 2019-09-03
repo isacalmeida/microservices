@@ -10,6 +10,8 @@ public interface CepService {
     // == service CRUD ==
     List<Cep> getAll();
 
+    List<Cep> getAllByEstadoAndCidade(Long idEstado, Long idCidade);
+
     Optional<Cep> getOne(Long id);
 
     Cep create(Cep cep);

@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/estados/{idEstado}/cidades")
+@RequestMapping(value = "/estados")
 public class EstadoCidadeController {
 
     // == fields ==
@@ -35,12 +35,12 @@ public class EstadoCidadeController {
     }
 
     // == CRUD HTTP methods ==
-    @GetMapping
+    @GetMapping("/{idEstado}/cidades")
     public List<Cidade> listAll(@PathVariable Long idEstado){
         return cidadeService.getAllByEstado(idEstado);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{idEstado}/cidades/{id}")
     public ResponseEntity findOne(@PathVariable Long idEstado, @PathVariable Long id) {
         Optional<Cidade> cidadeFind = cidadeService.getOne(id);
         if (cidadeFind.isPresent())
@@ -51,7 +51,7 @@ public class EstadoCidadeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/{idEstado}/cidades")
     public ResponseEntity create(@PathVariable Long idEstado, @RequestBody Cidade cidade){
         if(cidade == null) {
             return ResponseEntity.noContent().build();
@@ -71,7 +71,7 @@ public class EstadoCidadeController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{idEstado}/cidades/{id}")
     public ResponseEntity update(@PathVariable Long idEstado, @PathVariable Long id, @RequestBody Cidade cidade){
         Optional<Estado> estado = estadoService.getOne(idEstado);
         Optional<Cidade> cidadeUpdated = cidadeService.getOne(id);
@@ -93,7 +93,7 @@ public class EstadoCidadeController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{idEstado}/cidades/{id}")
     public ResponseEntity delete(@PathVariable Long idEstado, @PathVariable Long id){
         return cidadeService.getOne(id)
                 .map(cidade -> {
@@ -105,7 +105,7 @@ public class EstadoCidadeController {
 
 
     // == HATEOAS HTTP methods ==
-    @GetMapping("/{id}/ativar")
+    @GetMapping("/{idEstado}/cidades/{id}/ativar")
     public ResponseEntity ativar(@PathVariable Long idEstado, @PathVariable Long id) {
         Optional<Cidade> cidade = cidadeService.getOne(id);
         Optional<Estado> estado = estadoService.getOne(idEstado);
@@ -128,7 +128,7 @@ public class EstadoCidadeController {
         }
     }
 
-    @GetMapping("/{id}/inativar")
+    @GetMapping("/{idEstado}/cidades/{id}/inativar")
     public ResponseEntity inativar(@PathVariable Long idEstado, @PathVariable Long id){
         Optional<Cidade> cidade = cidadeService.getOne(id);
         Optional<Estado> estado = estadoService.getOne(idEstado);
@@ -154,9 +154,14 @@ public class EstadoCidadeController {
 
 
     // == Specific HTTP methods ==
-    @GetMapping("/port")
-    public Integer getPort(){
+    @GetMapping("/{idEstado}/cidades/port")
+    public Integer getPort(@PathVariable Long idEstado){
         return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
+    }
+
+    @GetMapping("/sigla/{sigla}/cidades/descricao/{descricao}")
+    public List<Cidade> findAllCidadeByEstado(@PathVariable String sigla, @PathVariable String descricao){
+        return cidadeService.findAllCidadeBySiglaAndDescricao(sigla, descricao);
     }
     // == Specific HTTP methods ==
 }

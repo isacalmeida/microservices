@@ -21,7 +21,7 @@ public class Cep {
     private Long id;
 
     @NotNull
-    @Max(9)
+    @Max(8)
     private String cep;
 
     @NotNull
