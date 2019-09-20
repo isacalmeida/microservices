@@ -32,6 +32,11 @@ public class CepServiceImpl implements CepService{
     }
 
     @Override
+    public List<Cep> getAllByCep(String cep){
+        return cepRepository.findAllByCepStartingWithOrderByCep(cep);
+    }
+
+    @Override
     public Optional<Cep> getOne(Long id) {
         return cepRepository.findById(id);
     }

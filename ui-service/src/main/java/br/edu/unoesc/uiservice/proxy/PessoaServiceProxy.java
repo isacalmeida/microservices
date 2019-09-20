@@ -65,7 +65,7 @@ public interface PessoaServiceProxy {
 
 
     // == Proxy REST de Estado
-    @GetMapping("/pessoa-service/estados/")
+    @GetMapping("/pessoa-service/estados")
     List<Estado> getAllEstado();
 
     @GetMapping("/pessoa-service/estados/{idEstado}")
@@ -85,7 +85,7 @@ public interface PessoaServiceProxy {
 
 
     // == Proxy REST de Cidade
-    @GetMapping("/pessoa-service/cidades/")
+    @GetMapping("/pessoa-service/cidades")
     List<Cidade> getAllCidade();
 
     @GetMapping("/pessoa-service/cidades/{idCidade}")
@@ -105,8 +105,11 @@ public interface PessoaServiceProxy {
 
 
     // == Proxy REST de Cep
-    @GetMapping("/pessoa-service/ceps/")
+    @GetMapping("/pessoa-service/ceps")
     List<Cep> getAllCep();
+
+    @GetMapping("/pessoa-service/ceps/{query}/query")
+    List<Cep> getAllCepAutocompleteCep(@PathVariable String query);
 
     @GetMapping("/pessoa-service/ceps/{idCeps}")
     Cep getOneCep(@PathVariable Long idCeps);

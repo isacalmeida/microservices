@@ -1,5 +1,7 @@
 package br.edu.unoesc.pessoaservice.model;
 
+import br.edu.unoesc.pessoaservice.model.enums.EnumGeneroPessoa;
+import br.edu.unoesc.pessoaservice.model.enums.EnumTipoPessoa;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +28,9 @@ public class Pessoa {
     @Column(name = "pes_id")
     private Long id;
 
-    @Column(name = "pes_tipo", length = 2, nullable = false)
-    private Character tipo;
+    @Column(name = "pes_tipo", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EnumTipoPessoa tipo;
 
 
     // == funcionario-fields ==
@@ -42,8 +45,9 @@ public class Pessoa {
     @Column(name = "pes_data_nascimento", length = 10)
     private Date dataNascimento;
 
-    @Column(name = "pes_sexo", length = 1)
-    private Character sexo;
+    @Column(name = "pes_genero")
+    @Enumerated(EnumType.STRING)
+    private EnumGeneroPessoa genero;
 
     @Column(name = "pes_setor", length = 50)
     private String setor;

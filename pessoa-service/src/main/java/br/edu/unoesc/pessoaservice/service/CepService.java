@@ -12,6 +12,8 @@ public interface CepService {
 
     List<Cep> getAllByEstadoAndCidade(Long idEstado, Long idCidade);
 
+    List<Cep> getAllByCep(String cep);
+
     Optional<Cep> getOne(Long id);
 
     Cep create(Cep cep);

@@ -10,4 +10,6 @@ import java.util.List;
 public interface CepRepository extends JpaRepository<Cep, Long> {
 
     List<Cep> findAllByCidade_Estado_IdAndCidade_Id(Long idEstado, Long idCidade);
+
+    List<Cep> findAllByCepStartingWithOrderByCep(String cep);
 }

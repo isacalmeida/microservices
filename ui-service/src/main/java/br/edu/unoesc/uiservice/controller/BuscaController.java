@@ -1,13 +1,11 @@
 package br.edu.unoesc.uiservice.controller;
 
+import br.edu.unoesc.uiservice.model.pessoaservice.Cep;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class BuscaController {
     }
 
     @PostMapping("/cidade")
-    public ResponseEntity buscaCidade(@RequestBody Cidade cidade){
+    public ResponseEntity<List<Cidade>> buscaCidade(@RequestBody Cidade cidade){
         String sigla = cidade.getEstado().getSigla();
         String descricao = cidade.getDescricao();
 
@@ -33,6 +31,18 @@ public class BuscaController {
 
         if(cidadeFind != null)
             return ResponseEntity.ok(cidadeFind);
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/cep")
+    public ResponseEntity<List<Cep>> buscaCep(@RequestParam String query){
+        List<Cep> cepFind = pessoaServiceProxy.getAllCepAutocompleteCep(query);
+
+        if(cepFind != null){
+            return ResponseEntity.ok(cepFind);
+        }
         else{
             return ResponseEntity.notFound().build();
         }

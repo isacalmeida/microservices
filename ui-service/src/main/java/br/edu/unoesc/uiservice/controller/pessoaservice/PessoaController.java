@@ -1,6 +1,12 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import br.edu.unoesc.uiservice.controller.utils.DefaultController;
+import br.edu.unoesc.uiservice.controller.utils.EnumController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Pessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoContato;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoEndereco;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,22 +17,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/pessoas")
-public class PessoaController {
-
-    // == fields ==
-    private PessoaServiceProxy pessoaServiceProxy;
-
-    // == constructors ==
-    @Autowired
-    public PessoaController(PessoaServiceProxy pessoaServiceProxy){
-        this.pessoaServiceProxy = pessoaServiceProxy;
-    }
+public class PessoaController extends DefaultController<Pessoa, PessoaServiceProxy> {
 
     // == public methods ==
-    @GetMapping
+    @Override
     public ModelAndView home(){
-        List<Pessoa> pessoas = pessoaServiceProxy.getAllPessoa();
-        Integer port = pessoaServiceProxy.getPortPessoa();
+        List<Pessoa> pessoas = proxy.getAllPessoa();
+        Integer port = proxy.getPortPessoa();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("pessoas", pessoas);
@@ -35,21 +32,25 @@ public class PessoaController {
         return modelAndView;
     }
 
-    @GetMapping("/novo")
+    @Override
     public ModelAndView novo(){
-        Integer port = pessoaServiceProxy.getPortPessoa();
+        Integer port = proxy.getPortPessoa();
+
+        Pessoa pessoa = new Pessoa();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("pessoa", new Pessoa());
         modelAndView.addObject("port", port);
+        modelAndView.addObject("tiposPessoa", EnumTipoPessoa.getList());
+        modelAndView.addObject("generos", EnumGeneroPessoa.getList());
         modelAndView.setViewName("pessoas/novo");
         return modelAndView;
     }
 
-    @GetMapping("/{id}/editar")
+    @Override
     public ModelAndView getOne(@PathVariable Long id){
-        Pessoa pessoa = pessoaServiceProxy.getOnePessoa(id);
-        Integer port = pessoaServiceProxy.getPortPessoa();
+        Pessoa pessoa = proxy.getOnePessoa(id);
+        Integer port = proxy.getPortPessoa();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("pessoa", pessoa);
@@ -58,24 +59,25 @@ public class PessoaController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/excluir")
-    public ModelAndView excluir(@PathVariable("id") Long id) {
-        Pessoa pessoa = pessoaServiceProxy.getOnePessoa(id);
+    @Override
+    public ModelAndView excluir(@PathVariable Long id) {
+        Pessoa pessoa = proxy.getOnePessoa(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");
         return modelAndView;
     }
 
-    @PostMapping("/salvar")
+    @Override
     public ModelAndView salvar(@ModelAttribute Pessoa pessoa){
+        System.out.println("PESSOA SALVA: "+ pessoa);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");
         return modelAndView;
     }
 
-    @PostMapping("/atualizar")
+    @Override
     public ModelAndView atualizar(@ModelAttribute Pessoa pessoa) {
 
         ModelAndView modelAndView = new ModelAndView();

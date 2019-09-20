@@ -25,3 +25,39 @@
 .main-header .sidebar-toggle:before {
     content: "";
 }
+
+.autocomplete-suggestion {
+    padding: 7px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.autocomplete-suggestion:hover {
+    background-color: #ccc;
+}
+.autocomplete-suggestions {
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399FF;
+}
+.autocomplete-selected {
+    background: #F0F0F0;
+}
+.autocomplete-group {
+    padding: 7px 12px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
+.autocomplete-no-suggestion{
+    padding: 7px 12px;
+}

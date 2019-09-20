@@ -1,5 +1,6 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cep;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
 import br.edu.unoesc.uiservice.model.pessoaservice.Estado;
@@ -18,22 +19,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/ceps")
-public class CepController {
-
-    // == fields ==
-    private PessoaServiceProxy pessoaServiceProxy;
-
-    // == constructors ==
-    @Autowired
-    public CepController(PessoaServiceProxy pessoaServiceProxy){
-        this.pessoaServiceProxy = pessoaServiceProxy;
-    }
+public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
 
     // == public methods ==
-    @GetMapping
+    @Override
     public ModelAndView home(){
-        List<Cep> ceps = pessoaServiceProxy.getAllCep();
-        Integer port = pessoaServiceProxy.getPortCep();
+        List<Cep> ceps = proxy.getAllCep();
+        Integer port = proxy.getPortCep();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("ceps", ceps);
@@ -42,10 +34,10 @@ public class CepController {
         return modelAndView;
     }
 
-    @GetMapping("/novo")
+    @Override
     public ModelAndView novo(){
-        List<Cidade> cidades = pessoaServiceProxy.getAllCidade();
-        Integer port = pessoaServiceProxy.getPortCep();
+        List<Cidade> cidades = proxy.getAllCidade();
+        Integer port = proxy.getPortCep();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cep", new Cep());
@@ -55,11 +47,11 @@ public class CepController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/editar")
+    @Override
     public ModelAndView getOne(@PathVariable Long id){
-        List<Cidade> cidades = pessoaServiceProxy.getAllCidade();
-        Cep cep = pessoaServiceProxy.getOneCep(id);
-        Integer port = pessoaServiceProxy.getPortCep();
+        List<Cidade> cidades = proxy.getAllCidade();
+        Cep cep = proxy.getOneCep(id);
+        Integer port = proxy.getPortCep();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cep", cep);
@@ -69,31 +61,31 @@ public class CepController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/excluir")
+    @Override
     public ModelAndView excluir(@PathVariable Long id) {
-        pessoaServiceProxy.deleteCep(id);
+        proxy.deleteCep(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
         return modelAndView;
     }
 
-    @PostMapping("/salvar")
+    @Override
     public ModelAndView salvar(@ModelAttribute Cep cep){
-        Cidade cidade = pessoaServiceProxy.getOneCidade(cep.getCidade().getId());
+        Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
         cep.setCidade(cidade);
-        Cep cepCreated = pessoaServiceProxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
+        Cep cepCreated = proxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
         return modelAndView;
     }
 
-    @PostMapping("/atualizar")
+    @Override
     public ModelAndView atualizar(@ModelAttribute Cep cep) {
-        Cidade cidade = pessoaServiceProxy.getOneCidade(cep.getCidade().getId());
+        Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
         cep.setCidade(cidade);
-        Cep cepUpdated = pessoaServiceProxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
+        Cep cepUpdated = proxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");

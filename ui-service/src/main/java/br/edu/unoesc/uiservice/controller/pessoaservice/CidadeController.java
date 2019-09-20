@@ -1,9 +1,9 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
 import br.edu.unoesc.uiservice.model.pessoaservice.Estado;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,22 +12,13 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/cidades")
-public class CidadeController {
-
-    // == fields ==
-    private PessoaServiceProxy pessoaServiceProxy;
-
-    // == constructors ==
-    @Autowired
-    public CidadeController(PessoaServiceProxy pessoaServiceProxy){
-        this.pessoaServiceProxy = pessoaServiceProxy;
-    }
+public class CidadeController extends DefaultController<Cidade, PessoaServiceProxy> {
 
     // == public methods ==
-    @GetMapping
+    @Override
     public ModelAndView home(){
-        List<Cidade> cidades = pessoaServiceProxy.getAllCidade();
-        Integer port = pessoaServiceProxy.getPortCidade();
+        List<Cidade> cidades = proxy.getAllCidade();
+        Integer port = proxy.getPortCidade();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cidades", cidades);
@@ -36,10 +27,10 @@ public class CidadeController {
         return modelAndView;
     }
 
-    @GetMapping("/novo")
+    @Override
     public ModelAndView novo(){
-        List<Estado> estados = pessoaServiceProxy.getAllEstado();
-        Integer port = pessoaServiceProxy.getPortEstadoCidade(estados.get(0).getId());
+        List<Estado> estados = proxy.getAllEstado();
+        Integer port = proxy.getPortEstadoCidade(estados.get(0).getId());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cidade", new Cidade());
@@ -49,11 +40,11 @@ public class CidadeController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/editar")
+    @Override
     public ModelAndView getOne(@PathVariable Long id){
-        List<Estado> estados = pessoaServiceProxy.getAllEstado();
-        Cidade cidade = pessoaServiceProxy.getOneCidade(id);
-        Integer port = pessoaServiceProxy.getPortCidade();
+        List<Estado> estados = proxy.getAllEstado();
+        Cidade cidade = proxy.getOneCidade(id);
+        Integer port = proxy.getPortCidade();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cidade", cidade);
@@ -63,27 +54,27 @@ public class CidadeController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/excluir")
+    @Override
     public ModelAndView excluir(@PathVariable Long id) {
-        pessoaServiceProxy.deleteCidade(id);
+        proxy.deleteCidade(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");
         return modelAndView;
     }
 
-    @PostMapping("/salvar")
+    @Override
     public ModelAndView salvar(@ModelAttribute Cidade cidade){
-        Cidade cidadeCreated = pessoaServiceProxy.createEstadoCidade(cidade.getEstado().getId(), cidade);
+        Cidade cidadeCreated = proxy.createEstadoCidade(cidade.getEstado().getId(), cidade);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");
         return modelAndView;
     }
 
-    @PostMapping("/atualizar")
+    @Override
     public ModelAndView atualizar(@ModelAttribute Cidade cidade) {
-        Cidade cidadeUpdated = pessoaServiceProxy.updateEstadoCidade(cidade.getEstado().getId(), cidade.getId(), cidade);
+        Cidade cidadeUpdated = proxy.updateEstadoCidade(cidade.getEstado().getId(), cidade.getId(), cidade);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");

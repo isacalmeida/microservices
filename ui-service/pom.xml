@@ -29,11 +29,11 @@
         <webjars-fa.version>5.10.1</webjars-fa.version>
         <webjars-select2.version>4.0.8</webjars-select2.version>
         <webjars-datepicker.version>1.9.0</webjars-datepicker.version>
-        <webjars-autocomplete.version>0.36.0</webjars-autocomplete.version>
         <webjars-mask.version>1.14.15</webjars-mask.version>
         <webjars-adminlte.version>2.4.15</webjars-adminlte.version>
         <webjars-switch.version>3.3.4</webjars-switch.version>
         <webjars-jqueryui.version>1.12.1</webjars-jqueryui.version>
+        <webjars-autocomplete.version>1.4.10</webjars-autocomplete.version>
     </properties>
     <!-- properties -->
 
@@ -102,11 +102,11 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency> -->
         <!-- provided dependencies -->
 
         <!-- specific dependencies -->
@@ -141,11 +141,6 @@
             <version>${webjars-datepicker.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>autocomplete.js</artifactId>
-            <version>${webjars-autocomplete.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>jquery-mask-plugin</artifactId>
             <version>${webjars-mask.version}</version>
@@ -164,6 +159,11 @@
             <groupId>org.webjars</groupId>
             <artifactId>jquery-ui</artifactId>
             <version>${webjars-jqueryui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jQuery-Autocomplete</artifactId>
+            <version>${webjars-autocomplete.version}</version>
         </dependency>
         <!-- specific dependencies -->
 

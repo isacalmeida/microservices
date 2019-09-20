@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.model;
 
+import br.edu.unoesc.pessoaservice.model.enums.EnumTipoContato;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +24,9 @@ public class Contato {
     @Column(name = "cnt_id")
     private Long id;
 
-    @Column(name = "cnt_tipo", length = 2, nullable = false)
-    private Character tipo;
+    @Column(name = "cnt_tipo", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EnumTipoContato tipo;
 
     @Column(name = "cnt_descricao", length = 50, nullable = false)
     private String descricao;

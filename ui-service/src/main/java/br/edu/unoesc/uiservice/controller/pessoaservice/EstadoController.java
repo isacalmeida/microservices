@@ -1,5 +1,6 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Estado;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
 import lombok.extern.slf4j.Slf4j;
@@ -14,22 +15,13 @@ import java.util.List;
 @Slf4j
 @Controller
 @RequestMapping("/estados")
-public class EstadoController {
-
-    // == fields ==
-    private PessoaServiceProxy pessoaServiceProxy;
-
-    // == constructors ==
-    @Autowired
-    public EstadoController(PessoaServiceProxy pessoaServiceProxy){
-        this.pessoaServiceProxy = pessoaServiceProxy;
-    }
+public class EstadoController extends DefaultController<Estado, PessoaServiceProxy> {
 
     // == public methods ==
-    @GetMapping
+    @Override
     public ModelAndView home(){
-        List<Estado> estados = pessoaServiceProxy.getAllEstado();
-        Integer port = pessoaServiceProxy.getPortEstado();
+        List<Estado> estados = proxy.getAllEstado();
+        Integer port = proxy.getPortEstado();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("estados", estados);
@@ -38,9 +30,9 @@ public class EstadoController {
         return modelAndView;
     }
 
-    @GetMapping("/novo")
+    @Override
     public ModelAndView novo(){
-        Integer port = pessoaServiceProxy.getPortEstado();
+        Integer port = proxy.getPortEstado();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("estado", new Estado());
@@ -49,10 +41,10 @@ public class EstadoController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/editar")
+    @Override
     public ModelAndView getOne(@PathVariable Long id){
-        Estado estado = pessoaServiceProxy.getOneEstado(id);
-        Integer port = pessoaServiceProxy.getPortEstado();
+        Estado estado = proxy.getOneEstado(id);
+        Integer port = proxy.getPortEstado();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("estado", estado);
@@ -61,27 +53,27 @@ public class EstadoController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/excluir")
+    @Override
     public ModelAndView excluir(@PathVariable Long id) {
-        pessoaServiceProxy.deleteEstado(id);
+        proxy.deleteEstado(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/estados");
         return modelAndView;
     }
 
-    @PostMapping("/salvar")
+    @Override
     public ModelAndView salvar(@ModelAttribute Estado estado){
-        Estado estadoCreated = pessoaServiceProxy.createEstado(estado);
+        Estado estadoCreated = proxy.createEstado(estado);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/estados");
         return modelAndView;
     }
 
-    @PostMapping("/atualizar")
+    @Override
     public ModelAndView atualizar(@ModelAttribute Estado estado) {
-        Estado estadoUpdated = pessoaServiceProxy.updateEstado(estado.getId(), estado);
+        Estado estadoUpdated = proxy.updateEstado(estado.getId(), estado);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/estados");

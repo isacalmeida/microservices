@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.model;
 
+import br.edu.unoesc.pessoaservice.model.enums.EnumTipoEndereco;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,14 +24,18 @@ public class Endereco {
     @Column(name = "end_id")
     private Long id;
 
-    @Column(name = "end_tipo", length = 2, nullable = false)
-    private Character tipo;
+    @Column(name = "end_tipo", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EnumTipoEndereco tipo;
 
     @Column(name = "end_numero", length = 10, nullable = false)
     private String numero;
 
     @Column(name = "end_complemento", length = 100)
     private String complemento;
+
+    @Column(name = "end_observacao", length = 255)
+    private String observacao;
 
     // == extra-fields ==
     @Column(name = "end_ativo", nullable = false)

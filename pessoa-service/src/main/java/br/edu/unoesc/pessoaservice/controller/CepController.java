@@ -95,6 +95,11 @@ public class CepController {
     public Integer getPort(){
         return Integer.parseInt(Objects.requireNonNull(environment.getProperty("local.server.port")));
     }
+
+    @GetMapping("/{query}/query")
+    public List<Cep> getAllByQueryCep(@PathVariable String query){
+        return cepService.getAllByCep(query);
+    }
     // == Specific HTTP methods ==
 
 }

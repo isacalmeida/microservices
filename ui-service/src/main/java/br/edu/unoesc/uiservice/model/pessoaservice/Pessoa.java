@@ -1,5 +1,8 @@
 package br.edu.unoesc.uiservice.model.pessoaservice;
 
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +24,7 @@ public class Pessoa {
     private Long id;
 
     @NotNull
-    @Max(2)
-    private Character tipo;
+    private EnumTipoPessoa tipo;
 
 
     // == funcionario-fields ==
@@ -36,8 +38,7 @@ public class Pessoa {
     @DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
     private Date dataNascimento;
 
-    @Max(1)
-    private Character sexo;
+    private EnumGeneroPessoa genero;
 
     @Max(50)
     private String setor;

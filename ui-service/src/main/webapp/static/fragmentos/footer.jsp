@@ -12,4 +12,5 @@
     <script src="${pageContext.request.contextPath}/webjars/select2/4.0.8/js/select2.min.js"></script>
     <script src="${pageContext.request.contextPath}/webjars/select2/4.0.8/js/i18n/pt-BR.js"></script>
     <script src="${pageContext.request.contextPath}/webjars/bootstrap-switch/3.3.4/dist/js/bootstrap-switch.min.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/jQuery-Autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>

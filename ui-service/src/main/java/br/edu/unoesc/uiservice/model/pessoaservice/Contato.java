@@ -1,5 +1,6 @@
 package br.edu.unoesc.uiservice.model.pessoaservice;
 
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoContato;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +22,7 @@ public class Contato {
     private Long id;
 
     @NotNull
-    @Max(2)
-    private Character tipo;
+    private EnumTipoContato tipo;
 
     @NotNull
     @Max(50)

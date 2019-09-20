@@ -44,8 +44,10 @@
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <form:label path="estado.id"> Estado </form:label>
-                            <form:select cssClass="form-control select2" path="estado.id"
-                                         items="${estados}" itemLabel="descricao" itemValue="id" />
+                            <form:select cssClass="form-control select2" path="estado.id">
+                                <form:option value="null" label="-- Selecione --" />
+                                <form:options items="${estados}" itemValue="id" itemLabel="descricao" />
+                            </form:select>
                         </div>
                         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <form:label path="ativo"> Ativo </form:label><br />
