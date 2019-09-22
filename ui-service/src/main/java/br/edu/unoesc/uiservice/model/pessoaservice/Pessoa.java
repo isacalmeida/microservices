@@ -1,18 +1,22 @@
 package br.edu.unoesc.uiservice.model.pessoaservice;
 
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
-import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor

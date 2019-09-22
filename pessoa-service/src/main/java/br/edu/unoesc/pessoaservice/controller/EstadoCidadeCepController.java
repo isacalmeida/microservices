@@ -45,7 +45,7 @@ public class EstadoCidadeCepController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id){
+    public ResponseEntity<Cep> findOne(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id){
         Optional<Cep> cepFind = cepService.getOne(id);
         if (cepFind.isPresent())
             if (!cepFind.get().getCidade().getEstado().getId().equals(idEstado))
@@ -57,7 +57,7 @@ public class EstadoCidadeCepController {
     }
 
     @PostMapping
-    public ResponseEntity create(@PathVariable Long idEstado, @PathVariable Long idCidade, @RequestBody Cep cep){
+    public ResponseEntity<Cep> create(@PathVariable Long idEstado, @PathVariable Long idCidade, @RequestBody Cep cep){
         if(cep == null) {
             return ResponseEntity.noContent().build();
         }
@@ -82,7 +82,7 @@ public class EstadoCidadeCepController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id, @RequestBody Cep cep){
+    public ResponseEntity<Cep> update(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id, @RequestBody Cep cep){
         Optional<Estado> estado = estadoService.getOne(idEstado);
         Optional<Cidade> cidade = cidadeService.getOne(idCidade);
         Optional<Cep> cepUpdated = cepService.getOne(id);
@@ -107,7 +107,7 @@ public class EstadoCidadeCepController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id){
         return cepService.getOne(id)
                 .map(cep -> {
                     cepService.delete(id);

@@ -15,7 +15,6 @@
 
     <!-- config-server info -->
     <artifactId>config-server</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
     <!-- config-server info -->
 

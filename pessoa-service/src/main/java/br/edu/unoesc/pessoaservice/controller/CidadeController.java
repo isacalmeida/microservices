@@ -35,14 +35,14 @@ public class CidadeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Cidade> findOne(@PathVariable Long id){
         return cidadeService.getOne(id)
                 .map(cidade -> ResponseEntity.ok().body(cidade))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Cidade cidade){
+    public ResponseEntity<Cidade> create(@RequestBody Cidade cidade){
         if(cidade == null) {
             return ResponseEntity.noContent().build();
         }
@@ -57,7 +57,7 @@ public class CidadeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody Cidade cidade){
+    public ResponseEntity<Cidade> update(@PathVariable Long id, @RequestBody Cidade cidade){
         Optional<Cidade> cidadeUpdated = cidadeService.getOne(id);
 
         if(cidadeUpdated.isEmpty()) {
@@ -75,7 +75,7 @@ public class CidadeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return cidadeService.getOne(id)
                 .map(estado -> {
                     cidadeService.delete(id);

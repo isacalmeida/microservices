@@ -16,7 +16,6 @@
 
     <!-- zuul-server info -->
     <artifactId>zuul-server</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
     <!-- zuul-server info -->
 

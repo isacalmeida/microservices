@@ -35,14 +35,14 @@ public class PessoaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Pessoa> findOne(@PathVariable Long id){
         return pessoaService.getOne(id)
                 .map(pessoa -> ResponseEntity.ok().body(pessoa))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Pessoa pessoa){
+    public ResponseEntity<Pessoa> create(@RequestBody Pessoa pessoa){
         if(pessoa == null) {
             return ResponseEntity.noContent().build();
         }
@@ -57,7 +57,7 @@ public class PessoaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody Pessoa pessoa){
+    public ResponseEntity<Pessoa> update(@PathVariable Long id, @RequestBody Pessoa pessoa){
         Optional<Pessoa> pessoaUpdated = pessoaService.getOne(id);
 
         if(pessoaUpdated.isEmpty()) {
@@ -75,7 +75,7 @@ public class PessoaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return pessoaService.getOne(id)
                 .map(pessoa -> {
                     pessoaService.delete(id);

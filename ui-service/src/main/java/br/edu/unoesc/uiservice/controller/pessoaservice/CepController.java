@@ -1,21 +1,17 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cep;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
-import br.edu.unoesc.uiservice.model.pessoaservice.Estado;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriBuilder;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
-import java.net.URLEncoder;
-import java.util.List;
 
 @Controller
 @RequestMapping("/ceps")

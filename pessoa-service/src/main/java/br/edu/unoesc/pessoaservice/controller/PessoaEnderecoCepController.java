@@ -38,24 +38,24 @@ public class PessoaEnderecoCepController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Cep> findOne(@PathVariable Long id){
         return cepService.getOne(id)
                 .map(cep -> ResponseEntity.ok().body(cep))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(){
+    public ResponseEntity<Cep> create(){
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id){
+    public ResponseEntity<Long> update(@PathVariable Long id){
         return ResponseEntity.ok().body(id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return ResponseEntity.ok().body(id);
     }
     // == CRUD HTTP methods ==

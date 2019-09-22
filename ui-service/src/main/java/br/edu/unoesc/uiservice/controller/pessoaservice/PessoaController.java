@@ -1,19 +1,18 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
-import br.edu.unoesc.uiservice.controller.utils.DefaultController;
-import br.edu.unoesc.uiservice.controller.utils.EnumController;
-import br.edu.unoesc.uiservice.model.pessoaservice.Pessoa;
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoContato;
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoEndereco;
-import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
-import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import br.edu.unoesc.uiservice.controller.utils.DefaultController;
+import br.edu.unoesc.uiservice.model.pessoaservice.Pessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
+import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
+import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
 
 @Controller
 @RequestMapping("/pessoas")

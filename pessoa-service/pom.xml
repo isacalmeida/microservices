@@ -16,7 +16,6 @@
 
     <!-- pessoa-service info -->
     <artifactId>pessoa-service</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
     <!-- pessoa-service info -->
 

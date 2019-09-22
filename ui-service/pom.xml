@@ -7,7 +7,6 @@
 
     <!-- ui-service info -->
     <artifactId>ui-service</artifactId>
-    <version>1.0.0</version>
     <packaging>war</packaging>
     <!-- ui-service info -->
 
@@ -55,10 +54,6 @@
             <artifactId>jstl</artifactId>
         </dependency>
         <!-- <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency> -->
-        <!-- <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
         </dependency> -->
@@ -102,11 +97,11 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!-- <dependency>
+        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-        </dependency> -->
+        </dependency>
         <!-- provided dependencies -->
 
         <!-- specific dependencies -->

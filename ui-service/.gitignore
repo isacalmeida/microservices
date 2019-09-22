@@ -3,6 +3,7 @@ HELP.md
 /test/
 /bin/
 !.mvn/wrapper/maven-wrapper.jar
+.tern-project
 
 ### STS ###
 .apt_generated

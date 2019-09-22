@@ -35,14 +35,14 @@ public class CepController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Cep> findOne(@PathVariable Long id){
         return cepService.getOne(id)
-                .map(estado -> ResponseEntity.ok().body(estado))
+                .map(cep -> ResponseEntity.ok().body(cep))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Cep cep){
+    public ResponseEntity<Cep> create(@RequestBody Cep cep){
         if(cep == null) {
             return ResponseEntity.noContent().build();
         }
@@ -57,7 +57,7 @@ public class CepController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody Cep cep){
+    public ResponseEntity<Cep> update(@PathVariable Long id, @RequestBody Cep cep){
         Optional<Cep> cepUpdated = cepService.getOne(id);
 
         if(cepUpdated.isEmpty()) {
@@ -75,7 +75,7 @@ public class CepController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return cepService.getOne(id)
                 .map(estado -> {
                     cepService.delete(id);

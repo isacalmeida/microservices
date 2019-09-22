@@ -35,24 +35,24 @@ public class PessoaContatoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Contato> findOne(@PathVariable Long id){
         return contatoService.getOne(id)
                 .map(contato -> ResponseEntity.ok().body(contato))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(){
+    public ResponseEntity<Contato> create(){
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id){
+    public ResponseEntity<Long> update(@PathVariable Long id){
         return ResponseEntity.ok().body(id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return ResponseEntity.ok().body(id);
     }
     // == CRUD HTTP methods ==

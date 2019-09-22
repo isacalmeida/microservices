@@ -38,14 +38,14 @@ public class EstadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity findOne(@PathVariable Long id){
+    public ResponseEntity<Estado> findOne(@PathVariable Long id){
         return estadoService.getOne(id)
                 .map(estado -> ResponseEntity.ok().body(estado))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Estado estado){
+    public ResponseEntity<Estado> create(@RequestBody Estado estado){
         if(estado == null) {
             return ResponseEntity.noContent().build();
         }
@@ -60,7 +60,7 @@ public class EstadoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody Estado estado){
+    public ResponseEntity<Estado> update(@PathVariable Long id, @RequestBody Estado estado){
         Optional<Estado> estadoUpdated = estadoService.getOne(id);
 
         if(estadoUpdated.isEmpty()) {
@@ -79,7 +79,7 @@ public class EstadoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
+    public ResponseEntity<Long> delete(@PathVariable Long id){
         return estadoService.getOne(id)
                 .map(estado -> {
                     estadoService.delete(id);
