@@ -26,11 +26,36 @@ if(tipoValue === 'JURIDICA'){
 }
 
 var removerColuna;
-(function($){
+$(function($){
     removerColuna = function(coluna) {
         $(coluna).remove();
     };
-})(jQuery);
+});
+
+$(document).ready(function($){
+   $(document).on("focus", ".maskTipoContato", function(){
+	   var tipoContato, i;
+	   for(i = 0; i < 10; i++){
+		   
+		   tipoContato = $("#select2-contatos"+ i +"tipo-container").text();
+		   if(tipoContato === 'Celular' || tipoContato === 'Whatsapp'){
+				$(this).mask('(00) 00000-0000');
+		   }
+		   if(tipoContato === 'Telefone Fixo'){
+			   $(this).mask('(00) 0000-0000');
+		   }
+	   }
+   });
+});
+
+$(document).ready(function($){
+	$(document).on("focus", ".maskData", function(){
+		var options = {
+			clearIfNotMatch: true
+		}
+		$(this).mask('00/00/0000', options);	   
+	});
+});
 
 $("#tipo").on("change", function () {
     var value = $(this).val();
@@ -62,7 +87,7 @@ $("#adicionarContato").on("click", function(){
     coluna +=
         "<div class='form-group col-xs-12 col-sm-4 col-md-2 col-lg-2'>" +
         "<label for='contatos["+ count +"].id'>Id</label>" +
-        "<input id='contatos["+ count +"].id' name='contatos["+ count +"].id' class='form-control' readonly='true' />" +
+        "<input id='contatos["+ count +"].id' name='contatos["+ count +"].id' class='form-control' readonly='readonly' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-8 col-md-3 col-lg-3'>" +
@@ -72,7 +97,7 @@ $("#adicionarContato").on("click", function(){
     coluna +=
         "<div class='form-group col-xs-12 col-sm-10 col-md-5 col-lg-5'>" +
         "<label for='contatos["+ count +"].descricao'>Descrição</label>" +
-        "<input id='contatos["+ count +"].descricao' name='contatos["+ count +"].descricao' class='form-control' />" +
+        "<input id='contatos["+ count +"].descricao' name='contatos["+ count +"].descricao' class='form-control maskTipoContato' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-2 col-md-2 col-lg-2'>" +
@@ -90,6 +115,7 @@ $("#adicionarContato").on("click", function(){
             $("select[name='contatos["+ count +"].tipo']").append(data).select2();
         }
     });
+    
 });
 
 $("#adicionarEndereco").on("click", function(){
@@ -106,7 +132,7 @@ $("#adicionarEndereco").on("click", function(){
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-3 col-lg-3'>" +
         "<label for='enderecos["+ count +"].id'>Id</label>" +
-        "<input id='enderecos["+ count +"].id' name='enderecos["+ count +"].id' class='form-control' readonly='true' />" +
+        "<input id='enderecos["+ count +"].id' name='enderecos["+ count +"].id' class='form-control' readonly='readonly' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-3 col-lg-3'>" +
@@ -127,17 +153,17 @@ $("#adicionarEndereco").on("click", function(){
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-3 col-lg-3'>" +
         "<label for='enderecos["+ count +"].cep.bairro'>Bairro</label>" +
-        "<input id='enderecos["+ count +"].cep.bairro' name='enderecos["+ count +"].cep.bairro' class='form-control' readonly='true' />" +
+        "<input id='enderecos["+ count +"].cep.bairro' name='enderecos["+ count +"].cep.bairro' class='form-control' readonly='readonly' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-3 col-lg-3'>" +
         "<label for='enderecos["+ count +"].cep.cidade.descricao'>Cidade - UF</label>" +
-        "<input id='enderecos["+ count +"].cep.cidade.descricao' name='enderecos["+ count +"].cep.cidade.descricao' class='form-control' readonly='true' />" +
+        "<input id='enderecos["+ count +"].cep.cidade.descricao' name='enderecos["+ count +"].cep.cidade.descricao' class='form-control' readonly='readonly' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-6 col-lg-6'>" +
         "<label for='enderecos["+ count +"].cep.logradouro'>Logradouro</label>" +
-        "<input id='enderecos["+ count +"].cep.logradouro' name='enderecos["+ count +"].cep.logradouro' class='form-control' readonly='true' />" +
+        "<input id='enderecos["+ count +"].cep.logradouro' name='enderecos["+ count +"].cep.logradouro' class='form-control' readonly='readonly' />" +
         "</div>";
     coluna +=
         "<div class='form-group col-xs-12 col-sm-6 col-md-3 col-lg-3'>" +
@@ -194,8 +220,9 @@ $("#adicionarEndereco").on("click", function(){
             $("select[name='enderecos["+ count +"].tipo']").append(data).select2();
         }
     });
-
 });
+
+
 
 $('.datepicker').datepicker({
     autoclose: true,
@@ -212,6 +239,11 @@ $(function () {
         clearIfNotMatch: true
     };
     $('input[name=\'cpf\']').mask('000.000.000-00', optionsCpf);
+    
+    var optionsCnpj = {
+    	clearIfNotMatch: true
+    }
+    $('input[name=\'cnpj\']').mask('00.000.000/0000-00', optionsCnpj);
 
     var optionsDinheiro = {
         clearIfNotMatch: true,

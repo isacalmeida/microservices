@@ -4,12 +4,15 @@ import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
 import br.edu.unoesc.uiservice.model.pessoaservice.Estado;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/cidades")
 public class CidadeController extends DefaultController<Cidade, PessoaServiceProxy> {
@@ -56,6 +59,8 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
 
     @Override
     public ModelAndView excluir(@PathVariable Long id) {
+    	Cidade cidade = proxy.getOneCidade(id);
+    	log.info("CIDADE ENVIADA: {}", cidade);
         proxy.deleteCidade(id);
 
         ModelAndView modelAndView = new ModelAndView();
@@ -65,7 +70,9 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
 
     @Override
     public ModelAndView salvar(@ModelAttribute Cidade cidade){
+    	log.info("CIDADE ENVIADA: {}", cidade);
         Cidade cidadeCreated = proxy.createEstadoCidade(cidade.getEstado().getId(), cidade);
+    	log.info("CIDADE SALVA: {}", cidadeCreated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");
@@ -74,7 +81,9 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
 
     @Override
     public ModelAndView atualizar(@ModelAttribute Cidade cidade) {
+    	log.info("CIDADE ENVIADA: {}", cidade);
         Cidade cidadeUpdated = proxy.updateEstadoCidade(cidade.getEstado().getId(), cidade.getId(), cidade);
+        log.info("CIDADE SALVA: {}", cidadeUpdated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/cidades");

@@ -34,11 +34,13 @@ public class Estado {
     @Column(name = "est_ativo", nullable = false)
     private Boolean ativo = true;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "est_data_criacao", nullable = false)
     private Date dataCriacao = Calendar.getInstance().getTime();
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "est_data_alteracao")

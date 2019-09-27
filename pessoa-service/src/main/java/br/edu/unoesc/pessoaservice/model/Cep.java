@@ -40,11 +40,13 @@ public class Cep {
     @Column(name = "cep_ativo", nullable = false)
     private Boolean ativo = true;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "cep_data_criacao", nullable = false)
     private Date dataCriacao = Calendar.getInstance().getTime();
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "cep_data_alteracao")

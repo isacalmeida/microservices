@@ -12,7 +12,9 @@ import br.edu.unoesc.uiservice.controller.utils.DefaultController;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cep;
 import br.edu.unoesc.uiservice.model.pessoaservice.Cidade;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/ceps")
 public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
@@ -59,7 +61,9 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
 
     @Override
     public ModelAndView excluir(@PathVariable Long id) {
-        proxy.deleteCep(id);
+    	Cep cep = proxy.getOneCep(id);
+        log.info("CEP ENVIADO: {}", cep);
+    	proxy.deleteCep(id);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
@@ -68,9 +72,11 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
 
     @Override
     public ModelAndView salvar(@ModelAttribute Cep cep){
+        log.info("CEP ENVIADO: {}", cep);
         Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
         cep.setCidade(cidade);
         Cep cepCreated = proxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
+        log.info("CEP SALVO: {}", cepCreated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");
@@ -79,9 +85,11 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
 
     @Override
     public ModelAndView atualizar(@ModelAttribute Cep cep) {
+        log.info("CEP ENVIADO: {}", cep);
         Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
         cep.setCidade(cidade);
         Cep cepUpdated = proxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
+        log.info("CEP ENVIADO: {}", cepUpdated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");

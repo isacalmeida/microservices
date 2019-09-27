@@ -1,10 +1,14 @@
 package br.edu.unoesc.pessoaservice.model;
 
 import br.edu.unoesc.pessoaservice.model.enums.EnumTipoEndereco;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,10 +16,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "end_endereco")
+@ToString(exclude = "pessoa")
 public class Endereco {
 
     // == primary-fields ==
@@ -41,11 +46,13 @@ public class Endereco {
     @Column(name = "end_ativo", nullable = false)
     private Boolean ativo = true;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "end_data_criacao", nullable = false)
     private Date dataCriacao = Calendar.getInstance().getTime();
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "end_data_alteracao")
@@ -53,7 +60,8 @@ public class Endereco {
 
 
     // == relations-fields ==
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "end_id_pessoa", foreignKey = @ForeignKey(name = "FK_endereco_pessoa"))
     private Pessoa pessoa;
 

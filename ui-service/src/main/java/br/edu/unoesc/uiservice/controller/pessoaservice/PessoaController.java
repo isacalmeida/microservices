@@ -1,5 +1,6 @@
 package br.edu.unoesc.uiservice.controller.pessoaservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -9,11 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.unoesc.uiservice.controller.utils.DefaultController;
+import br.edu.unoesc.uiservice.model.pessoaservice.Contato;
+import br.edu.unoesc.uiservice.model.pessoaservice.Endereco;
 import br.edu.unoesc.uiservice.model.pessoaservice.Pessoa;
 import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
 import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
 import br.edu.unoesc.uiservice.proxy.PessoaServiceProxy;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/pessoas")
 public class PessoaController extends DefaultController<Pessoa, PessoaServiceProxy> {
@@ -34,8 +39,6 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
     @Override
     public ModelAndView novo(){
         Integer port = proxy.getPortPessoa();
-
-        Pessoa pessoa = new Pessoa();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("pessoa", new Pessoa());
@@ -60,7 +63,9 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
 
     @Override
     public ModelAndView excluir(@PathVariable Long id) {
-        Pessoa pessoa = proxy.getOnePessoa(id);
+    	Pessoa pessoa = proxy.getOnePessoa(id);
+        log.info("PESSOA ENVIADA: {}", pessoa);
+        proxy.deletePessoa(pessoa.getId());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");
@@ -69,8 +74,16 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
 
     @Override
     public ModelAndView salvar(@ModelAttribute Pessoa pessoa){
-        System.out.println("PESSOA SALVA: "+ pessoa);
-
+        log.info("PESSOA ENVIADA: {}", pessoa);
+        for(Endereco endereco : pessoa.getEnderecos()) {
+        	endereco.setPessoa(pessoa);
+        }
+        for(Contato contato : pessoa.getContatos()) {
+        	contato.setPessoa(pessoa);
+        }
+        Pessoa pessoaCreated = proxy.createPessoa(pessoa);
+        log.info("PESSOA SALVA: {}", pessoaCreated);
+        
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");
         return modelAndView;
@@ -78,6 +91,27 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
 
     @Override
     public ModelAndView atualizar(@ModelAttribute Pessoa pessoa) {
+    	log.info("PESSOA ENVIADA: {}", pessoa);
+    	
+    	List<Contato> contatos = new ArrayList<>();
+    	List<Endereco> enderecos = new ArrayList<>();
+    	
+    	pessoa.getContatos().forEach(contato -> {
+    		if(contato.getTipo() != null) {
+    			contatos.add(contato);
+    		}
+    	});
+    	pessoa.getEnderecos().forEach(endereco -> {
+    		if(endereco.getTipo() != null) {
+    			enderecos.add(endereco);
+    		}
+    	});
+    	
+    	pessoa.setContatos(contatos);
+    	pessoa.setEnderecos(enderecos);
+        
+    	Pessoa pessoaUpdated = proxy.updatePessoa(pessoa.getId(), pessoa);
+        log.info("PESSOA SALVA: {}", pessoaUpdated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");

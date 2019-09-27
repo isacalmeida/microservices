@@ -59,21 +59,21 @@
 											<div class="row" id="rowPessoaFisicaBasico">
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="cpf"> CPF </form:label>
-													<form:input path="cpf" class="form-control" />
+													<form:input path="cpf" cssClass="form-control" />
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="nomeCompleto"> Nome Completo </form:label>
-													<form:input path="nomeCompleto" class="form-control" />
+													<form:input path="nomeCompleto" cssClass="form-control" />
 												</div>
 											</div>
 											<div class="row" id="rowPessoaJuridicaBasico">
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="cnpj"> CNPJ </form:label>
-													<form:input path="cnpj" class="form-control" />
+													<form:input path="cnpj" cssClass="form-control" />
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="razaoSocial"> Razão Social </form:label>
-													<form:input path="razaoSocial" class="form-control" />
+													<form:input path="razaoSocial" cssClass="form-control" />
 												</div>
 											</div>
 										</div>
@@ -87,7 +87,7 @@
 																<span class="fa fa-calendar"></span>
 															</button>
 														</span>
-														<form:input path="dataNascimento" class="form-control" />
+														<form:input path="dataNascimento" cssClass="form-control maskData" />
 													</div>
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -99,11 +99,11 @@
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="setor"> Setor </form:label>
-													<form:input path="setor" class="form-control" />
+													<form:input path="setor" cssClass="form-control" />
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="cargo"> Cargo </form:label>
-													<form:input path="cargo" class="form-control" />
+													<form:input path="cargo" cssClass="form-control" />
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="dataAdmissao"> Data de Admissão </form:label>
@@ -113,14 +113,14 @@
 																<span class="fa fa-calendar"></span>
 															</button>
 														</span>
-														<form:input path="dataAdmissao" class="form-control" />
+														<form:input path="dataAdmissao" cssClass="form-control maskData" />
 													</div>
 												</div>
 											</div>
 											<div class="row" id="rowPessoaJuridicaAdicional">
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="nomeFantasia"> Nome Fantasia </form:label>
-													<form:input path="nomeFantasia" class="form-control" />
+													<form:input path="nomeFantasia" cssClass="form-control" />
 												</div>
 												<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
 													<form:label path="dataFundacao"> Data de Fundação </form:label>
@@ -130,7 +130,7 @@
 																<span class="fa fa-calendar"></span>
 															</button>
 														</span>
-														<form:input path="dataFundacao" class="form-control" />
+														<form:input path="dataFundacao" cssClass="form-control maskData" />
 													</div>
 												</div>
 											</div>

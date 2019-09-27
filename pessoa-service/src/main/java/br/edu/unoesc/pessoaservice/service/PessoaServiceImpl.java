@@ -1,13 +1,14 @@
 package br.edu.unoesc.pessoaservice.service;
 
-import br.edu.unoesc.pessoaservice.model.Pessoa;
-import br.edu.unoesc.pessoaservice.repository.PessoaRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import br.edu.unoesc.pessoaservice.model.Pessoa;
+import br.edu.unoesc.pessoaservice.repository.PessoaRepository;
 
 @Service
 public class PessoaServiceImpl implements PessoaService {
@@ -38,7 +39,7 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public Pessoa update(Pessoa pessoa) {
-        return pessoaRepository.save(pessoa);
+    	return pessoaRepository.save(pessoa);
     }
 
     @Override

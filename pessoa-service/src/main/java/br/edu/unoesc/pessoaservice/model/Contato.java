@@ -1,21 +1,40 @@
 package br.edu.unoesc.pessoaservice.model;
 
-import br.edu.unoesc.pessoaservice.model.enums.EnumTipoContato;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.edu.unoesc.pessoaservice.model.enums.EnumTipoContato;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "cnt_contato")
+@ToString(exclude = "pessoa")
 public class Contato {
 
     // == primary-fields ==
@@ -36,11 +55,13 @@ public class Contato {
     @Column(name = "cnt_ativo", nullable = false)
     private Boolean ativo = true;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "cnt_data_criacao", nullable = false)
     private Date dataCriacao = Calendar.getInstance().getTime();
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(name = "cnt_data_alteracao")
@@ -48,6 +69,7 @@ public class Contato {
 
 
     // == relations-fields ==
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cnt_id_pessoa", foreignKey = @ForeignKey(name = "FK_contato_pessoa"))
     private Pessoa pessoa;

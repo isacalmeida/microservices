@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumGeneroPessoa;
 import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoPessoa;
@@ -32,13 +33,13 @@ public class Pessoa {
 
 
     // == funcionario-fields ==
-    @Max(11)
+    @Max(14)
     private String cpf;
 
     @Max(100)
     private String nomeCompleto;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Sao_Paulo")
     @DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
     private Date dataNascimento;
 
@@ -50,7 +51,7 @@ public class Pessoa {
     @Max(50)
     private String cargo;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Sao_Paulo")
     @DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
     private Date dataAdmissao;
 
@@ -65,7 +66,7 @@ public class Pessoa {
     @Max(150)
     private String nomeFantasia;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy", timezone = "America/Sao_Paulo")
     @DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
     private Date dataFundacao;
 
@@ -93,9 +94,11 @@ public class Pessoa {
 
     // == relations-fields ==
     @NotEmpty
+    @JsonManagedReference
     private List<Endereco> enderecos;
 
     @NotEmpty
+    @JsonManagedReference
     private List<Contato> contatos;
 
 }

@@ -1,10 +1,14 @@
 package br.edu.unoesc.uiservice.model.pessoaservice;
 
 import br.edu.unoesc.uiservice.model.pessoaservice.enums.EnumTipoEndereco;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Max;
@@ -13,8 +17,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "pessoa")
 public class Endereco {
 
     // == primary-fields ==
@@ -51,6 +56,7 @@ public class Endereco {
 
     // == relations-fields ==
     @NotNull
+    @JsonBackReference
     private Pessoa pessoa;
 
     @NotNull

@@ -1,30 +1,36 @@
 package br.edu.unoesc.pessoaservice.controller;
 
-import br.edu.unoesc.pessoaservice.model.Contato;
-import br.edu.unoesc.pessoaservice.service.ContatoService;
-import br.edu.unoesc.pessoaservice.service.PessoaService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.unoesc.pessoaservice.model.Contato;
+import br.edu.unoesc.pessoaservice.service.ContatoService;
+
 @RestController
-@RequestMapping(value = "/pessoas/{idPessoa}/contatos", consumes = "application/json", produces = "application/json")
+@RequestMapping(value = "/pessoas/{idPessoa}/contatos")
 public class PessoaContatoController {
 
     // == fields ==
     private Environment environment;
-    private PessoaService pessoaService;
+    //private PessoaService pessoaService;
     private ContatoService contatoService;
 
     // == constructors ==
     @Autowired
-    public PessoaContatoController(Environment environment, PessoaService pessoaService, ContatoService contatoService){
+    public PessoaContatoController(Environment environment, ContatoService contatoService){
         this.environment = environment;
-        this.pessoaService = pessoaService;
+        //this.pessoaService = pessoaService;
         this.contatoService = contatoService;
     }
 
