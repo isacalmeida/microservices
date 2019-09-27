@@ -12,7 +12,6 @@
     </parent>
     <!-- parent pom -->
 
-
     <!-- config-server info -->
     <artifactId>config-server</artifactId>
     <packaging>jar</packaging>

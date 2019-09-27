@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
+	<!-- parent pom -->
+	<parent>
+		<artifactId>sistema-web-gpsti</artifactId>
+		<groupId>br.edu.unoesc</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<!-- parent pom -->
 
-    <!-- parent pom -->
-    <parent>
-        <artifactId>sistema-web-gpsti</artifactId>
-        <groupId>br.edu.unoesc</groupId>
-        <version>1.0.0</version>
-    </parent>
-    <!-- parent pom -->
+	<!-- eureka-server info -->
+	<artifactId>eureka-server</artifactId>
+	<packaging>jar</packaging>
+	<!-- eureka-server info -->
 
+	<!-- properties -->
+	<properties>
+		<activation-api.version>1.2.0</activation-api.version>
+		<jaxb-api.version>2.3.1</jaxb-api.version>
+		<jaxb-impl.version>2.3.2</jaxb-impl.version>
+		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
+	</properties>
+	<!-- properties -->
 
-    <!-- eureka-server info -->
-    <artifactId>eureka-server</artifactId>
-    <packaging>jar</packaging>
-    <!-- eureka-server info -->
+	<!-- specific modules dependencies -->
+	<dependencies>
 
+		<!-- default dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<!-- default dependencies -->
 
-    <!-- properties -->
-    <properties>
-        <activation-api.version>1.2.0</activation-api.version>
-        <jaxb-api.version>2.3.1</jaxb-api.version>
-        <jaxb-impl.version>2.3.2</jaxb-impl.version>
-        <jaxb-runtime.version>2.3.2</jaxb-runtime.version>
-    </properties>
-    <!-- properties -->
+		<!-- specific dependencies -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb-impl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>javax.activation-api</artifactId>
+		</dependency>
+		<!-- specific dependencies -->
 
-
-    <!-- specific modules dependencies -->
-    <dependencies>
-
-        <!-- default dependencies -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-        <!-- default dependencies -->
-
-        <!-- specific dependencies -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>${jaxb-impl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>javax.activation-api</artifactId>
-        </dependency>
-        <!-- specific dependencies -->
-
-    </dependencies>
-    <!-- specific modules dependencies -->
+	</dependencies>
+	<!-- specific modules dependencies -->
 
 </project>
