@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>br.edu.unoesc.pessoaservice</groupId>
+	<artifactId>pessoa-service-parent</artifactId>
+	<version>${pessoa-service.version}</version>
+	<packaging>pom</packaging>
+
+
+	<parent>
+		<groupId>br.edu.unoesc</groupId>
+		<artifactId>sistema-web-gpsti</artifactId>
+		<version>${sistema-parent.version}</version>
+	</parent>
+
+
+	<modules>
+		<module>pessoa-service-api</module>
+		<module>pessoa-service-application</module>
+		<module>pessoa-service-common</module>
+		<module>pessoa-service-persistence</module>
+		<module>pessoa-service-web</module>
+	</modules>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<artifactId>pessoa-service-api</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice.api</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>pessoa-service-application</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice.application</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>pessoa-service-common</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice.common</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>pessoa-service-persistence</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>pessoa-service-web</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice.web</groupId>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- spring-cloud dependencies -->
+		
+		
+		<!-- spring-security dependencies -->
+	
+		<!-- spring-security dependencies -->
+		
+		
+		<!-- other dependencies -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- other dependencies -->
+	</dependencies>
+</project>

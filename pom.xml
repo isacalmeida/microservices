@@ -5,67 +5,113 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<!-- sistema-web-gpsti info -->
 	<groupId>br.edu.unoesc</groupId>
 	<artifactId>sistema-web-gpsti</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0</version>
-	<!-- sistema-web-gpsti info -->
+	<version>${sistema-parent.version}</version>
 
 
-	<!-- parent pom -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
+		<version>2.1.9.RELEASE</version>
 		<relativePath />
 	</parent>
-	<!-- parent pom -->
 
 
-	<!-- sub modules -->
 	<modules>
 		<module>auth-server</module>
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-server</module>
-
-		<module>pessoa-service</module>
-		<module>ui-service</module>
+		<module>acesso-service</module>
+		<module>pessoa-service-parent</module>
+		<module>ui-service-parent</module>
 	</modules>
-	<!-- sub modules -->
+
+
+	<properties>
+		<!-- project properties -->
+		<sistema-parent.version>1.0.0</sistema-parent.version>
+		<acesso-service.version>1.0.0</acesso-service.version>
+		<auth-server.version>1.0.0</auth-server.version>
+		<config-server.version>1.0.0</config-server.version>
+		<eureka-server.version>1.0.0</eureka-server.version>
+		<zuul-server.version>1.0.0</zuul-server.version>
+		<pessoa-service.version>1.0.0</pessoa-service.version>
+		<ui-service.version>1.0.0</ui-service.version>
+		<!-- project properties -->
+		
+		<!-- back-end properties -->
+		<activation-api.version>1.2.0</activation-api.version>
+		<hibernate.version>5.4.3.Final</hibernate.version>
+		<java.version>12</java.version>
+		<jaxb-api.version>2.3.1</jaxb-api.version>
+		<jaxb-impl.version>2.3.2</jaxb-impl.version>
+		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
+		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+		<!-- back-end properties -->
+		
+		<!-- front-end properties -->
+		<webjars-locator.version>0.37</webjars-locator.version>
+		<webjars-jquery.version>3.4.1</webjars-jquery.version>
+		<webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
+		<webjars-fa.version>5.10.1</webjars-fa.version>
+		<webjars-select2.version>4.0.8</webjars-select2.version>
+		<webjars-datepicker.version>1.9.0</webjars-datepicker.version>
+		<webjars-mask.version>1.14.15</webjars-mask.version>
+		<webjars-adminlte.version>2.4.15</webjars-adminlte.version>
+		<webjars-switch.version>3.3.4</webjars-switch.version>
+		<webjars-jqueryui.version>1.12.1</webjars-jqueryui.version>
+		<webjars-autocomplete.version>1.4.10</webjars-autocomplete.version>
+		<webjars-icheck.version>1.0.2</webjars-icheck.version>
+		<!-- front-end properties -->
+	</properties>
+
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>auth-server</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>auth-server-parent</artifactId>
+				<groupId>br.edu.unoesc.authserver</groupId>
+				<version>${auth-server.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>config-server</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>config-server-parent</artifactId>
+				<groupId>br.edu.unoesc.configserver</groupId>
+				<version>${config-server.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>eureka-server</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>eureka-server-parent</artifactId>
+				<groupId>br.edu.unoesc.eurekaserver</groupId>
+				<version>${eureka-server.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>zuul-server-parent</artifactId>
+				<groupId>br.edu.unoesc.zuulserver</groupId>
+				<version>${zuul-server.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>ui-service</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>acesso-service-parent</artifactId>
+				<groupId>br.edu.unoesc.acessoservice</groupId>
+				<version>${acesso-service.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>zuul-server</artifactId>
-				<groupId>br.edu.unoesc</groupId>
-				<version>1.0.0</version>
+				<artifactId>pessoa-service-parent</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice</groupId>
+				<version>${pessoa-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-parent</artifactId>
+				<groupId>br.edu.unoesc.uiservice</groupId>
+				<version>${ui-service.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -77,55 +123,36 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- properties -->
-	<properties>
-		<java.version>12</java.version>
-		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
-	</properties>
-	<!-- properties -->
 
-
-	<!-- all modules dependencies -->
 	<dependencies>
-
-		<!-- default dependencies -->
-		<!-- <dependency> <groupId>org.springframework.amqp</groupId> <artifactId>spring-rabbit</artifactId> 
-			</dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-zipkin</artifactId> 
-			</dependency> -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- default dependencies -->
-
-		<!-- runtime dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<!-- runtime dependencies -->
-
-		<!-- tests dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- tests dependencies -->
-
 	</dependencies>
-	<!-- all modules dependencies -->
 
 
-	<!-- maven build -->
 	<build>
 		<plugins>
 			<plugin>
@@ -138,6 +165,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<!-- maven build -->
 
 </project>

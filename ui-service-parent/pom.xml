@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<artifactId>ui-service-parent</artifactId>
+	<groupId>br.edu.unoesc.uiservice</groupId>
+	<version>${ui-service.version}</version>
+	<packaging>pom</packaging>
+
+
+	<parent>
+		<groupId>br.edu.unoesc</groupId>
+		<artifactId>sistema-web-gpsti</artifactId>
+		<version>${sistema-parent.version}</version>
+	</parent>
+
+
+	<modules>
+		<module>ui-service-api</module>
+		<module>ui-service-application</module>
+		<module>ui-service-common</module>
+		<module>ui-service-persistence</module>
+		<module>ui-service-web</module>
+	</modules>
+	
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<artifactId>ui-service-api</artifactId>
+				<groupId>br.edu.unoesc.uiservice.api</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-application</artifactId>
+				<groupId>br.edu.unoesc.uiservice.application</groupId>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-common</artifactId>
+				<groupId>br.edu.unoesc.uiservice.common</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-persistence</artifactId>
+				<groupId>br.edu.unoesc.uiservice.persistence</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-web</artifactId>
+				<groupId>br.edu.unoesc.uiservice.web</groupId>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+
+	<dependencies>
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- other dependencies -->
+
+
+		<!-- webjars dependencies -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>${webjars-locator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${webjars-jquery.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${webjars-bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>AdminLTE</artifactId>
+			<version>${webjars-adminlte.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>${webjars-fa.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>select2</artifactId>
+			<version>${webjars-select2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap-datepicker</artifactId>
+			<version>${webjars-datepicker.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>jquery-mask-plugin</artifactId>
+			<version>${webjars-mask.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>bootstrap-switch</artifactId>
+			<version>${webjars-switch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>${webjars-jqueryui.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jQuery-Autocomplete</artifactId>
+			<version>${webjars-autocomplete.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>jquery-icheck</artifactId>
+			<version>${webjars-icheck.version}</version>
+		</dependency>
+		<!-- webjars dependencies -->
+	</dependencies>
+
+</project>

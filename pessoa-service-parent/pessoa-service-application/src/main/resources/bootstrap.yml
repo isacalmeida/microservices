@@ -1,0 +1,15 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: pessoa-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+  jmx:
+    enabled: true
+
+security:
+  jwt:
+    public-key: classpath:public.txt

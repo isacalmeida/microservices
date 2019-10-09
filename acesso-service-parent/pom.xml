@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>br.edu.unoesc.acessoservice</groupId>
+	<artifactId>acesso-service-parent</artifactId>
+	<version>${acesso-service.version}</version>
+	<packaging>pom</packaging>
+
+
+	<parent>
+		<groupId>br.edu.unoesc</groupId>
+		<artifactId>sistema-web-gpsti</artifactId>
+		<version>${sistema-parent.version}</version>
+	</parent>
+
+
+	<modules>
+		<module>acesso-service-api</module>
+		<module>acesso-service-application</module>
+		<module>acesso-service-common</module>
+		<module>acesso-service-persistence</module>
+		<module>acesso-service-web</module>
+	</modules>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<artifactId>acesso-service-api</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.api</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>acesso-service-application</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.application</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>acesso-service-common</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.common</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>acesso-service-persistence</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.persistence</groupId>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>acesso-service-web</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.web</groupId>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- spring-cloud dependencies -->
+		
+		
+		<!-- spring-security dependencies -->
+	
+		<!-- spring-security dependencies -->
+		
+		
+		<!-- other dependencies -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- other dependencies -->
+	</dependencies>
+</project>

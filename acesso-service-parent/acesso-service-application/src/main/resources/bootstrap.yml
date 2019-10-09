@@ -1,0 +1,16 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: auth-server
+  cloud:
+    config:
+      uri: http://localhost:8888
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+security:
+  jwt:
+    public-key: classpath:public.txt

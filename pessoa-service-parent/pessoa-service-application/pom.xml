@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<artifactId>pessoa-service-parent</artifactId>
+		<groupId>br.edu.unoesc.pessoaservice</groupId>
+		<version>${pessoa-service.version}</version>
+    </parent>
+
+
+	<artifactId>pessoa-service-application</artifactId>
+	<groupId>br.edu.unoesc.pessoaservice.application</groupId>
+	<packaging>jar</packaging>
+
+
+	<dependencies>
+		<dependency>
+			<artifactId>pessoa-service-api</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.api</groupId>
+			<version>${pessoa-service.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-common</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
+			<version>${pessoa-service.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-persistence</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
+			<version>${pessoa-service.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-web</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.web</groupId>
+			<version>${pessoa-service.version}</version>
+		</dependency>
+	</dependencies>
+</project>

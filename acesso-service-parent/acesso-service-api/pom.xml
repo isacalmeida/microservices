@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<artifactId>acesso-service-parent</artifactId>
+		<groupId>br.edu.unoesc.acessoservice</groupId>
+		<version>${acesso-service.version}</version>
+	</parent>
+
+
+	<artifactId>acesso-service-api</artifactId>
+	<groupId>br.edu.unoesc.acessoservice.api</groupId>
+	<packaging>jar</packaging>
+	
+	
+	<dependencies>
+		<dependency>
+			<artifactId>acesso-service-common</artifactId>
+			<groupId>br.edu.unoesc.acessoservice.common</groupId>
+			<version>${acesso-service.version}</version>
+		</dependency>
+	</dependencies>
+</project>
