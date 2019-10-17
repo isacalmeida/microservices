@@ -14,10 +14,10 @@
 
 	<artifactId>acesso-service-web</artifactId>
 	<groupId>br.edu.unoesc.acessoservice.web</groupId>
-	<packaging>jar</packaging>
 
 
 	<dependencies>
+		<!-- project dependencies -->
 		<dependency>
 			<artifactId>acesso-service-api</artifactId>
 			<groupId>br.edu.unoesc.acessoservice.api</groupId>
@@ -28,6 +28,29 @@
 			<groupId>br.edu.unoesc.acessoservice.common</groupId>
 			<version>${acesso-service.version}</version>
 		</dependency>
-	</dependencies>
+		<!-- project dependencies -->
 
+
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+
+		<!-- other dependencies -->
+	</dependencies>
 </project>

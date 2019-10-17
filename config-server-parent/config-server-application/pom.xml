@@ -14,10 +14,31 @@
 
 	<artifactId>config-server-application</artifactId>
 	<groupId>br.edu.unoesc.configserver.application</groupId>
-	<packaging>jar</packaging>
 
 
 	<dependencies>
+		<!-- project dependencies -->
 
+		<!-- project dependencies -->
+
+
+		<!-- spring-boot dependencies -->
+		
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+		
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+		
+		<!-- other dependencies -->
 	</dependencies>
 </project>

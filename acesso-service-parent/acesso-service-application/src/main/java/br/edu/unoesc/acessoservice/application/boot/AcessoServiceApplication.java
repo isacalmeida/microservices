@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = AcessoServiceApplication.BASE_PACKAGE)
 public class AcessoServiceApplication {
 
+	public static final String BASE_PACKAGE = "br.edu.unoesc.acessoservice";
+	
 	public static void main(String[] args) {
 		SpringApplication.run(AcessoServiceApplication.class, args);
 	}

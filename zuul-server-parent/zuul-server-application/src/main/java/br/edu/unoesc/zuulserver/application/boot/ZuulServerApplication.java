@@ -1,4 +1,4 @@
-package br.edu.unoesc.zuulserver.application;
+package br.edu.unoesc.zuulserver.application.boot;
 
 import brave.sampler.Sampler;
 import org.springframework.boot.SpringApplication;
@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 
 @EnableZuulProxy
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ZuulServerApplication.BASE_PACKAGE)
 public class ZuulServerApplication {
 
+	public static final String BASE_PACKAGE = "br.edu.unoesc.zuulserver";
+	
     public static void main(String[] args) {
         SpringApplication.run(ZuulServerApplication.class, args);
     }

@@ -14,14 +14,31 @@
 
 	<artifactId>pessoa-service-api</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.api</groupId>
-	<packaging>jar</packaging>
-	
-	
+
+
 	<dependencies>
+		<!-- project dependencies -->
 		<dependency>
 			<artifactId>pessoa-service-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
 			<version>${pessoa-service.version}</version>
+			
 		</dependency>
+		<!-- project dependencies -->
+
+
+		<!-- spring-boot dependencies -->
+
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- other dependencies -->
+
+		<!-- other dependencies -->
 	</dependencies>
 </project>

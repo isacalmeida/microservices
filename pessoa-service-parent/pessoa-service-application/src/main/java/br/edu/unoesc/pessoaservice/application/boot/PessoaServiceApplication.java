@@ -11,10 +11,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import brave.sampler.Sampler;
 
 @EnableDiscoveryClient
-@SpringBootApplication
 @EntityScan(PessoaServiceApplication.BASE_PACKAGE)
 @ComponentScan(PessoaServiceApplication.BASE_PACKAGE)
 @EnableJpaRepositories(PessoaServiceApplication.BASE_PACKAGE)
+@SpringBootApplication(scanBasePackages = PessoaServiceApplication.BASE_PACKAGE)
 public class PessoaServiceApplication {
 
 	public static final String BASE_PACKAGE = "br.edu.unoesc.pessoaservice";

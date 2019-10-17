@@ -20,11 +20,11 @@
 
 
 	<modules>
-		<module>auth-server</module>
-		<module>config-server</module>
-		<module>eureka-server</module>
-		<module>zuul-server</module>
-		<module>acesso-service</module>
+		<module>auth-server-parent</module>
+		<module>config-server-parent</module>
+		<module>eureka-server-parent</module>
+		<module>zuul-server-parent</module>
+		<module>acesso-service-parent</module>
 		<module>pessoa-service-parent</module>
 		<module>ui-service-parent</module>
 	</modules>
@@ -122,36 +122,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-
-	<dependencies>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
 
 	<build>
 		<plugins>

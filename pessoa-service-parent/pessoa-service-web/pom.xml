@@ -14,10 +14,10 @@
 
 	<artifactId>pessoa-service-web</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.web</groupId>
-	<packaging>jar</packaging>
 
 
 	<dependencies>
+		<!-- project dependencies -->
 		<dependency>
 			<artifactId>pessoa-service-api</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.api</groupId>
@@ -28,6 +28,29 @@
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
 			<version>${pessoa-service.version}</version>
 		</dependency>
-	</dependencies>
+		<!-- project dependencies -->
 
+
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+
+		<!-- other dependencies -->
+	</dependencies>
 </project>

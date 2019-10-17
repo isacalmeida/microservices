@@ -56,47 +56,46 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<dependencies>
 		<!-- spring-boot dependencies -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+
 		<!-- spring-boot dependencies -->
 
 
 		<!-- spring-cloud dependencies -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-		</dependency>
+
 		<!-- spring-cloud dependencies -->
-		
-		
+
+
 		<!-- spring-security dependencies -->
-	
+
 		<!-- spring-security dependencies -->
-		
-		
+
+
 		<!-- other dependencies -->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<mainClass>br.edu.unoesc.pessoaservice.application.boot.PessoaServiceApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

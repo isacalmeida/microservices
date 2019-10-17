@@ -1,4 +1,4 @@
-package br.edu.unoesc.zuulserver.application;
+package br.edu.unoesc.zuulserver.application.boot;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;

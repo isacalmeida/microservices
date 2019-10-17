@@ -98,6 +98,28 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<mainClass>br.edu.unoesc.acessoservice.application.boot.AcessoServiceApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

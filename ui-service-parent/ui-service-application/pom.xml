@@ -9,34 +9,162 @@
 		<artifactId>ui-service-parent</artifactId>
 		<groupId>br.edu.unoesc.uiservice</groupId>
 		<version>${ui-service.version}</version>
-    </parent>
+	</parent>
 
 
 	<artifactId>ui-service-application</artifactId>
 	<groupId>br.edu.unoesc.uiservice.application</groupId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 
 	<dependencies>
+		<!-- project dependencies -->
 		<dependency>
-			<artifactId>ui-service-api</artifactId>
-			<groupId>br.edu.unoesc.uiservice.api</groupId>
-			<version>${ui-service.version}</version>
+			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
+			<artifactId>pessoa-service-common</artifactId>
+			<version>${pessoa-service.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-jpa</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- project dependencies -->
+
+
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<artifactId>ui-service-common</artifactId>
-			<groupId>br.edu.unoesc.uiservice.common</groupId>
-			<version>${ui-service.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<artifactId>ui-service-persistence</artifactId>
-			<groupId>br.edu.unoesc.uiservice.persistence</groupId>
-			<version>${ui-service.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>ui-service-web</artifactId>
-			<groupId>br.edu.unoesc.uiservice.web</groupId>
-			<version>${ui-service.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>${webjars-locator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${webjars-jquery.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${webjars-bootstrap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>AdminLTE</artifactId>
+			<version>${webjars-adminlte.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>${webjars-fa.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>select2</artifactId>
+			<version>${webjars-select2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap-datepicker</artifactId>
+			<version>${webjars-datepicker.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>jquery-mask-plugin</artifactId>
+			<version>${webjars-mask.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>bootstrap-switch</artifactId>
+			<version>${webjars-switch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>${webjars-jqueryui.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jQuery-Autocomplete</artifactId>
+			<version>${webjars-autocomplete.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>jquery-icheck</artifactId>
+			<version>${webjars-icheck.version}</version>
+		</dependency>
+		<!-- other dependencies -->
 	</dependencies>
 </project>
