@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.9.RELEASE</version>
+		<version>2.2.0.RELEASE</version>
 		<relativePath />
 	</parent>
 
@@ -41,17 +41,16 @@
 		<pessoa-service.version>1.0.0</pessoa-service.version>
 		<ui-service.version>1.0.0</ui-service.version>
 		<!-- project properties -->
-		
+
 		<!-- back-end properties -->
 		<activation-api.version>1.2.0</activation-api.version>
-		<hibernate.version>5.4.3.Final</hibernate.version>
-		<java.version>12</java.version>
+		<java.version>13</java.version>
 		<jaxb-api.version>2.3.1</jaxb-api.version>
 		<jaxb-impl.version>2.3.2</jaxb-impl.version>
 		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
-		<spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+		<spring-cloud.version>Hoxton.M3</spring-cloud.version>
 		<!-- back-end properties -->
-		
+
 		<!-- front-end properties -->
 		<webjars-locator.version>0.37</webjars-locator.version>
 		<webjars-jquery.version>3.4.1</webjars-jquery.version>
@@ -136,4 +135,11 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
 </project>
