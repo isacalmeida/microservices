@@ -7,14 +7,13 @@
 
 	<groupId>br.edu.unoesc.authserver</groupId>
 	<artifactId>auth-server-parent</artifactId>
-	<version>${auth-server.version}</version>
 	<packaging>pom</packaging>
 
 
 	<parent>
 		<groupId>br.edu.unoesc</groupId>
 		<artifactId>sistema-web-gpsti</artifactId>
-		<version>${sistema-parent.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -28,6 +27,7 @@
 			<dependency>
 				<artifactId>auth-server-application</artifactId>
 				<groupId>br.edu.unoesc.authserver.application</groupId>
+				<version>${auth-server.version}</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>

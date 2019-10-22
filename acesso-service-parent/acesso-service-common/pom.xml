@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>acesso-service-parent</artifactId>
 		<groupId>br.edu.unoesc.acessoservice</groupId>
-		<version>${acesso-service.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -19,9 +19,9 @@
 	<dependencies>
 		<!-- project dependencies -->
 		<dependency>
-			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
-			<artifactId>pessoa-service-common</artifactId>
-			<version>${pessoa-service.version}</version>
+			<artifactId>sistema-utils-api</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.api</groupId>
+			<version>${sistema-utils.version}</version>
 		</dependency>
 		<!-- project dependencies -->
 
@@ -30,7 +30,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<!-- spring-boot dependencies -->
 
@@ -46,7 +45,10 @@
 
 
 		<!-- other dependencies -->
-
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
 </project>

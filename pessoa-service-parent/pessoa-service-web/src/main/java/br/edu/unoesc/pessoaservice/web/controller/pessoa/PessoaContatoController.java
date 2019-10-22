@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.unoesc.pessoaservice.api.service.pessoa.ContatoService;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Contato;
+import br.edu.unoesc.pessoaservice.persistence.service.pessoa.ContatoService;
 
 @RestController
 @RequestMapping(value = "/pessoas/{idPessoa}/contatos")

@@ -7,6 +7,8 @@ spring:
   jackson:
     serialization:
       INDENT_OUTPUT: true
+  jmx:
+    enabled: true
 
 security:
   jwt:

@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>pessoa-service-parent</artifactId>
 		<groupId>br.edu.unoesc.pessoaservice</groupId>
-		<version>${pessoa-service.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -21,12 +21,14 @@
 		<dependency>
 			<artifactId>pessoa-service-api</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.api</groupId>
-			<version>${pessoa-service.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>pessoa-service-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
-			<version>${pessoa-service.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-persistence</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
 		</dependency>
 		<!-- project dependencies -->
 
@@ -50,7 +52,11 @@
 
 
 		<!-- other dependencies -->
-
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${model-mapper.version}</version>
+		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
 </project>

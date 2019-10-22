@@ -1,4 +1,4 @@
-package br.edu.unoesc.pessoaservice.api.service.pessoa;
+package br.edu.unoesc.pessoaservice.persistence.service.pessoa;
 
 import java.util.List;
 import java.util.Optional;

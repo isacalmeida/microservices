@@ -8,7 +8,7 @@
 	<groupId>br.edu.unoesc</groupId>
 	<artifactId>sistema-web-gpsti</artifactId>
 	<packaging>pom</packaging>
-	<version>${sistema-parent.version}</version>
+	<version>1.0.0</version>
 
 
 	<parent>
@@ -27,6 +27,7 @@
 		<module>acesso-service-parent</module>
 		<module>pessoa-service-parent</module>
 		<module>ui-service-parent</module>
+		<module>sistema-utils-parent</module>
 	</modules>
 
 
@@ -40,6 +41,7 @@
 		<zuul-server.version>1.0.0</zuul-server.version>
 		<pessoa-service.version>1.0.0</pessoa-service.version>
 		<ui-service.version>1.0.0</ui-service.version>
+		<sistema-utils.version>1.0.0</sistema-utils.version>
 		<!-- project properties -->
 
 		<!-- back-end properties -->
@@ -49,6 +51,7 @@
 		<jaxb-impl.version>2.3.2</jaxb-impl.version>
 		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
 		<spring-cloud.version>Hoxton.M3</spring-cloud.version>
+		<model-mapper.version>2.3.5</model-mapper.version>
 		<!-- back-end properties -->
 
 		<!-- front-end properties -->
@@ -113,6 +116,12 @@
 				<type>pom</type>
 			</dependency>
 			<dependency>
+				<artifactId>sistema-utils-parent</artifactId>
+				<groupId>br.edu.unoesc.sistemautils</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
@@ -131,6 +140,16 @@
 					<release>${java.version}</release>
 					<compilerArgs>--enable-preview</compilerArgs>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

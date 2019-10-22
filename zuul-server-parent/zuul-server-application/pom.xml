@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>zuul-server-parent</artifactId>
 		<groupId>br.edu.unoesc.zuulserver</groupId>
-		<version>${zuul-server.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 

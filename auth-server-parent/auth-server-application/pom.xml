@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>auth-server-parent</artifactId>
 		<groupId>br.edu.unoesc.authserver</groupId>
-		<version>${auth-server.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 

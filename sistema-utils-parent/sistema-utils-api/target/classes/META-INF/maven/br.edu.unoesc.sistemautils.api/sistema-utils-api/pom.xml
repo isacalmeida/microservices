@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<artifactId>sistema-utils-parent</artifactId>
+		<groupId>br.edu.unoesc.sistemautils</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+
+	<artifactId>sistema-utils-api</artifactId>
+	<groupId>br.edu.unoesc.sistemautils.api</groupId>
+	<packaging>jar</packaging>
+
+
+	<dependencies>
+		<!-- project dependencies -->
+		<dependency>
+			<artifactId>acesso-service-api</artifactId>
+			<groupId>br.edu.unoesc.acessoservice.api</groupId>
+			<version>${acesso-service.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-api</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.api</groupId>
+			<version>${pessoa-service.version}</version>
+		</dependency>
+		<!-- project dependencies -->
+
+
+		<!-- spring-boot dependencies -->
+
+		<!-- spring-boot dependencies -->
+
+
+		<!-- spring-cloud dependencies -->
+
+		<!-- spring-cloud dependencies -->
+
+
+		<!-- spring-security dependencies -->
+
+		<!-- spring-security dependencies -->
+
+
+		<!-- other dependencies -->
+
+		<!-- other dependencies -->
+	</dependencies>
+</project>

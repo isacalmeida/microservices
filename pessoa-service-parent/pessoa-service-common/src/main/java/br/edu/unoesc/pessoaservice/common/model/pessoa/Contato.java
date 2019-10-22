@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.common.model.pessoa;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -35,9 +36,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @Table(name = "cnt_contato")
 @ToString(exclude = "pessoa")
-public class Contato {
+public class Contato implements Serializable {
 
-    // == primary-fields ==
+	private static final long serialVersionUID = 1L;
+
+	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cnt_id")

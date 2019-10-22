@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.common.model.pessoa;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,9 +38,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @Table(name = "end_endereco")
 @ToString(exclude = "pessoa")
-public class Endereco {
+public class Endereco implements Serializable {
 
-    // == primary-fields ==
+	private static final long serialVersionUID = 1L;
+
+	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "end_id")

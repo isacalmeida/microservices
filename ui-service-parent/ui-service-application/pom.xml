@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>ui-service-parent</artifactId>
 		<groupId>br.edu.unoesc.uiservice</groupId>
-		<version>${ui-service.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -23,6 +23,17 @@
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
 			<artifactId>pessoa-service-common</artifactId>
 			<version>${pessoa-service.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-jpa</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>br.edu.unoesc.acessoservice.common</groupId>
+			<artifactId>acesso-service-common</artifactId>
+			<version>${acesso-service.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>

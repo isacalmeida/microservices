@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication(scanBasePackages = EurekaServerApplication.BASE_PACKAGE)
 public class EurekaServerApplication {
 
-	public static final String BASE_PACKAGE = "br.edu.unoesc.authserver";
+	public static final String BASE_PACKAGE = "br.edu.unoesc";
 	
     public static void main(String[] args) {
         SpringApplication.run(EurekaServerApplication.class, args);

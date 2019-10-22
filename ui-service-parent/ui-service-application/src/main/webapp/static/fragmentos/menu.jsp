@@ -26,6 +26,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li id="menu-acesso">
+                    <a href="<c:url value='/menu/acesso' />">
+                        <i class="fa fa-cogs"></i>
+                        <span>Acesso</span>
+                    </a>
+                </li>
                 <li id="menu-pessoa">
                     <a href="<c:url value='/menu/pessoa' />">
                         <i class="fa fa-users"></i>

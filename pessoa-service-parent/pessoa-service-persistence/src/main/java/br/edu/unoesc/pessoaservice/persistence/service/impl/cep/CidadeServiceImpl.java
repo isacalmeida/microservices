@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.cep.CidadeService;
 import br.edu.unoesc.pessoaservice.common.model.cep.Cidade;
 import br.edu.unoesc.pessoaservice.persistence.repository.cep.CidadeRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.cep.CidadeService;
 
 @Service
 public class CidadeServiceImpl implements CidadeService{

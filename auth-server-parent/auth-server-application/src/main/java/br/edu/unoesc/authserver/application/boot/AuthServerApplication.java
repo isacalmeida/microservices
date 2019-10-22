@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = AuthServerApplication.BASE_PACKAGE)
 public class AuthServerApplication {
 
-	public static final String BASE_PACKAGE = "br.edu.unoesc.authserver";
+	public static final String BASE_PACKAGE = "br.edu.unoesc";
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AuthServerApplication.class, args);

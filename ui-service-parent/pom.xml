@@ -7,14 +7,13 @@
 
 	<artifactId>ui-service-parent</artifactId>
 	<groupId>br.edu.unoesc.uiservice</groupId>
-	<version>${ui-service.version}</version>
 	<packaging>pom</packaging>
 
 
 	<parent>
 		<groupId>br.edu.unoesc</groupId>
 		<artifactId>sistema-web-gpsti</artifactId>
-		<version>${sistema-parent.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -28,6 +27,7 @@
 			<dependency>
 				<artifactId>ui-service-application</artifactId>
 				<groupId>br.edu.unoesc.uiservice.application</groupId>
+				<version>${ui-service.version}</version>
 				<type>war</type>
 			</dependency>
 		</dependencies>

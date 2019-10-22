@@ -89,7 +89,7 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
         Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
         cep.setCidade(cidade);
         Cep cepUpdated = proxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
-        log.info("CEP ENVIADO: {}", cepUpdated);
+        log.info("CEP SALVO: {}", cepUpdated);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/ceps");

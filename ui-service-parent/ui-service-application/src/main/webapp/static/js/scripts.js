@@ -10,6 +10,10 @@ if(url_path.match(/ceps/) || url_path.match(/cidades/)
     || url_path.match(/estados/) || url_path.match(/pessoa/)){
     $("#menu-pessoa").addClass("active");
 }
+if(url_path.match(/acessos/) || url_path.match(/perfis/)
+    || url_path.match(/programas/) || url_path.match(/usuarios/)){
+    $("#menu-pessoaacesso").addClass("active");
+}
 
 var tipoValue = $("#tipo").val();
 if(tipoValue === 'FISICA'){

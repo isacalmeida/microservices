@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.api.service.cep.CepService;
 import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
+import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
 
 @RestController
 @RequestMapping("/ceps")
@@ -82,7 +82,7 @@ public class CepController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Long> delete(@PathVariable Long id){
         return cepService.getOne(id)
-                .map(estado -> {
+                .map(cep -> {
                     cepService.delete(id);
                     return ResponseEntity.ok().body(id);
                 }).orElse(ResponseEntity.notFound().build());

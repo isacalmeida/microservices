@@ -7,14 +7,13 @@
 
 	<groupId>br.edu.unoesc.zuulserver</groupId>
 	<artifactId>zuul-server-parent</artifactId>
-	<version>${zuul-server.version}</version>
 	<packaging>pom</packaging>
 
 
 	<parent>
 		<groupId>br.edu.unoesc</groupId>
 		<artifactId>sistema-web-gpsti</artifactId>
-		<version>${sistema-parent.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -28,6 +27,7 @@
 			<dependency>
 				<artifactId>zuul-server-application</artifactId>
 				<groupId>br.edu.unoesc.zuulserver.application</groupId>
+				<version>${zuul-server.version}</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>

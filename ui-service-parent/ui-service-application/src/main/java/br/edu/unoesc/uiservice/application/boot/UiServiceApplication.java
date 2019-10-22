@@ -20,7 +20,7 @@ import brave.sampler.Sampler;
 @SpringBootApplication(scanBasePackages = UiServiceApplication.BASE_PACKAGE)
 public class UiServiceApplication extends SpringBootServletInitializer {
 
-	public static final String BASE_PACKAGE = "br.edu.unoesc.uiservice";
+	public static final String BASE_PACKAGE = "br.edu.unoesc";
 
 	public static void main(String[] args) {
 		SpringApplication.run(UiServiceApplication.class, args);

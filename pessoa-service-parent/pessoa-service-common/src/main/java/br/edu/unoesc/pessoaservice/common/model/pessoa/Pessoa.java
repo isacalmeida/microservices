@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.common.model.pessoa;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -36,9 +37,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pes_pessoa")
-public class Pessoa {
+public class Pessoa implements Serializable {
 
-    // == primary-fields ==
+	private static final long serialVersionUID = 1L;
+
+	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pes_id")

@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.cep.CepService;
 import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
 import br.edu.unoesc.pessoaservice.persistence.repository.cep.CepRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
 
 @Service
 public class CepServiceImpl implements CepService{

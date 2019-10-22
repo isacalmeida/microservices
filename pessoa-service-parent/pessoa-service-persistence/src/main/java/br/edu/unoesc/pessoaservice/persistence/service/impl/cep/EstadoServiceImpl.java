@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.cep.EstadoService;
 import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
 import br.edu.unoesc.pessoaservice.persistence.repository.cep.EstadoRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.cep.EstadoService;
 
 @Service
 public class EstadoServiceImpl implements EstadoService{

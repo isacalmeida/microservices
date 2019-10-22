@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.pessoa.ContatoService;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Contato;
 import br.edu.unoesc.pessoaservice.persistence.repository.pessoa.ContatoRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.pessoa.ContatoService;
 
 @Service
 public class ContatoServiceImpl implements ContatoService{

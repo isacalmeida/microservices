@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.pessoa.PessoaService;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Pessoa;
 import br.edu.unoesc.pessoaservice.persistence.repository.pessoa.PessoaRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.pessoa.PessoaService;
 
 @Service
 public class PessoaServiceImpl implements PessoaService {

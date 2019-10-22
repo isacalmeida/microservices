@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.api.service.pessoa.PessoaService;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Pessoa;
+import br.edu.unoesc.pessoaservice.persistence.service.pessoa.PessoaService;
 
 @RestController
 @RequestMapping(value = "/pessoas")

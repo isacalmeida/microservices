@@ -3,10 +3,12 @@ server:
 
 spring:
   application:
-    name: auth-server
+    name: acesso-service
   cloud:
     config:
       uri: http://localhost:8888
+  jmx:
+    enabled: true
   jackson:
     serialization:
       INDENT_OUTPUT: true

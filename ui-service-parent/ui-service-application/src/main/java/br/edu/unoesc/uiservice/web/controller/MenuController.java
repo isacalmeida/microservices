@@ -16,6 +16,13 @@ public class MenuController {
         return modelAndView;
     }
 
+    @GetMapping("/acesso")
+    public ModelAndView acesso(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("menu/acesso");
+        return modelAndView;
+    }
+
     @GetMapping("/pessoa")
     public ModelAndView pessoa(){
         ModelAndView modelAndView = new ModelAndView();

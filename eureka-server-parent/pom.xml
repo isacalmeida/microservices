@@ -7,14 +7,13 @@
 
 	<groupId>br.edu.unoesc.eurekaserver</groupId>
 	<artifactId>eureka-server-parent</artifactId>
-	<version>${eureka-server.version}</version>
 	<packaging>pom</packaging>
 
 
 	<parent>
 		<groupId>br.edu.unoesc</groupId>
 		<artifactId>sistema-web-gpsti</artifactId>
-		<version>${sistema-parent.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -28,6 +27,7 @@
 			<dependency>
 				<artifactId>eureka-server-application</artifactId>
 				<groupId>br.edu.unoesc.eurekaserver.application</groupId>
+				<version>${eureka-server.version}</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>

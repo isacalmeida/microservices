@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>acesso-service-parent</artifactId>
 		<groupId>br.edu.unoesc.acessoservice</groupId>
-		<version>${acesso-service.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 
@@ -18,11 +18,7 @@
 
 	<dependencies>
 		<!-- project dependencies -->
-		<dependency>
-			<artifactId>acesso-service-common</artifactId>
-			<groupId>br.edu.unoesc.acessoservice.common</groupId>
-			<version>${acesso-service.version}</version>
-		</dependency>
+
 		<!-- project dependencies -->
 
 

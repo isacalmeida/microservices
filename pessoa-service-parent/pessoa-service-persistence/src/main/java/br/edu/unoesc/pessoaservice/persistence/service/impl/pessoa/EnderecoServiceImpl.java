@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.api.service.pessoa.EnderecoService;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Endereco;
 import br.edu.unoesc.pessoaservice.persistence.repository.pessoa.EnderecoRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.pessoa.EnderecoService;
 
 @Service
 public class EnderecoServiceImpl implements EnderecoService {

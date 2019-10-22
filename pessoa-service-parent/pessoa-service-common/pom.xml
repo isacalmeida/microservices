@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>pessoa-service-parent</artifactId>
 		<groupId>br.edu.unoesc.pessoaservice</groupId>
-		<version>${pessoa-service.version}</version>
+		<version>1.0.0</version>
 	</parent>
 
 

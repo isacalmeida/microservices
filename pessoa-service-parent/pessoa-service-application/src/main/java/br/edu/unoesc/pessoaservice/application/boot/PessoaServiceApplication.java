@@ -17,7 +17,7 @@ import brave.sampler.Sampler;
 @SpringBootApplication(scanBasePackages = PessoaServiceApplication.BASE_PACKAGE)
 public class PessoaServiceApplication {
 
-	public static final String BASE_PACKAGE = "br.edu.unoesc.pessoaservice";
+	public static final String BASE_PACKAGE = "br.edu.unoesc";
 	
     public static void main(String[] args) {
         SpringApplication.run(PessoaServiceApplication.class, args);

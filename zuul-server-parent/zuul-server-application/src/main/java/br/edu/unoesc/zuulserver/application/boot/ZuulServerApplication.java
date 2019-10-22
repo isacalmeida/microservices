@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication(scanBasePackages = ZuulServerApplication.BASE_PACKAGE)
 public class ZuulServerApplication {
 
-	public static final String BASE_PACKAGE = "br.edu.unoesc.zuulserver";
+	public static final String BASE_PACKAGE = "br.edu.unoesc";
 	
     public static void main(String[] args) {
         SpringApplication.run(ZuulServerApplication.class, args);
