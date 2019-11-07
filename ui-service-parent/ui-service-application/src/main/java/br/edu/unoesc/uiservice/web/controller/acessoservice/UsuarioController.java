@@ -3,6 +3,8 @@ package br.edu.unoesc.uiservice.web.controller.acessoservice;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,7 +42,7 @@ public class UsuarioController extends DefaultController<Usuario, AcessoServiceP
 	}
 
 	@Override
-	public ModelAndView getOne(Long id) {
+	public ModelAndView getOne(@PathVariable Long id) {
 		Usuario usuario = proxy.getOneUsuario(id);
         Integer port = proxy.getPortUsuario();
 
@@ -52,10 +54,10 @@ public class UsuarioController extends DefaultController<Usuario, AcessoServiceP
 	}
 
 	@Override
-	public ModelAndView excluir(Long id) {
+	public ModelAndView excluir(@PathVariable Long id) {
 		Usuario usuario = proxy.getOneUsuario(id);
         log.info("USUARIO ENVIADO: {}", usuario);
-    	proxy.deleteUsuario(id);
+    	proxy.deleteUsuario(usuario.getId());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/usuarios");
@@ -63,7 +65,7 @@ public class UsuarioController extends DefaultController<Usuario, AcessoServiceP
 	}
 
 	@Override
-	public ModelAndView salvar(Usuario usuario) {
+	public ModelAndView salvar(@ModelAttribute Usuario usuario) {
 		log.info("USUARIO ENVIADO: {}", usuario);
         Usuario usuarioCreated = proxy.createUsuario(usuario);
         log.info("USUARIO SALVO: {}", usuarioCreated);
@@ -74,7 +76,7 @@ public class UsuarioController extends DefaultController<Usuario, AcessoServiceP
 	}
 
 	@Override
-	public ModelAndView atualizar(Usuario usuario) {
+	public ModelAndView atualizar(@ModelAttribute Usuario usuario) {
 		log.info("USUARIO ENVIADO: {}", usuario);
 		Usuario usuarioUpdated = proxy.updateUsuario(usuario.getId(), usuario);
         log.info("USUARIO SALVO: {}", usuarioUpdated);

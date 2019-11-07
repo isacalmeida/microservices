@@ -1,6 +1,7 @@
 package br.edu.unoesc.acessoservice.web.controller;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -70,12 +71,12 @@ public class ProgramaController {
         if(programaUpdated.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        
 		if(programa == null) {
 		    return ResponseEntity.noContent().build();
 		}
-		
 		programa.setId(programaUpdated.get().getId());
+		programa.setDataAlteracao(Calendar.getInstance().getTime());
+		
 		return ResponseEntity.ok(programaService.update(programa));
     }
 

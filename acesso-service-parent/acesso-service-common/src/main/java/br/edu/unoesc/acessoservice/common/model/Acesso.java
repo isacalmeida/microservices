@@ -26,12 +26,14 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "ace_acesso")
+@ToString(exclude = "perfil")
 public class Acesso implements Serializable {
 
 	private static final long serialVersionUID = 1L;

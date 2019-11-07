@@ -3,10 +3,13 @@ package br.edu.unoesc.uiservice.web.controller.acessoservice;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.unoesc.acessoservice.common.model.Programa;
+import br.edu.unoesc.acessoservice.common.model.enums.EnumTipoServico;
 import br.edu.unoesc.uiservice.api.proxy.AcessoServiceProxy;
 import br.edu.unoesc.uiservice.web.controller.utils.DefaultController;
 import lombok.extern.slf4j.Slf4j;
@@ -34,28 +37,30 @@ public class ProgramaController extends DefaultController<Programa, AcessoServic
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("programa", new Programa());
+		modelAndView.addObject("tipoServicos", EnumTipoServico.getList());
 		modelAndView.addObject("port", port);
 		modelAndView.setViewName("programas/novo");
 		return modelAndView;
 	}
 
 	@Override
-	public ModelAndView getOne(Long id) {
+	public ModelAndView getOne(@PathVariable Long id) {
 		Programa programa = proxy.getOnePrograma(id);
         Integer port = proxy.getPortPrograma();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("programa", programa);
+		modelAndView.addObject("tipoServicos", EnumTipoServico.getList());
         modelAndView.addObject("port", port);
         modelAndView.setViewName("programas/editar");
         return modelAndView;
 	}
 
 	@Override
-	public ModelAndView excluir(Long id) {
+	public ModelAndView excluir(@PathVariable Long id) {
 		Programa programa = proxy.getOnePrograma(id);
         log.info("PROGRAMA ENVIADO: {}", programa);
-    	proxy.deletePrograma(id);
+    	proxy.deletePrograma(programa.getId());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/programas");
@@ -63,7 +68,7 @@ public class ProgramaController extends DefaultController<Programa, AcessoServic
 	}
 
 	@Override
-	public ModelAndView salvar(Programa programa) {
+	public ModelAndView salvar(@ModelAttribute Programa programa) {
 		log.info("PROGRAMA ENVIADO: {}", programa);
         Programa programaCreated = proxy.createPrograma(programa);
         log.info("PROGRAMA SALVO: {}", programaCreated);
@@ -74,7 +79,7 @@ public class ProgramaController extends DefaultController<Programa, AcessoServic
 	}
 
 	@Override
-	public ModelAndView atualizar(Programa programa) {
+	public ModelAndView atualizar(@ModelAttribute Programa programa) {
 		log.info("PROGRAMA ENVIADO: {}", programa);
 		Programa programaUpdated = proxy.updatePrograma(programa.getId(), programa);
         log.info("PROGRAMA SALVO: {}", programaUpdated);

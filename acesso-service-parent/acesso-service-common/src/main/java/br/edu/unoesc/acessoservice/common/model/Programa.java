@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.edu.unoesc.acessoservice.common.model.enums.EnumTipoServico;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,8 +45,9 @@ public class Programa implements Serializable {
     @Column(name = "pro_endereco", length = 250, nullable = false)
     private String endereco;
     
-    @Column(name = "pro_servico", length = 50, nullable = false)
-    private String servico;
+    @Column(name = "pro_tipo_servico", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private EnumTipoServico tipoServico;
     
     
     // == extra-fields ==

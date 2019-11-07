@@ -11,7 +11,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-
+	<name>ui-service</name>
 	<artifactId>ui-service-application</artifactId>
 	<groupId>br.edu.unoesc.uiservice.application</groupId>
 	<packaging>war</packaging>
@@ -178,4 +178,44 @@
 		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
+
+	<build>
+		<finalName>${project.name}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<release>${java.version}</release>
+					<compilerArgs>--enable-preview</compilerArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-spotify.version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>isacalmeida/${project.name}</repository>
+					<tag>${project.version}</tag>
+					<skipDockerInfo>true</skipDockerInfo>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

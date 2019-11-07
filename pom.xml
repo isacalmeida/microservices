@@ -11,15 +11,8 @@
 	<version>1.0.0</version>
 
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.0.RELEASE</version>
-		<relativePath />
-	</parent>
-
-
 	<modules>
+		<module>admin-server</module>
 		<module>auth-server-parent</module>
 		<module>config-server-parent</module>
 		<module>eureka-server-parent</module>
@@ -28,30 +21,44 @@
 		<module>pessoa-service-parent</module>
 		<module>ui-service-parent</module>
 		<module>sistema-utils-parent</module>
+		<module>hystrix-server-parent</module>
 	</modules>
 
 
 	<properties>
 		<!-- project properties -->
 		<sistema-parent.version>1.0.0</sistema-parent.version>
+		<admin-server.version>1.0.0</admin-server.version>
 		<acesso-service.version>1.0.0</acesso-service.version>
 		<auth-server.version>1.0.0</auth-server.version>
 		<config-server.version>1.0.0</config-server.version>
 		<eureka-server.version>1.0.0</eureka-server.version>
+		<hystrix-server.version>1.0.0</hystrix-server.version>
 		<zuul-server.version>1.0.0</zuul-server.version>
 		<pessoa-service.version>1.0.0</pessoa-service.version>
 		<ui-service.version>1.0.0</ui-service.version>
 		<sistema-utils.version>1.0.0</sistema-utils.version>
 		<!-- project properties -->
+		
+		<!-- spring properties -->
+		<spring-boot.version>2.2.0.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.M3</spring-cloud.version>
+		<!-- spring properties -->
+		
+		<!-- maven properties -->
+		<java.version>13</java.version>
+		<maven-jar.version>3.1.2</maven-jar.version>
+		<maven-compiler.version>3.8.1</maven-compiler.version>
+		<!-- maven properties -->
 
 		<!-- back-end properties -->
 		<activation-api.version>1.2.0</activation-api.version>
-		<java.version>13</java.version>
+		<dockerfile-spotify.version>1.4.13</dockerfile-spotify.version>
 		<jaxb-api.version>2.3.1</jaxb-api.version>
 		<jaxb-impl.version>2.3.2</jaxb-impl.version>
 		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
-		<spring-cloud.version>Hoxton.M3</spring-cloud.version>
 		<model-mapper.version>2.3.5</model-mapper.version>
+		<spring-admin.version>2.1.6</spring-admin.version>
 		<!-- back-end properties -->
 
 		<!-- front-end properties -->
@@ -122,6 +129,13 @@
 				<type>pom</type>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
@@ -132,26 +146,26 @@
 	</dependencyManagement>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<release>${java.version}</release>
-					<compilerArgs>--enable-preview</compilerArgs>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<configuration>
+						<excludeDevtools>true</excludeDevtools>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler.version}</version>
+					<configuration>
+						<release>${java.version}</release>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<repositories>

@@ -60,7 +60,7 @@
             <div class="box">
                 <div class="box-header with-border">
                     <div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
-                        <a href="<c:url value='/acessos/novo'/>" ><button type="button" class="btn btn-primary btn-flat">Novo</button></a>
+                        <!-- <a href="<c:url value='/acessos/novo'/>" ><button type="button" class="btn btn-primary btn-flat">Novo</button></a> -->
                         <a href="<c:url value='/menu/acesso' />"><button type="button" class="btn btn-info btn-flat">Voltar</button></a>
                     </div>
                 </div>

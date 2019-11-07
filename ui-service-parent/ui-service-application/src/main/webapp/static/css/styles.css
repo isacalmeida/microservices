@@ -6,6 +6,9 @@
 .icheck{
 	margin-top: 5px;
 }
+.btn-lg{
+	padding-right: 11px;
+}
 
 .bootstrap-switch {
     border-color: #d2d6de;

@@ -1,6 +1,7 @@
 package br.edu.unoesc.acessoservice.web.controller;
 
 import java.net.URI;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -70,12 +71,12 @@ public class PerfilController {
         if(perfilUpdated.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        
 		if(perfil == null) {
 		    return ResponseEntity.noContent().build();
 		}
-		
 		perfil.setId(perfilUpdated.get().getId());
+		perfil.setDataAlteracao(Calendar.getInstance().getTime());
+		
 		return ResponseEntity.ok(perfilService.update(perfil));
     }
 

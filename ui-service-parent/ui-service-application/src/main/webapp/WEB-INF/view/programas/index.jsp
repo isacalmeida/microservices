@@ -71,7 +71,7 @@
                             <th>#</th>
                             <th>Descricao</th>
                             <th>Endereço</th>
-                            <th>Serviço</th>
+                            <th>Tipo do Serviço</th>
                             <th>Data de Cadastro</th>
                             <th>Última Alteração</th>
                         </tr>
@@ -83,7 +83,7 @@
                                     <td>${programa.id }</td>
                                     <td><a href="<c:url value='/programas/${programa.id }/editar' />"  >${programa.descricao }</a></td>
                                     <td>${programa.endereco}</td>
-                                    <td>${programa.servico}</td>
+                                    <td>${programa.tipoServico}</td>
                                     <td><fmt:formatDate value="${programa.dataCriacao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
                                     <td><fmt:formatDate value="${programa.dataAlteracao }" pattern="dd-MM-yyyy HH:mm:ss" /></td>
                                 </tr>

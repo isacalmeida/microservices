@@ -3,6 +3,8 @@ package br.edu.unoesc.uiservice.web.controller.acessoservice;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,7 +41,7 @@ public class AcessoController extends DefaultController<Acesso, AcessoServicePro
 	}
 
 	@Override
-	public ModelAndView getOne(Long id) {
+	public ModelAndView getOne(@PathVariable Long id) {
 		Acesso acesso = proxy.getOneAcesso(id);
         Integer port = proxy.getPortAcesso();
 
@@ -51,10 +53,10 @@ public class AcessoController extends DefaultController<Acesso, AcessoServicePro
 	}
 
 	@Override
-	public ModelAndView excluir(Long id) {
+	public ModelAndView excluir(@PathVariable Long id) {
 		Acesso acesso = proxy.getOneAcesso(id);
         log.info("ACESSO ENVIADO: {}", acesso);
-    	proxy.deleteAcesso(id);
+    	proxy.deleteAcesso(acesso.getId());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/acessos");
@@ -62,7 +64,7 @@ public class AcessoController extends DefaultController<Acesso, AcessoServicePro
 	}
 
 	@Override
-	public ModelAndView salvar(Acesso acesso) {
+	public ModelAndView salvar(@ModelAttribute Acesso acesso) {
 		log.info("ACESSO ENVIADO: {}", acesso);
         Acesso acessoCreated = proxy.createAcesso(acesso);
         log.info("ACESSO SALVO: {}", acessoCreated);
@@ -73,7 +75,7 @@ public class AcessoController extends DefaultController<Acesso, AcessoServicePro
 	}
 
 	@Override
-	public ModelAndView atualizar(Acesso acesso) {
+	public ModelAndView atualizar(@ModelAttribute Acesso acesso) {
 		log.info("ACESSO ENVIADO: {}", acesso);
         Acesso acessoUpdated = proxy.updateAcesso(acesso.getId(), acesso);
         log.info("ACESSO SALVO: {}", acessoUpdated);

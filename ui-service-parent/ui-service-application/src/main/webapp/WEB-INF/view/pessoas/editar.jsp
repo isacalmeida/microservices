@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn btn-default pull-left"> Voltar </button>
-                                    <a href="<c:url value='/funcionario/${pessoa.id }/excluir'/>" ><button type="button" class="btn btn-primary" id="delete"> Confirmar </button></a>
+                                    <a href="<c:url value='/pessoas/${pessoa.id }/excluir'/>" ><button type="button" class="btn btn-primary" id="delete"> Confirmar </button></a>
                                 </div>
                             </div>
                         </div>
