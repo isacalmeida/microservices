@@ -22,6 +22,7 @@
 		<module>ui-service-parent</module>
 		<module>sistema-utils-parent</module>
 		<module>hystrix-server-parent</module>
+		<module>zipkin-server-parent</module>
 	</modules>
 
 

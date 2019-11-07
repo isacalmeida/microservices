@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hystrix-server
+  cloud:
+    config:
+      #uri: http://localhost:8888
+      #uri: http://172.31.25.120:8888
+      uri: http://3.17.57.215:8888
+  jmx:
+    enabled: true
