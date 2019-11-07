@@ -14,7 +14,7 @@
 
 	<artifactId>sistema-utils-api</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.api</groupId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 
 	<dependencies>
