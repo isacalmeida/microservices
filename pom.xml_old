@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>br.edu.unoesc</groupId>
+	<artifactId>sistema-web-gpsti</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0</version>
+
+
+	<modules>
+		<module>admin-server</module>
+		<module>auth-server-parent</module>
+		<module>config-server-parent</module>
+		<module>eureka-server-parent</module>
+		<module>zuul-server-parent</module>
+		<module>acesso-service-parent</module>
+		<module>pessoa-service-parent</module>
+		<module>ui-service-parent</module>
+		<module>sistema-utils-parent</module>
+		<module>hystrix-server-parent</module>
+		<module>zipkin-server-parent</module>
+	</modules>
+
+
+	<properties>
+		<!-- sistema properties -->
+		<sistema-parent.version>1.0.0</sistema-parent.version>
+		<sistema-utils.version>1.0.0</sistema-utils.version>
+		<!-- sistema properties -->		
+		
+		<!-- services properties -->
+		<acesso-service.version>1.0.0</acesso-service.version>
+		<admin-server.version>1.0.0</admin-server.version>
+		<auth-server.version>1.0.0</auth-server.version>
+		<config-server.version>1.0.0</config-server.version>
+		<eureka-server.version>1.0.0</eureka-server.version>
+		<hystrix-server.version>1.0.0</hystrix-server.version>
+		<pessoa-service.version>1.0.0</pessoa-service.version>
+		<ui-service.version>1.0.0</ui-service.version>
+		<zipkin-server.version>1.0.0</zipkin-server.version>
+		<zuul-server.version>1.0.0</zuul-server.version>
+		<!-- services properties -->
+
+		<!-- spring properties -->
+		<spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+		<!-- spring properties -->
+
+		<!-- maven properties -->
+		<java.version>13</java.version>
+		<maven-jar.version>3.1.2</maven-jar.version>
+		<maven-compiler.version>3.8.1</maven-compiler.version>
+		<!-- maven properties -->
+
+		<!-- back-end properties -->
+		<activation-api.version>1.2.0</activation-api.version>
+		<dockerfile-spotify.version>1.4.13</dockerfile-spotify.version>
+		<jaxb-api.version>2.3.1</jaxb-api.version>
+		<jaxb-impl.version>2.3.2</jaxb-impl.version>
+		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
+		<model-mapper.version>2.3.5</model-mapper.version>
+		<spring-admin.version>2.2.1</spring-admin.version>
+		<!-- back-end properties -->
+
+		<!-- front-end properties -->
+		<webjars-locator.version>0.37</webjars-locator.version>
+		<webjars-jquery.version>3.4.1</webjars-jquery.version>
+		<webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
+		<webjars-fa.version>5.10.1</webjars-fa.version>
+		<webjars-select2.version>4.0.8</webjars-select2.version>
+		<webjars-datepicker.version>1.9.0</webjars-datepicker.version>
+		<webjars-mask.version>1.14.15</webjars-mask.version>
+		<webjars-adminlte.version>2.4.15</webjars-adminlte.version>
+		<webjars-switch.version>3.3.4</webjars-switch.version>
+		<webjars-jqueryui.version>1.12.1</webjars-jqueryui.version>
+		<webjars-autocomplete.version>1.4.10</webjars-autocomplete.version>
+		<webjars-icheck.version>1.0.2</webjars-icheck.version>
+		<!-- front-end properties -->
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<artifactId>acesso-service-parent</artifactId>
+				<groupId>br.edu.unoesc.acessoservice</groupId>
+				<version>${acesso-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>admin-server-parent</artifactId>
+				<groupId>br.edu.unoesc.adminserver</groupId>
+				<version>${admin-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>auth-server-parent</artifactId>
+				<groupId>br.edu.unoesc.authserver</groupId>
+				<version>${auth-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>config-server-parent</artifactId>
+				<groupId>br.edu.unoesc.configserver</groupId>
+				<version>${config-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>eureka-server-parent</artifactId>
+				<groupId>br.edu.unoesc.eurekaserver</groupId>
+				<version>${eureka-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>hystrix-server-parent</artifactId>
+				<groupId>br.edu.unoesc.hystrixserver</groupId>
+				<version>${hystrix-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>pessoa-service-parent</artifactId>
+				<groupId>br.edu.unoesc.pessoaservice</groupId>
+				<version>${pessoa-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>ui-service-parent</artifactId>
+				<groupId>br.edu.unoesc.uiservice</groupId>
+				<version>${ui-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>zipkin-server-parent</artifactId>
+				<groupId>br.edu.unoesc.zipkinserver</groupId>
+				<version>${zipkin-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>zuul-server-parent</artifactId>
+				<groupId>br.edu.unoesc.zuulserver</groupId>
+				<version>${zuul-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>sistema-utils-parent</artifactId>
+				<groupId>br.edu.unoesc.sistemautils</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<configuration>
+						<excludeDevtools>true</excludeDevtools>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler.version}</version>
+					<configuration>
+						<release>${java.version}</release>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+</project>

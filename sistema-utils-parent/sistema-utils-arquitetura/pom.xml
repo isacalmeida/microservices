@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>sistema-utils-parent</artifactId>
+		<groupId>br.edu.unoesc.sistemautils</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>sistema-utils-arquitetura</artifactId>
+	<groupId>br.edu.unoesc.sistemautils.arquitetura</groupId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>sistema-utils-arquitetura-application</module>
+		<module>sistema-utils-arquitetura-business</module>
+		<module>sistema-utils-arquitetura-common</module>
+		<module>sistema-utils-arquitetura-persistence</module>
+		<module>sistema-utils-arquitetura-restapi</module>
+		<module>sistema-utils-arquitetura-restapi-common</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<artifactId>sistema-utils-arquitetura-application</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>sistema-utils-arquitetura-business</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>sistema-utils-arquitetura-common</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency><dependency>
+				<artifactId>sistema-utils-arquitetura-persistence</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>sistema-utils-arquitetura-restapi</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.edu.unoesc.sistemautils.arquitetura</groupId>
+		<artifactId>sistema-utils-arquitetura</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>sistema-utils-arquitetura-restapi</artifactId>
+	<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<!-- project dependencies -->
+		<dependency>
+			<artifactId>sistema-utils-arquitetura-business</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+		</dependency>
+		<dependency>
+			<artifactId>sistema-utils-arquitetura-common</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+		</dependency>
+		<!-- project dependencies -->
+		
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${model-mapper.version}</version>
+		</dependency>
+	</dependencies>
+</project>
