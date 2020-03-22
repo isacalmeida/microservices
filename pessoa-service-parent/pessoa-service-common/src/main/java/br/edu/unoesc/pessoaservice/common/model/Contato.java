@@ -1,13 +1,7 @@
-package br.edu.unoesc.pessoaservice.common.model.pessoa;
-
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+package br.edu.unoesc.pessoaservice.common.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -15,18 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import br.edu.unoesc.pessoaservice.common.model.enums.EnumTipoContato;
+import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -34,46 +21,46 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cnt_contato")
 @ToString(exclude = "pessoa")
-public class Contato implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Contato extends AbstractDetailEntity<Pessoa> {
 
 	private static final long serialVersionUID = 1L;
 
 	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cnt_id")
-    private Long id;
+    private Long idContato;
 
-    @Column(name = "cnt_tipo", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private EnumTipoContato tipo;
-
-    @Column(name = "cnt_descricao", length = 50, nullable = false)
+    @Column(length = 100, nullable = false)
     private String descricao;
 
-
-    // == extra-fields ==
-    @Column(name = "cnt_ativo", nullable = false)
-    private Boolean ativo = true;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "cnt_data_criacao", nullable = false)
-    private Date dataCriacao = Calendar.getInstance().getTime();
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "cnt_data_alteracao")
-    private Date dataAlteracao;
-
-
     // == relations-fields ==
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cnt_id_pessoa", foreignKey = @ForeignKey(name = "FK_contato_pessoa"))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idTipoContato", foreignKey = @ForeignKey(name = "FK_contato_tipo_contato"))
+    private TipoContato tipoContato;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPessoa", foreignKey = @ForeignKey(name = "FK_contato_pessoa"))
     private Pessoa pessoa;
+
+	@Override
+	public Long getId() {
+		return getIdContato();
+	}
+
+	@Override
+	public void setId(Long id) {
+		setIdContato(id);
+	}
+
+	@Override
+	public Pessoa getMasterEntity() {
+		return getPessoa();
+	}
+
+	@Override
+	public void setMasterEntity(Pessoa masterEntity) {
+		setPessoa(masterEntity);
+	}
 }

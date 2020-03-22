@@ -58,7 +58,7 @@ public class EstadoController extends DefaultController<Estado, PessoaServicePro
     public ModelAndView excluir(@PathVariable Long id) {
         Estado estado = proxy.getOneEstado(id);
         log.info("ESTADO ENVIADO: {}", estado);
-    	proxy.deleteEstado(estado.getId());
+    	proxy.deleteEstado(estado.getIdEstado());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/estados");
@@ -79,7 +79,7 @@ public class EstadoController extends DefaultController<Estado, PessoaServicePro
     @Override
     public ModelAndView atualizar(@ModelAttribute Estado estado) {
     	log.info("ESTADO ENVIADO: {}", estado);
-        Estado estadoUpdated = proxy.updateEstado(estado.getId(), estado);
+        Estado estadoUpdated = proxy.updateEstado(estado.getIdEstado(), estado);
         log.info("ESTADO SALVO: {}", estadoUpdated);
         
         ModelAndView modelAndView = new ModelAndView();

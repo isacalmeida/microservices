@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.EstadoService;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
+import br.edu.unoesc.pessoaservice.persistence.service.EstadoService;
 
 @RestController
 @RequestMapping("/estados")
@@ -58,7 +58,7 @@ public class EstadoController {
 		Estado estadoCreated = estadoService.create(estado);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(estadoCreated.getId()).toUri();
+		        .buildAndExpand(estadoCreated.getIdEstado()).toUri();
 
 		return ResponseEntity.created(location).body(estadoCreated);
     }
@@ -73,7 +73,7 @@ public class EstadoController {
 		if(estado == null) {
 		    return ResponseEntity.noContent().build();
 		}
-		estado.setId(estadoUpdated.get().getId());
+		estado.setIdEstado(estadoUpdated.get().getIdEstado());
 		estado.setDataAlteracao(Calendar.getInstance().getTime());
 		return ResponseEntity.ok(estadoService.update(estado));
     }

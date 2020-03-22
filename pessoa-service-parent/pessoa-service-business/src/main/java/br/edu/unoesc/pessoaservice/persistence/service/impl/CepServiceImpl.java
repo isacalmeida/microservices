@@ -1,4 +1,4 @@
-package br.edu.unoesc.pessoaservice.persistence.service.impl.cep;
+package br.edu.unoesc.pessoaservice.persistence.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
-import br.edu.unoesc.pessoaservice.persistence.repository.cep.CepRepository;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
+import br.edu.unoesc.pessoaservice.common.model.Cep;
+import br.edu.unoesc.pessoaservice.persistence.repository.CepRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.CepService;
 
 @Service
 public class CepServiceImpl implements CepService{
@@ -30,7 +30,7 @@ public class CepServiceImpl implements CepService{
 
     @Override
     public List<Cep> getAllByEstadoAndCidade(Long idEstado, Long idCidade) {
-        return cepRepository.findAllByCidade_Estado_IdAndCidade_Id(idEstado, idCidade);
+        return cepRepository.findAllByCidade_Estado_IdEstadoAndCidade_IdCidade(idEstado, idCidade);
     }
 
     @Override

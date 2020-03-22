@@ -4,23 +4,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>br.edu.unoesc.sistemautils.base</groupId>
+		<artifactId>sistema-utils-base</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
 	<groupId>br.edu.unoesc.hystrixserver</groupId>
 	<artifactId>hystrix-server-parent</artifactId>
 	<packaging>pom</packaging>
 
-
-	<parent>
-		<groupId>br.edu.unoesc</groupId>
-		<artifactId>sistema-web-gpsti</artifactId>
-		<version>1.0.0</version>
-	</parent>
-
-
 	<modules>
 		<module>hystrix-server-application</module>
 	</modules>
-
 
 	<dependencyManagement>
 		<dependencies>
@@ -32,7 +28,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 
 	<dependencies>
 		<!-- spring-boot dependencies -->
@@ -57,7 +52,6 @@
 		</dependency>
 		<!-- spring-boot dependencies -->
 
-
 		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -73,17 +67,18 @@
 		</dependency>
 		<!-- spring-cloud dependencies -->
 
-
 		<!-- spring-security dependencies -->
 
 		<!-- spring-security dependencies -->
-
 
 		<!-- other dependencies -->
-
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${spring-admin.version}</version>
+		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
-
 
 	<build>
 		<plugins>

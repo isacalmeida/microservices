@@ -35,7 +35,7 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
     @Override
     public ModelAndView novo(){
         List<Estado> estados = proxy.getAllEstado();
-        Integer port = proxy.getPortEstadoCidade(estados.get(0).getId());
+        Integer port = proxy.getPortEstadoCidade(estados.get(0).getIdEstado());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cidade", new Cidade());
@@ -73,7 +73,7 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
     @Override
     public ModelAndView salvar(@ModelAttribute Cidade cidade){
     	log.info("CIDADE ENVIADA: {}", cidade);
-        Cidade cidadeCreated = proxy.createEstadoCidade(cidade.getEstado().getId(), cidade);
+        Cidade cidadeCreated = proxy.createEstadoCidade(cidade.getEstado().getIdEstado(), cidade);
     	log.info("CIDADE SALVA: {}", cidadeCreated);
 
         ModelAndView modelAndView = new ModelAndView();
@@ -84,7 +84,7 @@ public class CidadeController extends DefaultController<Cidade, PessoaServicePro
     @Override
     public ModelAndView atualizar(@ModelAttribute Cidade cidade) {
     	log.info("CIDADE ENVIADA: {}", cidade);
-        Cidade cidadeUpdated = proxy.updateEstadoCidade(cidade.getEstado().getId(), cidade.getId(), cidade);
+        Cidade cidadeUpdated = proxy.updateEstadoCidade(cidade.getEstado().getIdEstado(), cidade.getIdCidade(), cidade);
         log.info("CIDADE SALVA: {}", cidadeUpdated);
 
         ModelAndView modelAndView = new ModelAndView();

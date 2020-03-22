@@ -16,7 +16,7 @@ public class EnumController {
         StringBuilder result = new StringBuilder();
         result.append("<option value='null'>-- Selecione --</option>");
         for(EnumTipoContato option : EnumTipoContato.getList()) {
-            result.append("<option value='").append(option).append("'>").append(option.getDescricao()).append("</option>");
+            result.append("<option value='").append(option).append("'>").append(option.getEntidade().getDescricao()).append("</option>");
         }
         return result.toString();
     }
@@ -27,7 +27,7 @@ public class EnumController {
         StringBuilder result = new StringBuilder();
         result.append("<option value='null'>-- Selecione --</option>");
         for(EnumTipoEndereco option : EnumTipoEndereco.getList()) {
-            result.append("<option value='").append(option).append("'>").append(option.getDescricao()).append("</option>");
+            result.append("<option value='").append(option).append("'>").append(option.getEntidade().getDescricao()).append("</option>");
         }
         return result.toString();
     }

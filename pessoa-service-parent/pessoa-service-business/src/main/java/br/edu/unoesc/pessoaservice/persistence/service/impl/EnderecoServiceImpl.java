@@ -1,50 +1,15 @@
-package br.edu.unoesc.pessoaservice.persistence.service.impl.pessoa;
+package br.edu.unoesc.pessoaservice.persistence.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.common.model.pessoa.Endereco;
-import br.edu.unoesc.pessoaservice.persistence.repository.pessoa.EnderecoRepository;
-import br.edu.unoesc.pessoaservice.persistence.service.pessoa.EnderecoService;
+import br.edu.unoesc.pessoaservice.common.model.Endereco;
+import br.edu.unoesc.pessoaservice.common.model.Pessoa;
+import br.edu.unoesc.pessoaservice.persistence.repository.EnderecoRepository;
+import br.edu.unoesc.pessoaservice.persistence.repository.PessoaRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.EnderecoService;
+import br.edu.unoesc.sistemautils.arquitetura.business.AbstractDetailCrudService;
 
 @Service
-public class EnderecoServiceImpl implements EnderecoService {
+public class EnderecoServiceImpl extends AbstractDetailCrudService<Pessoa, Endereco, PessoaRepository, EnderecoRepository> implements EnderecoService {
 
-    // == fields ==
-    private EnderecoRepository enderecoRepository;
-
-    // == constructors ==
-    @Autowired
-    public EnderecoServiceImpl(EnderecoRepository enderecoRepository){
-        this.enderecoRepository = enderecoRepository;
-    }
-
-    @Override
-    public List<Endereco> getAll() {
-        return enderecoRepository.findAll(Sort.by("id").ascending());
-    }
-
-    @Override
-    public Optional<Endereco> getOne(Long id) {
-        return enderecoRepository.findById(id);
-    }
-
-    @Override
-    public Endereco create(Endereco endereco) {
-        return enderecoRepository.save(endereco);
-    }
-
-    @Override
-    public Endereco update(Endereco endereco) {
-        return enderecoRepository.save(endereco);
-    }
-
-    @Override
-    public void delete(Long id) {
-        enderecoRepository.deleteById(id);
-    }
 }

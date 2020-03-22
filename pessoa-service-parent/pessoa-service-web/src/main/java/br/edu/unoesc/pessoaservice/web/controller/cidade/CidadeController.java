@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cidade;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CidadeService;
+import br.edu.unoesc.pessoaservice.common.model.Cidade;
+import br.edu.unoesc.pessoaservice.persistence.service.CidadeService;
 
 @RestController
 @RequestMapping("/cidades")
@@ -57,7 +57,7 @@ public class CidadeController {
 		Cidade cidadeCreated = cidadeService.create(cidade);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(cidadeCreated.getId()).toUri();
+		        .buildAndExpand(cidadeCreated.getIdCidade()).toUri();
 
 		return ResponseEntity.created(location).body(cidadeCreated);
     }
@@ -72,7 +72,7 @@ public class CidadeController {
 		if(cidade == null) {
 		    return ResponseEntity.noContent().build();
 		}
-		cidade.setId(cidadeUpdated.get().getId());
+		cidade.setIdCidade(cidadeUpdated.get().getIdCidade());
 		return ResponseEntity.ok(cidadeService.update(cidade));
     }
 

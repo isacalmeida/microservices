@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
+import br.edu.unoesc.pessoaservice.common.model.Cep;
+import br.edu.unoesc.pessoaservice.persistence.service.CepService;
 
 @RestController
 @RequestMapping("/ceps")
@@ -58,7 +58,7 @@ public class CepController {
 		Cep cepCreated = cepService.create(cep);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(cepCreated.getId()).toUri();
+		        .buildAndExpand(cepCreated.getIdCep()).toUri();
 
 		return ResponseEntity.created(location).body(cepCreated);
     }
@@ -75,7 +75,7 @@ public class CepController {
 		    return ResponseEntity.noContent().build();
 		}
 		
-		cep.setId(cepUpdated.get().getId());
+		cep.setIdCep(cepUpdated.get().getIdCep());
 		return ResponseEntity.ok(cepService.update(cep));
     }
 

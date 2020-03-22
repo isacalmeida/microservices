@@ -1,10 +1,12 @@
-package br.edu.unoesc.pessoaservice.persistence.repository.pessoa;
+package br.edu.unoesc.pessoaservice.persistence.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.unoesc.pessoaservice.common.model.pessoa.Endereco;
+import br.edu.unoesc.pessoaservice.common.model.Endereco;
+import br.edu.unoesc.pessoaservice.common.model.Pessoa;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.IDetailRepository;
 
 @Repository
-public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
+public interface EnderecoRepository extends IDetailRepository<Pessoa, Endereco, Long> {
+
 }

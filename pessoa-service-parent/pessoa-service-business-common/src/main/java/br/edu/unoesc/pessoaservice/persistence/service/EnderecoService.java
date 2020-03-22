@@ -1,20 +1,9 @@
-package br.edu.unoesc.pessoaservice.persistence.service.pessoa;
+package br.edu.unoesc.pessoaservice.persistence.service;
 
-import java.util.List;
-import java.util.Optional;
+import br.edu.unoesc.pessoaservice.common.model.Endereco;
+import br.edu.unoesc.pessoaservice.common.model.Pessoa;
+import br.edu.unoesc.sistemautils.arquitetura.business.IDetailCrudService;
 
-import br.edu.unoesc.pessoaservice.common.model.pessoa.Endereco;
+public interface EnderecoService extends IDetailCrudService<Pessoa, Endereco> {
 
-public interface EnderecoService {
-
-    // == service CRUD ==
-    List<Endereco> getAll();
-
-    Optional<Endereco> getOne(Long id);
-
-    Endereco create(Endereco endereco);
-
-    Endereco update(Endereco endereco);
-
-    void delete(Long id);
 }

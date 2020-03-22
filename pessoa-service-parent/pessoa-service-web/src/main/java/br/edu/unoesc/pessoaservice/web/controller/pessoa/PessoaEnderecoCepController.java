@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
+import br.edu.unoesc.pessoaservice.common.model.Cep;
+import br.edu.unoesc.pessoaservice.persistence.service.CepService;
 
 @RestController
 @RequestMapping(value = "/pessoas/{idPessoa}/enderecos/{idEndereco}/cep")

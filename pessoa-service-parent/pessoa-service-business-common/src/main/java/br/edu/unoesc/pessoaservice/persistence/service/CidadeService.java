@@ -1,9 +1,9 @@
-package br.edu.unoesc.pessoaservice.persistence.service.cep;
+package br.edu.unoesc.pessoaservice.persistence.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cidade;
+import br.edu.unoesc.pessoaservice.common.model.Cidade;
 
 public interface CidadeService {
 

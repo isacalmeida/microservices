@@ -1,20 +1,8 @@
-package br.edu.unoesc.pessoaservice.persistence.service.pessoa;
+package br.edu.unoesc.pessoaservice.persistence.service;
 
-import java.util.List;
-import java.util.Optional;
+import br.edu.unoesc.pessoaservice.common.model.PessoaFisica;
+import br.edu.unoesc.sistemautils.arquitetura.business.IMasterCrudService;
 
-import br.edu.unoesc.pessoaservice.common.model.pessoa.Pessoa;
+public interface PessoaFisicaService extends IMasterCrudService<PessoaFisica> {
 
-public interface PessoaService {
-
-    // == service CRUD ==
-    List<Pessoa> getAll();
-
-    Optional<Pessoa> getOne(Long id);
-
-    Pessoa create(Pessoa pessoa);
-
-    Pessoa update(Pessoa pessoa);
-
-    void delete(Long id);
 }

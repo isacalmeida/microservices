@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cep;
-import br.edu.unoesc.pessoaservice.common.model.cep.Cidade;
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CepService;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CidadeService;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.EstadoService;
+import br.edu.unoesc.pessoaservice.common.model.Cep;
+import br.edu.unoesc.pessoaservice.common.model.Cidade;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
+import br.edu.unoesc.pessoaservice.persistence.service.CepService;
+import br.edu.unoesc.pessoaservice.persistence.service.CidadeService;
+import br.edu.unoesc.pessoaservice.persistence.service.EstadoService;
 
 @RestController
 @RequestMapping("/estados/{idEstado}/cidades/{idCidade}/ceps")
@@ -56,8 +56,8 @@ public class EstadoCidadeCepController {
     public ResponseEntity<Cep> findOne(@PathVariable Long idEstado, @PathVariable Long idCidade, @PathVariable Long id){
         Optional<Cep> cepFind = cepService.getOne(id);
         if (cepFind.isPresent())
-            if (!cepFind.get().getCidade().getEstado().getId().equals(idEstado))
-                if(!cepFind.get().getCidade().getId().equals(idCidade))
+            if (!cepFind.get().getCidade().getEstado().getIdEstado().equals(idEstado))
+                if(!cepFind.get().getCidade().getIdCidade().equals(idCidade))
                     return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         return cepFind
                 .map(cep -> ResponseEntity.ok().body(cep))
@@ -84,7 +84,7 @@ public class EstadoCidadeCepController {
 		Cep cepCreated = cepService.create(cep);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(cepCreated.getId()).toUri();
+		        .buildAndExpand(cepCreated.getIdCep()).toUri();
 
 		return ResponseEntity.created(location).body(cepCreated);
     }
@@ -105,7 +105,7 @@ public class EstadoCidadeCepController {
 		cep.setCidade(cidade.get());
 		cep.setDataCriacao(cepUpdated.get().getDataCriacao());
 		cep.setDataAlteracao(Calendar.getInstance().getTime());
-		cep.setId(cepUpdated.get().getId());
+		cep.setIdCep(cepUpdated.get().getIdCep());
 		return ResponseEntity.ok(cepService.update(cep));
 
     }

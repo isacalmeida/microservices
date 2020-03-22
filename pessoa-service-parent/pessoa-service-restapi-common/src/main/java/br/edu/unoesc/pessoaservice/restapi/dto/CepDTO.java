@@ -1,15 +1,20 @@
-package br.edu.unoesc.pessoaservice.api.dto.cep;
+package br.edu.unoesc.pessoaservice.restapi.dto;
 
+import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CepDTO {
+@EqualsAndHashCode(callSuper = false)
+public class CepDTO extends AbstractDTO<CepDTO> {
 
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
+	private Long idCep;
 	
 	private String cep;
 	
@@ -20,4 +25,14 @@ public class CepDTO {
 	private String ibge;
 	
 	private CidadeDTO cidade;
+
+	@Override
+	public Long getId() {
+		return getIdCep();
+	}
+
+	@Override
+	public void setId(Long id) {
+		setIdCep(id);
+	}
 }

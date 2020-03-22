@@ -4,39 +4,32 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<parent>
 		<artifactId>config-server-parent</artifactId>
 		<groupId>br.edu.unoesc.configserver</groupId>
 		<version>1.0.0</version>
 	</parent>
 
-
 	<name>config-server</name>
 	<artifactId>config-server-application</artifactId>
 	<groupId>br.edu.unoesc.configserver.application</groupId>
-
 
 	<dependencies>
 		<!-- project dependencies -->
 
 		<!-- project dependencies -->
 
-
 		<!-- spring-boot dependencies -->
 
 		<!-- spring-boot dependencies -->
-
 
 		<!-- spring-cloud dependencies -->
 
 		<!-- spring-cloud dependencies -->
 
-
 		<!-- spring-security dependencies -->
 
 		<!-- spring-security dependencies -->
-
 
 		<!-- other dependencies -->
 
@@ -59,9 +52,12 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
+					</execution>
+					<execution>
+						<id>build-info</id>
+						<goals>
+                        	<goal>build-info</goal>
+                    	</goals>
 					</execution>
 				</executions>
 			</plugin>

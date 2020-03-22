@@ -1,4 +1,4 @@
-package br.edu.unoesc.pessoaservice.persistence.service.impl.cep;
+package br.edu.unoesc.pessoaservice.persistence.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
-import br.edu.unoesc.pessoaservice.persistence.repository.cep.EstadoRepository;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.EstadoService;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
+import br.edu.unoesc.pessoaservice.persistence.repository.EstadoRepository;
+import br.edu.unoesc.pessoaservice.persistence.service.EstadoService;
 
 @Service
 public class EstadoServiceImpl implements EstadoService{

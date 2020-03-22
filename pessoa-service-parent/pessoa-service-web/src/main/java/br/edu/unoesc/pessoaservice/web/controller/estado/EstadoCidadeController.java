@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Cidade;
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.CidadeService;
-import br.edu.unoesc.pessoaservice.persistence.service.cep.EstadoService;
+import br.edu.unoesc.pessoaservice.common.model.Cidade;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
+import br.edu.unoesc.pessoaservice.persistence.service.CidadeService;
+import br.edu.unoesc.pessoaservice.persistence.service.EstadoService;
 
 @RestController
 @RequestMapping(value = "/estados")
@@ -52,7 +52,7 @@ public class EstadoCidadeController {
     public ResponseEntity<Cidade> findOne(@PathVariable Long idEstado, @PathVariable Long id) {
         Optional<Cidade> cidadeFind = cidadeService.getOne(id);
         if (cidadeFind.isPresent())
-            if (!cidadeFind.get().getEstado().getId().equals(idEstado))
+            if (!cidadeFind.get().getEstado().getIdEstado().equals(idEstado))
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         return cidadeFind
                 .map(cidade -> ResponseEntity.ok().body(cidade))
@@ -72,7 +72,7 @@ public class EstadoCidadeController {
 		Cidade cidadeCreated = cidadeService.create(cidade);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(cidadeCreated.getId()).toUri();
+		        .buildAndExpand(cidadeCreated.getIdCidade()).toUri();
 
 		return ResponseEntity.created(location).body(cidadeCreated);
     }
@@ -91,7 +91,7 @@ public class EstadoCidadeController {
 		cidade.setEstado(estado.get());
 		cidade.setDataCriacao(cidadeUpdated.get().getDataCriacao());
 		cidade.setDataAlteracao(Calendar.getInstance().getTime());
-		cidade.setId(cidadeUpdated.get().getId());
+		cidade.setIdCidade(cidadeUpdated.get().getIdCidade());
 		return ResponseEntity.ok(cidadeService.update(cidade));
     }
 
@@ -112,9 +112,9 @@ public class EstadoCidadeController {
         Optional<Cidade> cidade = cidadeService.getOne(id);
         Optional<Estado> estado = estadoService.getOne(idEstado);
         if (cidade.isPresent() && estado.isPresent()) {
-            if (cidade.get().getEstado().getId().equals(estado.get().getId())) {
-                if (cidade.get().getAtivo().equals(false)) {
-                    cidade.get().setAtivo(true);
+            if (cidade.get().getEstado().getIdEstado().equals(estado.get().getIdEstado())) {
+                if (cidade.get().getIsAtivo().equals(false)) {
+                    cidade.get().setIsAtivo(true);
                     cidade.get().setDataAlteracao(Calendar.getInstance().getTime());
                     cidadeService.update(cidade.get());
                     return ResponseEntity.ok().body(cidade.get());
@@ -131,9 +131,9 @@ public class EstadoCidadeController {
         Optional<Cidade> cidade = cidadeService.getOne(id);
         Optional<Estado> estado = estadoService.getOne(idEstado);
         if (cidade.isPresent() && estado.isPresent()) {
-            if (cidade.get().getEstado().getId().equals(estado.get().getId())) {
-                if (cidade.get().getAtivo().equals(true)) {
-                    cidade.get().setAtivo(false);
+            if (cidade.get().getEstado().getIdEstado().equals(estado.get().getIdEstado())) {
+                if (cidade.get().getIsAtivo().equals(true)) {
+                    cidade.get().setIsAtivo(false);
                     cidade.get().setDataAlteracao(Calendar.getInstance().getTime());
                     cidadeService.update(cidade.get());
                     return ResponseEntity.ok().body(cidade.get());

@@ -1,25 +1,44 @@
 package br.edu.unoesc.pessoaservice.common.model.enums;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public enum EnumGeneroPessoa {
-    HOMEM("Homem"),
-    MULHER("Mulher"),
-    AMBOS("Ambos"),
-    NENHUM("Nenhum");
+import br.edu.unoesc.pessoaservice.common.model.GeneroPessoa;
+import br.edu.unoesc.sistemautils.arquitetura.common.IEnumEntidade;
+import br.edu.unoesc.sistemautils.arquitetura.common.IRevisao;
 
-    private String descricao;
+public enum EnumGeneroPessoa implements IRevisao, IEnumEntidade<GeneroPessoa>  {
+    
+	HOMEM(new GeneroPessoa(1L, "Homem")),
+    MULHER(new GeneroPessoa(2L, "Mulher")),
+    AMBOS(new GeneroPessoa(3L, "Ambos")),
+    NENHUM(new GeneroPessoa(4L, "Nenhum")),
+    ;
 
-    EnumGeneroPessoa(String descricao){
-        this.descricao = descricao;
+    private GeneroPessoa entidade;
+
+	EnumGeneroPessoa(GeneroPessoa entidade){
+        this.entidade = entidade;
     }
 
-    public String getDescricao(){
-        return descricao;
+    @Override
+    public GeneroPessoa getEntidade() {
+    	return entidade;
     }
 
-    public static List<EnumGeneroPessoa> getList(){
-        return Arrays.asList(EnumGeneroPessoa.values());
-    }
+    @Override
+	public Long getRevisao() {
+		return 0L;
+	}
+
+	public static List<EnumGeneroPessoa> getList() {
+		return Arrays.asList(values());
+	}
+
+	public static List<GeneroPessoa> getListEntidade() {
+		List<GeneroPessoa> tList = new ArrayList<>();
+		getList().forEach(eNum -> tList.add(eNum.getEntidade()));
+		return tList;
+	}
 }

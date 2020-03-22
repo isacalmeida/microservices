@@ -1,6 +1,3 @@
-server:
-  port: 8000
-
 spring:
   application:
     name: pessoa-service
@@ -8,10 +5,9 @@ spring:
     config:
       #uri: http://localhost:8888
       #uri: http://172.31.25.120:8888
-      uri: http://3.17.57.215:8888
-  jmx:
-    enabled: true
-
-security:
-  jwt:
-    public-key: classpath:public.txt
+      uri: http://3.17.57.215:8888  flyway:    baseline-on-migrate: true
+    enabled: false
+    password: postgres
+    user: postgres
+  profiles:
+    active: homolog

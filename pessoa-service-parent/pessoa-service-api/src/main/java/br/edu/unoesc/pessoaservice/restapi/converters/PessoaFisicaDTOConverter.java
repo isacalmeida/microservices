@@ -1,21 +1,15 @@
-package br.edu.unoesc.pessoaservice.web.api.v1.converter;
+package br.edu.unoesc.pessoaservice.restapi.converters;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.edu.unoesc.pessoaservice.api.dto.pessoa.PessoaDTO;
-import br.edu.unoesc.pessoaservice.common.model.pessoa.Pessoa;
+import br.edu.unoesc.pessoaservice.common.model.PessoaFisica;
+import br.edu.unoesc.pessoaservice.restapi.converters.factory.MasterDTOConverter;
+import br.edu.unoesc.pessoaservice.restapi.dto.PessoaFisicaDTO;
 
-public class PessoaDTOConverter {
+@Component
+public class PessoaFisicaDTOConverter extends MasterDTOConverter<PessoaFisica, PessoaFisicaDTO> {
 
-	@Autowired
-	private ModelMapper modelMapper;
-
-	public PessoaDTO convertToDTO(Pessoa pessoa) {
-		return modelMapper.map(pessoa, PessoaDTO.class);
-	}
-
-	public Pessoa convertToEntity(PessoaDTO pessoaDTO) {
-		return modelMapper.map(pessoaDTO, Pessoa.class);
+	public PessoaFisicaDTOConverter() {
+		super(PessoaFisica.class, PessoaFisicaDTO.class);
 	}
 }

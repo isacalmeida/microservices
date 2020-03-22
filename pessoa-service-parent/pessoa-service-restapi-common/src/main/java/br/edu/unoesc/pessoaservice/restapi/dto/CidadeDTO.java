@@ -1,17 +1,32 @@
-package br.edu.unoesc.pessoaservice.api.dto.cep;
+package br.edu.unoesc.pessoaservice.restapi.dto;
 
+import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CidadeDTO {
+@EqualsAndHashCode(callSuper = false)
+public class CidadeDTO extends AbstractDTO<CidadeDTO> {
 
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
+	private Long idCidade;
 	
 	private String descricao;
 	
 	private EstadoDTO estado;
+
+	@Override
+	public Long getId() {
+		return getIdCidade();
+	}
+
+	@Override
+	public void setId(Long id) {
+		setIdCidade(id);
+	}
 }

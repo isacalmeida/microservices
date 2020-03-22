@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<parent>
 		<artifactId>auth-server-parent</artifactId>
 		<groupId>br.edu.unoesc.authserver</groupId>
@@ -15,33 +14,28 @@
 	<artifactId>auth-server-application</artifactId>
 	<groupId>br.edu.unoesc.authserver.application</groupId>
 
-
 	<dependencies>
 		<!-- project dependencies -->
 
 		<!-- project dependencies -->
 
-
 		<!-- spring-boot dependencies -->
 		
 		<!-- spring-boot dependencies -->
-
 
 		<!-- spring-cloud dependencies -->
 		
 		<!-- spring-cloud dependencies -->
 
-
 		<!-- spring-security dependencies -->
 
 		<!-- spring-security dependencies -->
-
 
 		<!-- other dependencies -->
 		
 		<!-- other dependencies -->
 	</dependencies>
-	
+
 	<build>
 		<finalName>${project.name}</finalName>
 		<plugins>
@@ -58,9 +52,12 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
+					</execution>
+					<execution>
+						<id>build-info</id>
+						<goals>
+                        	<goal>build-info</goal>
+                    	</goals>
 					</execution>
 				</executions>
 			</plugin>

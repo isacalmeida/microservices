@@ -73,9 +73,9 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
     @Override
     public ModelAndView salvar(@ModelAttribute Cep cep){
         log.info("CEP ENVIADO: {}", cep);
-        Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
+        Cidade cidade = proxy.getOneCidade(cep.getCidade().getIdCidade());
         cep.setCidade(cidade);
-        Cep cepCreated = proxy.createEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep);
+        Cep cepCreated = proxy.createEstadoCidadeCep(cep.getCidade().getEstado().getIdEstado(), cep.getCidade().getIdCidade(), cep);
         log.info("CEP SALVO: {}", cepCreated);
 
         ModelAndView modelAndView = new ModelAndView();
@@ -86,9 +86,9 @@ public class CepController extends DefaultController<Cep, PessoaServiceProxy> {
     @Override
     public ModelAndView atualizar(@ModelAttribute Cep cep) {
         log.info("CEP ENVIADO: {}", cep);
-        Cidade cidade = proxy.getOneCidade(cep.getCidade().getId());
+        Cidade cidade = proxy.getOneCidade(cep.getCidade().getIdCidade());
         cep.setCidade(cidade);
-        Cep cepUpdated = proxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getId(), cep.getCidade().getId(), cep.getId(), cep);
+        Cep cepUpdated = proxy.updateEstadoCidadeCep(cep.getCidade().getEstado().getIdEstado(), cep.getCidade().getIdCidade(), cep.getIdCep(), cep);
         log.info("CEP SALVO: {}", cepUpdated);
 
         ModelAndView modelAndView = new ModelAndView();

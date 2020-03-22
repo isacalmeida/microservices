@@ -3,12 +3,11 @@ spring:
     name: auth-server
   cloud:
     config:
-      uri: http://localhost:8888
-  jackson:
-    serialization:
-      INDENT_OUTPUT: true
-  jmx:
-    enabled: true
+      #uri: http://localhost:8888
+      #uri: http://172.31.25.120:8888
+      uri: http://3.17.57.215:8888
+  profiles:
+    active: homolog
 
 security:
   jwt:

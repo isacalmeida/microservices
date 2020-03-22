@@ -1,16 +1,20 @@
-package br.edu.unoesc.pessoaservice.api.dto.pessoa;
+package br.edu.unoesc.pessoaservice.restapi.dto;
 
-import br.edu.unoesc.pessoaservice.api.dto.cep.CepDTO;
+import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnderecoDTO {
+@EqualsAndHashCode(callSuper = false)
+public class EnderecoDTO extends AbstractDTO<EnderecoDTO> {
 
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
+	private Long idEndereco;
 	
 	private String numero;
 	
@@ -19,4 +23,14 @@ public class EnderecoDTO {
 	private String observacao;
 	
 	private CepDTO cep;
+
+	@Override
+	public Long getId() {
+		return getIdEndereco();
+	}
+
+	@Override
+	public void setId(Long id) {
+		setIdEndereco(id);
+	}
 }

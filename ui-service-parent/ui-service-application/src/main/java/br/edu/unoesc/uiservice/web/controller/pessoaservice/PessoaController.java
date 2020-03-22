@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.unoesc.pessoaservice.common.model.enums.EnumGeneroPessoa;
-import br.edu.unoesc.pessoaservice.common.model.enums.EnumTipoPessoa;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Contato;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Endereco;
 import br.edu.unoesc.pessoaservice.common.model.pessoa.Pessoa;
+import br.edu.unoesc.pessoaservice.common.model.pessoa.PessoaFisica;
 import br.edu.unoesc.uiservice.api.proxy.PessoaServiceProxy;
 import br.edu.unoesc.uiservice.web.controller.utils.DefaultController;
 import lombok.extern.slf4j.Slf4j;
@@ -41,9 +41,8 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
         Integer port = proxy.getPortPessoa();
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("pessoa", new Pessoa());
+        modelAndView.addObject("pessoa", new PessoaFisica());
         modelAndView.addObject("port", port);
-        modelAndView.addObject("tiposPessoa", EnumTipoPessoa.getList());
         modelAndView.addObject("generos", EnumGeneroPessoa.getList());
         modelAndView.setViewName("pessoas/novo");
         return modelAndView;
@@ -65,7 +64,7 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
     public ModelAndView excluir(@PathVariable Long id) {
     	Pessoa pessoa = proxy.getOnePessoa(id);
         log.info("PESSOA ENVIADA: {}", pessoa);
-        proxy.deletePessoa(pessoa.getId());
+        proxy.deletePessoa(pessoa.getIdPessoa());
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/pessoas");
@@ -97,12 +96,12 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
     	List<Endereco> enderecos = new ArrayList<>();
     	
     	pessoa.getContatos().forEach(contato -> {
-    		if(contato.getTipo() != null) {
+    		if(contato.getTipoContato() != null) {
     			contatos.add(contato);
     		}
     	});
     	pessoa.getEnderecos().forEach(endereco -> {
-    		if(endereco.getTipo() != null) {
+    		if(endereco.getTipoEndereco() != null) {
     			enderecos.add(endereco);
     		}
     	});
@@ -110,7 +109,7 @@ public class PessoaController extends DefaultController<Pessoa, PessoaServicePro
     	pessoa.setContatos(contatos);
     	pessoa.setEnderecos(enderecos);
         
-    	Pessoa pessoaUpdated = proxy.updatePessoa(pessoa.getId(), pessoa);
+    	Pessoa pessoaUpdated = proxy.updatePessoa(pessoa.getIdPessoa(), pessoa);
         log.info("PESSOA SALVA: {}", pessoaUpdated);
 
         ModelAndView modelAndView = new ModelAndView();

@@ -1,10 +1,11 @@
-package br.edu.unoesc.pessoaservice.persistence.repository.cep;
+package br.edu.unoesc.pessoaservice.persistence.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.IRepository;
 
 @Repository
-public interface EstadoRepository extends JpaRepository<Estado, Long> {
+public interface EstadoRepository extends IRepository<Estado, Long> {
+
 }

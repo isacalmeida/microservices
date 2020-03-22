@@ -1,9 +1,9 @@
-package br.edu.unoesc.pessoaservice.persistence.service.cep;
+package br.edu.unoesc.pessoaservice.persistence.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import br.edu.unoesc.pessoaservice.common.model.cep.Estado;
+import br.edu.unoesc.pessoaservice.common.model.Estado;
 
 public interface EstadoService {
 
