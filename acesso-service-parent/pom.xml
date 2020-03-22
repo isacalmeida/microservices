@@ -4,18 +4,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>br.edu.unoesc.sistemautils.base</groupId>
+		<artifactId>sistema-utils-base</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
 	<groupId>br.edu.unoesc.acessoservice</groupId>
 	<artifactId>acesso-service-parent</artifactId>
 	<packaging>pom</packaging>
-
-
-	<parent>
-		<groupId>br.edu.unoesc</groupId>
-		<artifactId>sistema-web-gpsti</artifactId>
-		<version>1.0.0</version>
-	</parent>
-
 
 	<modules>
 		<module>acesso-service-api</module>
@@ -24,7 +21,6 @@
 		<module>acesso-service-persistence</module>
 		<module>acesso-service-web</module>
 	</modules>
-
 
 	<dependencyManagement>
 		<dependencies>
@@ -61,22 +57,18 @@
 		</dependencies>
 	</dependencyManagement>
 
-
 	<dependencies>
 		<!-- spring-boot dependencies -->
 		
 		<!-- spring-boot dependencies -->
 
-
 		<!-- spring-cloud dependencies -->
 		
 		<!-- spring-cloud dependencies -->
 
-
 		<!-- spring-security dependencies -->
 
 		<!-- spring-security dependencies -->
-
 
 		<!-- other dependencies -->
 		<dependency>

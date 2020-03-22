@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<parent>
 		<artifactId>acesso-service-parent</artifactId>
 		<groupId>br.edu.unoesc.acessoservice</groupId>
@@ -14,7 +13,6 @@
 	<name>acesso-service</name>
 	<artifactId>acesso-service-application</artifactId>
 	<groupId>br.edu.unoesc.acessoservice.application</groupId>
-
 
 	<dependencies>
 		<!-- project dependencies -->
@@ -35,7 +33,6 @@
 			<groupId>br.edu.unoesc.acessoservice.web</groupId>
 		</dependency>
 		<!-- project dependencies -->
-
 
 		<!-- spring-boot dependencies -->
 		<dependency>
@@ -60,7 +57,6 @@
 		</dependency>
 		<!-- spring-boot dependencies -->
 
-
 		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -76,17 +72,19 @@
 		</dependency>
 		<!-- spring-cloud dependencies -->
 
-
 		<!-- spring-security dependencies -->
 
 		<!-- spring-security dependencies -->
-
 
 		<!-- other dependencies -->
-		
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${spring-admin.version}</version>
+		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
-	
+
 	<build>
 		<finalName>${project.name}</finalName>
 		<plugins>
@@ -103,9 +101,12 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<classifier>exec</classifier>
-						</configuration>
+					</execution>
+					<execution>
+						<id>build-info</id>
+						<goals>
+                        	<goal>build-info</goal>
+                    	</goals>
 					</execution>
 				</executions>
 			</plugin>
