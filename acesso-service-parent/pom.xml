@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>acesso-service-api</module>
+		<module>acesso-service-restapi</module>
 		<module>acesso-service-application</module>
 		<module>acesso-service-common</module>
 		<module>acesso-service-persistence</module>
@@ -25,8 +25,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>acesso-service-api</artifactId>
-				<groupId>br.edu.unoesc.acessoservice.api</groupId>
+				<artifactId>acesso-service-restapi</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
 				<version>${acesso-service.version}</version>
 				<type>jar</type>
 			</dependency>

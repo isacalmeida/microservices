@@ -17,8 +17,8 @@
 	<dependencies>
 		<!-- project dependencies -->
 		<dependency>
-			<artifactId>acesso-service-api</artifactId>
-			<groupId>br.edu.unoesc.acessoservice.api</groupId>
+			<artifactId>acesso-service-restapi</artifactId>
+			<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
 		</dependency>
 		<dependency>
 			<artifactId>acesso-service-common</artifactId>

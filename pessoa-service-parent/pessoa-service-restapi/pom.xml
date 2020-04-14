@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>pessoa-service-parent</artifactId>
+		<groupId>br.edu.unoesc.pessoaservice</groupId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>pessoa-service-restapi</artifactId>
+	<groupId>br.edu.unoesc.pessoaservice.restapi</groupId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<!-- project dependencies -->
+		<dependency>
+			<artifactId>pessoa-service-business-common</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.business-common</groupId>
+		</dependency>
+		<dependency>
+			<artifactId>pessoa-service-restapi-common</artifactId>
+			<groupId>br.edu.unoesc.pessoaservice.restapi-common</groupId>
+		</dependency>
+		<!-- project dependencies -->
+
+		<!-- spring-boot dependencies -->
+		<dependency>
+			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
+		<!-- spring-boot dependencies -->
+
+		<!-- spring-cloud dependencies -->
+		<!-- spring-cloud dependencies -->
+
+		<!-- spring-security dependencies -->
+		<!-- spring-security dependencies -->
+
+		<!-- other dependencies -->
+		<!-- other dependencies -->
+	</dependencies>
+</project>
