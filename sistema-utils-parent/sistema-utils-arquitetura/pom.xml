@@ -20,7 +20,6 @@
 		<module>sistema-utils-arquitetura-common</module>
 		<module>sistema-utils-arquitetura-persistence</module>
 		<module>sistema-utils-arquitetura-restapi</module>
-		<module>sistema-utils-arquitetura-restapi-common</module>
 	</modules>
 	
 	<dependencyManagement>
