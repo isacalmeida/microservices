@@ -63,7 +63,6 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>${spring-admin.version}</version>
 		</dependency>
 		<!-- other dependencies -->
 	</dependencies>

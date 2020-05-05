@@ -99,7 +99,6 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>${spring-admin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -119,12 +118,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar.version}</version>
 				<configuration>
 					<archive>
-						<index>true</index>
+						<index>${jar-index.properties}</index>
 						<manifest>
-							<mainClass>br.edu.unoesc.authserver.application.boot.AuthServerApplication</mainClass>
+							<mainClass>${auth-server.main-class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

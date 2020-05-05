@@ -75,7 +75,6 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>${spring-admin.version}</version>
 		</dependency>
 		<!-- other dependencies -->
 	</dependencies>
@@ -85,12 +84,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar.version}</version>
 				<configuration>
 					<archive>
-						<index>true</index>
+						<index>${jar-index.properties}</index>
 						<manifest>
-							<mainClass>br.edu.unoesc.hystrixserver.application.boot.HystrixServerApplication</mainClass>
+							<mainClass>${hystrix-server.main-class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -17,7 +17,8 @@
 
 	<properties>
 		<!-- java properties -->
-		<java.version>14</java.version>
+		<java.version>11</java.version>
+		<jaxb-impl.version>2.3.2</jaxb-impl.version>
 		<!-- java properties -->
 		
 		<!-- maven properties -->
@@ -32,9 +33,14 @@
 		<!-- others properties -->
 
 		<!-- spring properties -->
-		<spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<spring-boot.version>2.3.0.RC1</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+		<spring-graal.version>0.6.1.RELEASE</spring-graal.version>
 		<!-- spring properties -->
+		
+		<!-- spring boot mvn plugin -->
+		<spring-exclude-devtools.properties>true</spring-exclude-devtools.properties>
+		<!-- spring boot mvn plugin -->
 	</properties>
 
 	<dependencyManagement>
@@ -57,22 +63,47 @@
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.experimental</groupId>
+				<artifactId>spring-graal-native</artifactId>
+				<version>${spring-graal.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${model-mapper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb-impl.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<dependencies>
-		<!-- spring-boot dependencies -->
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<!-- other dependencies -->
-	</dependencies>
 
 	<build>
 		<pluginManagement>
@@ -85,7 +116,36 @@
 						<release>${java.version}</release>
 					</configuration>
 				</plugin>
-			</plugins>		
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<configuration>
+						<excludeDevtools>${spring-exclude-devtools.properties}</excludeDevtools>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar.version}</version>
+				</plugin>
+			</plugins>
 		</pluginManagement>
 	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestone</id>
+			<name>Spring milestone</name>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
 </project>

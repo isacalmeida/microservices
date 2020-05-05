@@ -72,7 +72,6 @@
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
-			<version>${spring-admin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -81,7 +80,6 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>${jaxb-impl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
@@ -104,12 +102,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar.version}</version>
 				<configuration>
 					<archive>
-						<index>true</index>
+						<index>${jar-index.properties}</index>
 						<manifest>
-							<mainClass>br.edu.unoesc.eurekaserver.application.boot.EurekaServerApplication</mainClass>
+							<mainClass>${eureka-server.main-class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

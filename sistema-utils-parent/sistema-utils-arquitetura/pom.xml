@@ -21,7 +21,7 @@
 		<module>sistema-utils-arquitetura-persistence</module>
 		<module>sistema-utils-arquitetura-restapi</module>
 	</modules>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -41,7 +41,8 @@
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
-			</dependency><dependency>
+			</dependency>
+			<dependency>
 				<artifactId>sistema-utils-arquitetura-persistence</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
 				<version>${sistema-utils.version}</version>

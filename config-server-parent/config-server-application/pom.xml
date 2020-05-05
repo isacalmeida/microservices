@@ -15,27 +15,130 @@
 	<groupId>br.edu.unoesc.configserver.application</groupId>
 
 	<dependencies>
-		<!-- project dependencies -->
-
-		<!-- project dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-
-		<!-- other dependencies -->
+		<!-- architecture dependencies -->
+		<dependency>
+			<artifactId>sistema-utils-arquitetura-application</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
+			<version>${sistema-utils.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-config</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-sleuth</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- architecture dependencies -->
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<build>
+			<finalName>${project.name}</finalName>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>${dockerfile-spotify.version}</version>
+						<executions>
+							<execution>
+								<id>default</id>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<repository>${docker-repository.properties}/${project.name}</repository>
+							<tag>${project.version}</tag>
+							<skipDockerInfo>${docker-info.properties}</skipDockerInfo>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<release>${java.version}</release>
+							<compilerArgs>${compiler-args.propeties}</compilerArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<id>repackage</id>
+								<goals>
+									<goal>repackage</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>build-info</id>
+								<goals>
+									<goal>build-info</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>graal</id>
+			<build>
+			<finalName>${project.name}</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.nativeimage</groupId>
+						<artifactId>native-image-maven-plugin</artifactId>
+						<version>${graal-nativeimage.version}</version>
+						<configuration>
+							<buildArgs>${graal-buildargs.properties}</buildArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>native-image</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<release>${java.version}</release>
+							<compilerArgs>${compiler-args.properties}</compilerArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<id>repackage</id>
+								<goals>
+									<goal>repackage</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>build-info</id>
+								<goals>
+									<goal>build-info</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 	<build>
 		<finalName>${project.name}</finalName>
 		<plugins>
@@ -44,7 +147,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<release>${java.version}</release>
-					<compilerArgs>--enable-preview</compilerArgs>
+					<compilerArgs>${compiler-args.propeties}</compilerArgs>
 				</configuration>
 				<executions>
 					<execution>
@@ -56,28 +159,10 @@
 					<execution>
 						<id>build-info</id>
 						<goals>
-                        	<goal>build-info</goal>
-                    	</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>${dockerfile-spotify.version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
+							<goal>build-info</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<repository>isacalmeida/${project.name}</repository>
-					<tag>${project.version}</tag>
-					<skipDockerInfo>true</skipDockerInfo>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

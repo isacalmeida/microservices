@@ -84,12 +84,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar.version}</version>
 				<configuration>
 					<archive>
-						<index>true</index>
+						<index>${jar-index.properties}</index>
 						<manifest>
-							<mainClass>br.edu.unoesc.acessoservice.application.boot.AcessoServiceApplication</mainClass>
+							<mainClass>${acesso-service.main-class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
