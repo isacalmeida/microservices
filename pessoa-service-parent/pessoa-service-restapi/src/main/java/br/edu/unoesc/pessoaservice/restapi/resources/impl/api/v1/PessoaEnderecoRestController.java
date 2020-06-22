@@ -9,7 +9,7 @@ import br.edu.unoesc.pessoaservice.persistence.service.EnderecoService;
 import br.edu.unoesc.pessoaservice.restapi.constants.PessoaRestapiConstants;
 import br.edu.unoesc.pessoaservice.restapi.converters.EnderecoDTOConverter;
 import br.edu.unoesc.pessoaservice.restapi.dto.EnderecoDTO;
-import br.edu.unoesc.sistemautils.arquitetura.restapi.AbstractDetailRestController;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.AbstractDetailRestController;
 
 @RestController
 @RequestMapping(value = PessoaRestapiConstants.PESSOA_ENDERECO_V1)

@@ -8,7 +8,7 @@ import br.edu.unoesc.pessoaservice.persistence.service.PessoaJuridicaService;
 import br.edu.unoesc.pessoaservice.restapi.constants.PessoaRestapiConstants;
 import br.edu.unoesc.pessoaservice.restapi.converters.PessoaJuridicaDTOConverter;
 import br.edu.unoesc.pessoaservice.restapi.dto.PessoaJuridicaDTO;
-import br.edu.unoesc.sistemautils.arquitetura.restapi.AbstractMasterRestController;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.AbstractMasterRestController;
 
 @RestController
 @RequestMapping(PessoaRestapiConstants.PESSOAJURIDICA_V1)

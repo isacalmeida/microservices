@@ -69,4 +69,12 @@ public class RevisionEnumControl extends AbstractEntity {
 	public void setRevisao(Long revisao) {
 		this.revisao = revisao;
 	}
+
+	public String getEnumHash() {
+		return enumHash;
+	}
+
+	public void setEnumHash(String enumHash) {
+		this.enumHash = enumHash;
+	}
 }

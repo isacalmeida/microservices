@@ -53,6 +53,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-all</artifactId>
+		</dependency>
 		<!-- spring-cloud dependencies -->
 
 		<!-- spring-security dependencies -->
@@ -65,5 +69,18 @@
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
 		<!-- other dependencies -->
+		
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+			<artifactId>sistema-utils-arquitetura-business</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
+			<artifactId>sistema-utils-arquitetura-persistence</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
+		</dependency>
 	</dependencies>
 </project>

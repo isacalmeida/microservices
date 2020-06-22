@@ -10,7 +10,7 @@ import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
 
 public interface IDetailCrudService<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>> {
 
-	Page<ED> getAllPaged(Long idParent, Integer page, Integer size);
+	Page<ED> getAllPaged(Long idParent, Class<ED> classDetailEntity, Integer page, Integer size);
 
 	List<ED> getAll(Long idParent, Class<ED> classDetailEntity);
 

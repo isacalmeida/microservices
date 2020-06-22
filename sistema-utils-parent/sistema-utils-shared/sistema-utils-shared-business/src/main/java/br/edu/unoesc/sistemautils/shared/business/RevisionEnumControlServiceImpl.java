@@ -9,4 +9,8 @@ import br.edu.unoesc.sistemautils.shared.persistence.RevisionEnumControlReposito
 @Service
 public class RevisionEnumControlServiceImpl extends AbstractCrudService<RevisionEnumControl, RevisionEnumControlRepository> implements RevisionEnumControlService {
 
+	@Override
+	public RevisionEnumControl findByDescricaoEnum(String descricaoEnum) {
+		return getRepository().findByDescricaoEnum(descricaoEnum);
+	}
 }

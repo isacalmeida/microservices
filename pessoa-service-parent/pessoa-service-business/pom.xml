@@ -15,7 +15,6 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
 			<artifactId>pessoa-service-business-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.business-common</groupId>
@@ -24,22 +23,10 @@
 			<artifactId>pessoa-service-persistence</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
 		</dependency>
-		<!-- project dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-
-		<!-- other dependencies -->
+		<dependency>
+			<artifactId>sistema-utils-shared-business</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
 	</dependencies>
 </project>

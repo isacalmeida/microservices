@@ -2,12 +2,13 @@ spring:
   application:
     name: pessoa-service
   cloud:
-    config:
-      #uri: http://localhost:8888
-      #uri: http://172.31.25.120:8888
-      uri: http://3.17.57.215:8888  flyway:    baseline-on-migrate: true
-    enabled: false
-    password: postgres
-    user: postgres
+    consul:
+      config:
+        format: YAML
+      discovery:
+        instanceZone: zone1
+        instance-id: "${spring.cloud.client.hostname}:${spring.application.name}:${random.int[1,999999]}"
+      host: 127.0.0.1
+      port: 8500
   profiles:
-    active: homolog
+    active: desenv,zone1

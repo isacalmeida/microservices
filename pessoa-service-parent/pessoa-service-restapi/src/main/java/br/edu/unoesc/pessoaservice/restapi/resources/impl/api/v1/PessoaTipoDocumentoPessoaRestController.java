@@ -9,7 +9,7 @@ import br.edu.unoesc.pessoaservice.persistence.service.TipoDocumentoPessoaServic
 import br.edu.unoesc.pessoaservice.restapi.constants.PessoaRestapiConstants;
 import br.edu.unoesc.pessoaservice.restapi.converters.TipoDocumentoPessoaDTOConverter;
 import br.edu.unoesc.pessoaservice.restapi.dto.TipoDocumentoPessoaDTO;
-import br.edu.unoesc.sistemautils.arquitetura.restapi.AbstractDetailRestController;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.AbstractDetailRestController;
 
 @RestController
 @RequestMapping(value = PessoaRestapiConstants.PESSOA_DOCUMENTO_V1)

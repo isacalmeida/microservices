@@ -33,9 +33,9 @@
 		<!-- others properties -->
 
 		<!-- spring properties -->
-		<spring-boot.version>2.3.0.RC1</spring-boot.version>
+		<spring-boot.version>2.3.0.RELEASE</spring-boot.version>
 		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
-		<spring-graal.version>0.6.1.RELEASE</spring-graal.version>
+		<spring-graal.version>0.7.0.BUILD-SNAPSHOT</spring-graal.version>
 		<!-- spring properties -->
 		
 		<!-- spring boot mvn plugin -->
@@ -117,6 +117,11 @@
 					</configuration>
 				</plugin>
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar.version}</version>
+				</plugin>
+				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring-boot.version}</version>
@@ -125,9 +130,9 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<version>${maven-jar.version}</version>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>${dockerfile-spotify.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -146,6 +151,12 @@
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
+		</repository>
+		
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
 		</repository>
 	</repositories>
 </project>

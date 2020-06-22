@@ -9,7 +9,7 @@ import br.edu.unoesc.pessoaservice.persistence.service.ContatoService;
 import br.edu.unoesc.pessoaservice.restapi.constants.PessoaRestapiConstants;
 import br.edu.unoesc.pessoaservice.restapi.converters.ContatoDTOConverter;
 import br.edu.unoesc.pessoaservice.restapi.dto.ContatoDTO;
-import br.edu.unoesc.sistemautils.arquitetura.restapi.AbstractDetailRestController;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.AbstractDetailRestController;
 
 @RestController
 @RequestMapping(value = PessoaRestapiConstants.PESSOA_CONTATO_V1)

@@ -1,4 +1,4 @@
-package br.edu.unoesc.sistemautils.arquitetura.restapi;
+package br.edu.unoesc.sistemautils.arquitetura.restapi.controller;
 
 import java.util.List;
 

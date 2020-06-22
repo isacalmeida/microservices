@@ -6,9 +6,6 @@
   ["org.springframework.boot.actuate.endpoint.annotation.Endpoint","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.boot.actuate.endpoint.annotation.EndpointExtension","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.boot.context.properties.ConfigurationProperties","org.springframework.core.annotation.SynthesizedAnnotation"],
-  ["org.springframework.context.annotation.Lazy","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.context.event.EventListener","org.springframework.core.annotation.SynthesizedAnnotation"],
-  ["org.springframework.core.annotation.Order","org.springframework.core.annotation.SynthesizedAnnotation"],
-  ["org.springframework.validation.annotation.Validated","org.springframework.core.annotation.SynthesizedAnnotation"],
   ["org.springframework.web.bind.annotation.RequestMapping","org.springframework.core.annotation.SynthesizedAnnotation"]
 ]

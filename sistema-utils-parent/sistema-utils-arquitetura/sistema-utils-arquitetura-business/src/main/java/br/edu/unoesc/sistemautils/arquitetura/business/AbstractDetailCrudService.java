@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
@@ -23,9 +24,21 @@ public abstract class AbstractDetailCrudService<EM extends AbstractMasterEntity,
 	private RD detailRepository;
 
 	@Override
-	public Page<ED> getAllPaged(Long idParent, Integer page, Integer size) {
-		// TODO Auto-generated method stub
-		return null;
+	public Page<ED> getAllPaged(Long idParent, Class<ED> classDetailEntity, Integer page, Integer size) {
+		ED detailEntity = null;
+		try {
+			 detailEntity = classDetailEntity.getDeclaredConstructor().newInstance();
+		}
+		catch (Exception e) {
+			// TODO
+		}
+		if(Objects.isNull(detailEntity)) {
+			// TODO
+		}
+		EM masterEntity = masterRepository.getOne(idParent);
+		detailEntity.setMasterEntity(masterEntity);
+		Example<ED> detailEntityExample = Example.of(detailEntity);
+		return detailRepository.findAll(detailEntityExample, PageRequest.of(page, size));
 	}
 
 	@Override

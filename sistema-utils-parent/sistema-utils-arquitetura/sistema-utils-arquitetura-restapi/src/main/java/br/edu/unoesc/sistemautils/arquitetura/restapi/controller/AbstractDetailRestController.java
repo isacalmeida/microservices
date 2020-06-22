@@ -1,4 +1,4 @@
-package br.edu.unoesc.sistemautils.arquitetura.restapi;
+package br.edu.unoesc.sistemautils.arquitetura.restapi.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -17,6 +17,7 @@ import br.edu.unoesc.sistemautils.arquitetura.business.IDetailCrudService;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.converter.IDetailDTOConverter;
 
 public abstract class AbstractDetailRestController<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>, DTO extends AbstractDTO<DTO>, S extends IDetailCrudService<EM, ED>, C extends IDetailDTOConverter<EM, ED, DTO>> implements IDetailCrudController<EM, ED, DTO> {
 
@@ -35,8 +36,8 @@ public abstract class AbstractDetailRestController<EM extends AbstractMasterEnti
 	}
 
 	@Override
-	public Page<DTO> getAllPaged(Long idParent, Integer page, Integer size) {
-		Page<ED> allPaged = service.getAllPaged(idParent, page, size);
+	public Page<DTO> getAllPaged(Long idParent, Class<ED> detailEntityClass, Integer page, Integer size) {
+		Page<ED> allPaged = service.getAllPaged(idParent, detailEntityClass, page, size);
 		return new PageImpl<DTO>(converter.convertToDTO(allPaged.getContent()), Pageable.unpaged(), allPaged.getTotalElements());
 	}
 

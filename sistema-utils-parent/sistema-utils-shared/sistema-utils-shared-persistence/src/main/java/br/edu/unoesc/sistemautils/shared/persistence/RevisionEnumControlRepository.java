@@ -5,4 +5,5 @@ import br.edu.unoesc.sistemautils.shared.common.RevisionEnumControl;
 
 public interface RevisionEnumControlRepository extends IRepository<RevisionEnumControl, Long> {
 
+	RevisionEnumControl findByDescricaoEnum(String descricaoEnum);
 }

@@ -9,8 +9,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class ConfigServerApplication {
 
 	public static final String BASE_PACKAGE = "br.edu.unoesc.configserver";
-	
-    public static void main(String[] args) {
-        SpringApplication.run(ConfigServerApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(ConfigServerApplication.class, args);
+	}
 }

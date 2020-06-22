@@ -20,6 +20,7 @@
 		<admin-server.version>1.0.0</admin-server.version>
 		<auth-server.version>1.0.0</auth-server.version>
 		<config-server.version>1.0.0</config-server.version>
+		<consul-server.version>1.0.0</consul-server.version>
 		<eureka-server.version>1.0.0</eureka-server.version>
 		<hystrix-server.version>1.0.0</hystrix-server.version>
 		<pessoa-service.version>1.0.0</pessoa-service.version>
@@ -64,13 +65,15 @@
 		<!-- graal properties -->
 		<graal-nativeimage.version>20.0.0</graal-nativeimage.version>
 		<graal-buildargs.properties>
-			--verbose
-			--no-server
+			--verbose 
+			--no-server 
 			--no-fallback 
-			-Dspring.graal.verbose=true
-			--allow-incomplete-classpath
+			-Dspring.graal.verbose=true 
+			--allow-incomplete-classpath 
+			-H:+TraceClassInitialization 
 			-H:+ReportExceptionStackTraces 
 			-Dspring.graal.remove-unused-autoconfig=true 
+			-Dspring.graal.missing-selector-hints=warning 
 		</graal-buildargs.properties>
 		<!-- graal properties -->
 		
@@ -79,6 +82,7 @@
 		<admin-server.main-class>br.edu.unoesc.adminserver.application.boot.AdminServerApplication</admin-server.main-class>
 		<auth-server.main-class>br.edu.unoesc.authserver.application.boot.AuthServerApplication</auth-server.main-class>
 		<config-server.main-class>br.edu.unoesc.configserver.application.boot.ConfigServerApplication</config-server.main-class>
+		<consul-server.main-class>br.edu.unoesc.consulserver.application.boot.ConsulServerApplication</consul-server.main-class>
 		<eureka-server.main-class>br.edu.unoesc.eurekaserver.application.boot.EurekaServerApplication</eureka-server.main-class>
 		<hystrix-server.main-class>br.edu.unoesc.hystrixserver.application.boot.HystrixServerApplication</hystrix-server.main-class>
 		<pessoa-service.main-class>br.edu.unoesc.pessoaservice.application.boot.PessoaServiceApplication</pessoa-service.main-class>
@@ -111,6 +115,12 @@
 				<artifactId>config-server-parent</artifactId>
 				<groupId>br.edu.unoesc.configserver</groupId>
 				<version>${config-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<artifactId>consul-server-parent</artifactId>
+				<groupId>br.edu.unoesc.consulserver</groupId>
+				<version>${consul-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>

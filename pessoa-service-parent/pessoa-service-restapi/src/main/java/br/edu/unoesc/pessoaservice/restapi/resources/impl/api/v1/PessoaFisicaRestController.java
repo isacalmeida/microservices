@@ -8,7 +8,7 @@ import br.edu.unoesc.pessoaservice.persistence.service.PessoaFisicaService;
 import br.edu.unoesc.pessoaservice.restapi.constants.PessoaRestapiConstants;
 import br.edu.unoesc.pessoaservice.restapi.converters.PessoaFisicaDTOConverter;
 import br.edu.unoesc.pessoaservice.restapi.dto.PessoaFisicaDTO;
-import br.edu.unoesc.sistemautils.arquitetura.restapi.AbstractMasterRestController;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.AbstractMasterRestController;
 
 @RestController
 @RequestMapping(PessoaRestapiConstants.PESSOAFISICA_V1)

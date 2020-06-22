@@ -18,29 +18,29 @@ public abstract class AbstractCrudService<E extends AbstractEntity, R extends IR
 
 	@Override
 	public Page<E> getAllPaged(Integer page, Integer size) {
-		return repository.findAll(PageRequest.of(page, size));
+		return getRepository().findAll(PageRequest.of(page, size));
 	}
 
 	@Override
 	public List<E> getAll() {
-		return repository.findAll();
+		return getRepository().findAll();
 	}
 
 	@Override
 	public Optional<E> getOne(Long id) {
-		return repository.findById(id);
+		return getRepository().findById(id);
 	}
 
 	@Override
 	public E create(E entity) {
 		entity.setDataCriacao(Calendar.getInstance().getTime());
-		return repository.save(entity);
+		return getRepository().save(entity);
 	}
 
 	@Override
 	public E update(E entity) {
 		entity.setDataAlteracao(Calendar.getInstance().getTime());
-		return repository.save(entity);
+		return getRepository().save(entity);
 	}
 
 	@Override
@@ -48,5 +48,9 @@ public abstract class AbstractCrudService<E extends AbstractEntity, R extends IR
 		E entity = getOne(id).get();
 		entity.setIsExcluido(Boolean.TRUE);
 		update(entity);
+	}
+
+	public R getRepository() {
+		return repository;
 	}
 }

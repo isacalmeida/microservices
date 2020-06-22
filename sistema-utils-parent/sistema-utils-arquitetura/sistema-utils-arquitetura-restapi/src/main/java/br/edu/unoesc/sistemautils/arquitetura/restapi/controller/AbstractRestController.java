@@ -1,4 +1,4 @@
-package br.edu.unoesc.sistemautils.arquitetura.restapi;
+package br.edu.unoesc.sistemautils.arquitetura.restapi.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -20,11 +20,12 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.unoesc.sistemautils.arquitetura.business.IMasterCrudService;
+import br.edu.unoesc.sistemautils.arquitetura.business.ICrudService;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.converter.IDTOConverter;
 
-public abstract class AbstractMasterRestController<EM extends AbstractMasterEntity, DTO extends AbstractDTO<DTO>, S extends IMasterCrudService<EM>, C extends IMasterDTOConverter<EM, DTO>> implements IMasterCrudController<EM, DTO> {
+public abstract class AbstractRestController<E extends AbstractEntity, DTO extends AbstractDTO<DTO>, S extends ICrudService<E>, C extends IDTOConverter<E, DTO>> implements ICrudRestController<DTO> {
 
 	@Autowired
 	private S service;
@@ -38,21 +39,21 @@ public abstract class AbstractMasterRestController<EM extends AbstractMasterEnti
 	@Override
 	public ResponseEntity<List<DTO>> getAll() {
 		List<DTO> all = service.getAll().stream()
-				.map(masterEntity -> converter.convertToDTO(masterEntity))
+				.map(entity -> converter.convertToDTO(entity))
 				.collect(Collectors.toList());
 		return ResponseEntity.ok().body(all);
 	}
 	
 	@Override
 	public Page<DTO> getAllPaged(Integer page, Integer size) {
-		Page<EM> allPaged = service.getAllPaged(page, size);
+		Page<E> allPaged = service.getAllPaged(page, size);
 		return new PageImpl<DTO>(converter.convertToDTO(allPaged.getContent()), Pageable.unpaged(), allPaged.getTotalElements());
 	}
 
 	@Override
 	public ResponseEntity<DTO> getOne(Long id) {
 		return service.getOne(id)
-			.map(masterEntity -> ResponseEntity.ok().body(converter.convertToDTO(masterEntity)))
+			.map(entity -> ResponseEntity.ok().body(converter.convertToDTO(entity)))
 			.orElse(ResponseEntity.notFound().build());
 	}
 
@@ -61,8 +62,8 @@ public abstract class AbstractMasterRestController<EM extends AbstractMasterEnti
 		if(Objects.isNull(dto)) {
             return ResponseEntity.noContent().build();
         }
-		EM masterEntityCreated = service.create(converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(masterEntityCreated);
+		E entityCreated = service.create(converter.convertToEntity(dto));
+		DTO DTOCreated = converter.convertToDTO(entityCreated);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 		        .buildAndExpand(DTOCreated.getId()).toUri();
@@ -72,16 +73,16 @@ public abstract class AbstractMasterRestController<EM extends AbstractMasterEnti
 
 	@Override
 	public ResponseEntity<DTO> update(Long id, DTO dto) {
-		Optional<EM> masterEntity = service.getOne(id);
-        if(masterEntity.isEmpty()) {
+		Optional<E> entity = service.getOne(id);
+        if(entity.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 		if(Objects.isNull(dto)) {
 		    return ResponseEntity.noContent().build();
 		}
-		dto.setId(masterEntity.get().getId());
-		EM masterEntityUpdated = service.update(converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(masterEntityUpdated);
+		dto.setId(entity.get().getId());
+		E entityUpdated = service.update(converter.convertToEntity(dto));
+		DTO DTOCreated = converter.convertToDTO(entityUpdated);
 		
 		return ResponseEntity.ok(DTOCreated);
 	}
@@ -89,7 +90,7 @@ public abstract class AbstractMasterRestController<EM extends AbstractMasterEnti
 	@Override
 	public ResponseEntity<Long> delete(Long id) {
 		return service.getOne(id)
-                .map(masterEntity -> {
+                .map(entity -> {
                 	service.delete(id);
                     return ResponseEntity.ok().body(id);
                 })
