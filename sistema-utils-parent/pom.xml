@@ -33,9 +33,9 @@
 		<!-- others properties -->
 
 		<!-- spring properties -->
-		<spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
-		<spring-graal.version>0.7.0.BUILD-SNAPSHOT</spring-graal.version>
+		<spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+		<spring-graal.version>0.7.1</spring-graal.version>
 		<!-- spring properties -->
 		
 		<!-- spring boot mvn plugin -->
@@ -79,7 +79,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.experimental</groupId>
-				<artifactId>spring-graal-native</artifactId>
+				<artifactId>spring-graalvm-native</artifactId>
 				<version>${spring-graal.version}</version>
 			</dependency>
 			<dependency>
