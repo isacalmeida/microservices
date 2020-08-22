@@ -18,29 +18,25 @@
 		<!-- project dependencies -->
 		<dependency>
 			<artifactId>pessoa-service-business-common</artifactId>
-			<groupId>br.edu.unoesc.pessoaservice.business-common</groupId>
+			<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
 		</dependency>
 		<dependency>
 			<artifactId>pessoa-service-restapi-common</artifactId>
-			<groupId>br.edu.unoesc.pessoaservice.restapi-common</groupId>
+			<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
 		</dependency>
 		<!-- project dependencies -->
 
-		<!-- spring-boot dependencies -->
+		<!-- architecture dependencies -->
 		<dependency>
 			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<!-- other dependencies -->
+		<dependency>
+			<artifactId>sistema-utils-shared-restapi</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.shared.restapi</groupId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
+		<!-- architecture dependencies -->
 	</dependencies>
 </project>

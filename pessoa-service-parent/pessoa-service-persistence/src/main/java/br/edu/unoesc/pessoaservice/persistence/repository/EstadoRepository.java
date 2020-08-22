@@ -3,9 +3,9 @@ package br.edu.unoesc.pessoaservice.persistence.repository;
 import org.springframework.stereotype.Repository;
 
 import br.edu.unoesc.pessoaservice.common.model.Estado;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudRepository;
 
 @Repository
-public interface EstadoRepository extends IRepository<Estado, Long> {
+public interface EstadoRepository extends ICrudRepository<Estado, Long> {
 
 }

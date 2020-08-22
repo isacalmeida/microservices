@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.unoesc.pessoaservice.common.model.Pessoa;
 import br.edu.unoesc.pessoaservice.common.model.TipoDocumentoPessoa;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IDetailRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IDetailRepository;
 
 @Repository
 public interface TipoDocumentoPessoaRepository extends IDetailRepository<Pessoa, TipoDocumentoPessoa, Long> {

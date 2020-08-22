@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import br.edu.unoesc.sistemautils.arquitetura.common.RestapiConstants;
 
-public interface IIdentityRestController<DTO extends AbstractDTO<DTO>> {
+public interface IIdentityRestController<ID extends Number, DTO extends AbstractDTO<DTO>> {
 
 	@GetMapping(RestapiConstants.ALL)
 	ResponseEntity<List<DTO>> getAll();
@@ -27,7 +27,7 @@ public interface IIdentityRestController<DTO extends AbstractDTO<DTO>> {
 			@RequestParam(required = false, defaultValue = "10") Integer size);
 
 	@GetMapping(RestapiConstants.ID)
-	ResponseEntity<DTO> getOne(@PathVariable Long id);
+	ResponseEntity<DTO> getOne(@PathVariable ID id);
 
 	@GetMapping(RestapiConstants.ENVIRONMENT_PORT)
 	ResponseEntity<Integer> getEnvironmentPort();

@@ -15,10 +15,6 @@
 	<groupId>br.edu.unoesc.pessoaservice.application</groupId>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-consul-all</artifactId>
-		</dependency>
 		<!-- project dependencies -->
 		<dependency>
 			<groupId>br.edu.unoesc.pessoaservice.business</groupId>
@@ -39,16 +35,11 @@
 			<artifactId>sistema-utils-arquitetura-application</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
 			<version>${sistema-utils.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter-config</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-				</exclusion>
-			</exclusions>
+		</dependency>
+		<dependency>
+			<artifactId>sistema-utils-shared-application</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.shared.application</groupId>
+			<version>${sistema-utils.version}</version>
 		</dependency>
 		<!-- architecture dependencies -->
 		

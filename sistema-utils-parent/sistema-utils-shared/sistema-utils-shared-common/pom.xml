@@ -16,8 +16,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
 			<artifactId>sistema-utils-arquitetura-common</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 	</dependencies>

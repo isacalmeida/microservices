@@ -17,16 +17,30 @@
 	<dependencies>
 		<dependency>
 			<artifactId>pessoa-service-business-common</artifactId>
-			<groupId>br.edu.unoesc.pessoaservice.business-common</groupId>
+			<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
 		</dependency>
 		<dependency>
 			<artifactId>pessoa-service-persistence</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
+		</dependency>
+		
+		<dependency>
+			<artifactId>sistema-utils-arquitetura-business</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+			<version>${sistema-utils.version}</version>
 		</dependency>
 		<dependency>
 			<artifactId>sistema-utils-shared-business</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
+		
+		<!-- test dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- test dependency -->
 	</dependencies>
 </project>

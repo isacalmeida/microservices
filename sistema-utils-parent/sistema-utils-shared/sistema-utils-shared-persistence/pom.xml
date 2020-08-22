@@ -19,7 +19,6 @@
 			<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
 			<artifactId>sistema-utils-shared-common</artifactId>
 		</dependency>
-	
 		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
 			<artifactId>sistema-utils-arquitetura-persistence</artifactId>

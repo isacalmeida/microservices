@@ -15,17 +15,32 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>sistema-utils-shared-application</module>
 		<module>sistema-utils-shared-business</module>
+		<module>sistema-utils-shared-business-common</module>
 		<module>sistema-utils-shared-common</module>
 		<module>sistema-utils-shared-persistence</module>
 		<module>sistema-utils-shared-restapi-common</module>
+		<module>sistema-utils-shared-restapi</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<artifactId>sistema-utils-shared-application</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.shared.application</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
 				<artifactId>sistema-utils-shared-business</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<artifactId>sistema-utils-shared-business-common</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.shared.business.common</groupId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
@@ -43,27 +58,10 @@
 			</dependency>
 			<dependency>
 				<artifactId>sistema-utils-shared-restapi-common</artifactId>
-				<groupId>br.edu.unoesc.sistemautils.shared.restapi-common</groupId>
+				<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<dependencies>
-		<!-- project dependencies -->
-		<!-- project dependencies -->
-
-		<!-- spring-boot dependencies -->
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<!-- other dependencies -->
-	</dependencies>
 </project>

@@ -12,7 +12,7 @@ public enum EnumTipoDocumento implements IRevisao, IEnumEntidade<TipoDocumento> 
 
 	CPF(new TipoDocumento(1L, "CPF", 11L, EnumTipoPessoa.PESSOA_FISICA.getEntidade())), 
 	CNPJ(new TipoDocumento(2L, "CNPJ", 18L, EnumTipoPessoa.PESSOA_JURIDICA.getEntidade())), 
-	RG(new TipoDocumento(1L, "RG", 11L, EnumTipoPessoa.PESSOA_FISICA.getEntidade())), 
+	RG(new TipoDocumento(3L, "RG", 11L, EnumTipoPessoa.PESSOA_FISICA.getEntidade())), 
 	;
 
 	private TipoDocumento entidade;

@@ -48,14 +48,6 @@
 		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
 		<dependency>
@@ -86,17 +78,6 @@
 		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
 			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
-			<artifactId>sistema-utils-shared-business</artifactId>
-			<version>${sistema-utils.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
-			<artifactId>sistema-utils-shared-common</artifactId>
-			<version>${sistema-utils.version}</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>pessoa-service-restapi-common</artifactId>
-	<groupId>br.edu.unoesc.pessoaservice.restapi-common</groupId>
+	<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -24,26 +24,10 @@
 
 		<!-- architecture dependencies -->
 		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.shared.restapi-common</groupId>
+			<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
 			<artifactId>sistema-utils-shared-restapi-common</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 		<!-- architecture dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-
-		<!-- other dependencies -->
 	</dependencies>
 </project>

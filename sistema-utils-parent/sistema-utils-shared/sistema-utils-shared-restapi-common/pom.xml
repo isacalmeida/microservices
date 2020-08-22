@@ -11,13 +11,13 @@
 	</parent>
 
 	<artifactId>sistema-utils-shared-restapi-common</artifactId>
-	<groupId>br.edu.unoesc.sistemautils.shared.restapi-common</groupId>
+	<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
-			<artifactId>sistema-utils-arquitetura-common</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 	</dependencies>

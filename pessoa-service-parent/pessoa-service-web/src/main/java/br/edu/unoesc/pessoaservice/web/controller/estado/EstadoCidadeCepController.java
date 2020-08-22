@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.edu.unoesc.pessoaservice.business.common.service.CepService;
+import br.edu.unoesc.pessoaservice.business.common.service.CidadeService;
+import br.edu.unoesc.pessoaservice.business.common.service.EstadoService;
 import br.edu.unoesc.pessoaservice.common.model.Cep;
 import br.edu.unoesc.pessoaservice.common.model.Cidade;
 import br.edu.unoesc.pessoaservice.common.model.Estado;
-import br.edu.unoesc.pessoaservice.persistence.service.CepService;
-import br.edu.unoesc.pessoaservice.persistence.service.CidadeService;
-import br.edu.unoesc.pessoaservice.persistence.service.EstadoService;
 
 @RestController
 @RequestMapping("/estados/{idEstado}/cidades/{idCidade}/ceps")

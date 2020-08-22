@@ -13,7 +13,7 @@ public interface IIdentityService<E extends IIdentityEntity<ID>, ID extends Numb
 
     List<E> getAll();
 
-    Optional<E> getOne(Long id);
+    Optional<E> getOne(ID id);
 
     E create(E entity);
 

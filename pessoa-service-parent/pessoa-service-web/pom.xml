@@ -24,21 +24,5 @@
 			<groupId>br.edu.unoesc.pessoaservice.business</groupId>
 		</dependency>
 		<!-- project dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		
-		<!-- other dependencies -->
 	</dependencies>
 </project>

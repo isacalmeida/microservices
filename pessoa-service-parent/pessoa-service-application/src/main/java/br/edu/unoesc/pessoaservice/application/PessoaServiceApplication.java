@@ -1,0 +1,25 @@
+package br.edu.unoesc.pessoaservice.application;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import br.edu.unoesc.pessoaservice.application.events.ReadyEventImpl;
+import br.edu.unoesc.sistemautils.arquitetura.application.ApplicationStarter;
+import br.edu.unoesc.sistemautils.arquitetura.constants.BasePackagesConstants;
+
+@SpringBootApplication
+@EntityScan(basePackages = { BasePackagesConstants.PESSOA_SERVICE, BasePackagesConstants.SHARED })
+@ComponentScan(basePackages = { BasePackagesConstants.PESSOA_SERVICE, BasePackagesConstants.SHARED })
+@EnableJpaRepositories(basePackages = { BasePackagesConstants.PESSOA_SERVICE, BasePackagesConstants.SHARED })
+public class PessoaServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication springApplication = new SpringApplication(PessoaServiceApplication.class);
+		springApplication.setMainApplicationClass(ApplicationStarter.class);
+		springApplication.addListeners(new ReadyEventImpl());
+		springApplication.run(args);
+	}
+}

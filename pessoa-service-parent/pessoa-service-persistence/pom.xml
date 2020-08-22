@@ -27,18 +27,11 @@
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
+		<dependency>
+			<artifactId>sistema-utils-shared-persistence</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.shared.persistence</groupId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
 		<!-- architecture dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
 	</dependencies>
 </project>

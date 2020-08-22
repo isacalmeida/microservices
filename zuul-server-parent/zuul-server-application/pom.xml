@@ -15,31 +15,14 @@
 	<artifactId>zuul-server-application</artifactId>
 	<groupId>br.edu.unoesc.zuulserver.application</groupId>
 
-
 	<dependencies>
-		<!-- project dependencies -->
-
-		<!-- project dependencies -->
-
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-
-		<!-- other dependencies -->
-
-		<!-- other dependencies -->
+		<!-- test dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- test dependency -->
 	</dependencies>
 
 	<build>

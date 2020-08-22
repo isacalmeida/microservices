@@ -8,35 +8,39 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IIdentityRepository;
 
-public abstract class AbstractIdentityService<E extends IIdentityEntity<ID>, ID extends Number, R extends IRepository<E, Long>> implements IIdentityService<E, ID> {
+public abstract class AbstractIdentityService<E extends IIdentityEntity<ID>, ID extends Number, R extends IIdentityRepository<E, ID>> implements IIdentityService<E, ID> {
 
 	@Autowired
 	private R repository;
 
 	@Override
 	public Page<E> getAllPaged(Integer page, Integer size) {
-		return repository.findAll(PageRequest.of(page, size));
+		return getRepository().findAll(PageRequest.of(page, size));
 	}
 
 	@Override
 	public List<E> getAll() {
-		return repository.findAll();
+		return getRepository().findAll();
 	}
 
 	@Override
-	public Optional<E> getOne(Long id) {
-		return repository.findById(id);
+	public Optional<E> getOne(ID id) {
+		return getRepository().findById(id);
 	}
 
 	@Override
 	public E create(E entity) {
-		return null;
+		return getRepository().save(entity);
 	}
 
 	@Override
 	public E update(E entity) {
-		return null;
+		return getRepository().save(entity);
+	}
+
+	public R getRepository() {
+		return repository;
 	}
 }

@@ -22,7 +22,7 @@ import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
 import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
 import br.edu.unoesc.sistemautils.arquitetura.restapi.converter.IIdentityDTOConverter;
 
-public abstract class AbstractIdentityRestController<E extends IIdentityEntity<ID>, ID extends Number, DTO extends AbstractDTO<DTO>, S extends IIdentityService<E, ID>, C extends IIdentityDTOConverter<E, ID, DTO>> implements IIdentityRestController<DTO> {
+public abstract class AbstractIdentityRestController<E extends IIdentityEntity<ID>, ID extends Number, DTO extends AbstractDTO<DTO>, S extends IIdentityService<E, ID>, C extends IIdentityDTOConverter<E, ID, DTO>> implements IIdentityRestController<ID, DTO> {
 
 	@Autowired
 	private S service;
@@ -48,7 +48,7 @@ public abstract class AbstractIdentityRestController<E extends IIdentityEntity<I
 	}
 
 	@Override
-	public ResponseEntity<DTO> getOne(Long id) {
+	public ResponseEntity<DTO> getOne(ID id) {
 		return service.getOne(id)
 			.map(masterEntity -> ResponseEntity.ok().body(converter.convertToDTO(masterEntity)))
 			.orElse(ResponseEntity.notFound().build());

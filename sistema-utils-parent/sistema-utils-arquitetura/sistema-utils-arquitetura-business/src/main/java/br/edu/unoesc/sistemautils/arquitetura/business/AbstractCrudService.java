@@ -9,9 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudRepository;
 
-public abstract class AbstractCrudService<E extends AbstractEntity, R extends IRepository<E, Long>> implements ICrudService<E> {
+public abstract class AbstractCrudService<E extends AbstractEntity, R extends ICrudRepository<E, Long>> implements ICrudService<E> {
 
 	@Autowired
 	private R repository;

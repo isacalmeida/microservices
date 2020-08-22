@@ -12,8 +12,8 @@ import org.springframework.data.domain.PageRequest;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
 import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IDetailRepository;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IMasterRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IDetailRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IMasterRepository;
 
 public abstract class AbstractDetailCrudService<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>, RM extends IMasterRepository<EM, Long>, RD extends IDetailRepository<EM, ED, Long>> implements IDetailCrudService<EM, ED> {
 

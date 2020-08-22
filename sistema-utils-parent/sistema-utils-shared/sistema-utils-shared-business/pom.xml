@@ -16,6 +16,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.shared.business.common</groupId>
+			<artifactId>sistema-utils-shared-business-common</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
 			<artifactId>sistema-utils-shared-common</artifactId>
 		</dependency>

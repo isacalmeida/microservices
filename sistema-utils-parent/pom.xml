@@ -18,7 +18,7 @@
 	<properties>
 		<!-- java properties -->
 		<java.version>11</java.version>
-		<jaxb-impl.version>2.3.2</jaxb-impl.version>
+		<jaxb-impl.version>2.3.3</jaxb-impl.version>
 		<!-- java properties -->
 		
 		<!-- maven properties -->
@@ -27,14 +27,14 @@
 		<!-- maven properties -->
 		
 		<!-- others properties -->
-		<model-mapper.version>2.3.7</model-mapper.version>
+		<model-mapper.version>2.3.8</model-mapper.version>
 		<sistema-utils.version>1.0.0</sistema-utils.version>
-		<spring-admin.version>2.2.2</spring-admin.version>
+		<spring-admin.version>2.2.4</spring-admin.version>
 		<!-- others properties -->
 
 		<!-- spring properties -->
-		<spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+		<spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR7</spring-cloud.version>
 		<spring-graal.version>0.7.1</spring-graal.version>
 		<!-- spring properties -->
 		

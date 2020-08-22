@@ -41,7 +41,7 @@
 			</dependency>
 			<dependency>
 				<artifactId>pessoa-service-business-common</artifactId>
-				<groupId>br.edu.unoesc.pessoaservice.business-common</groupId>
+				<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
@@ -65,7 +65,7 @@
 			</dependency>
 			<dependency>
 				<artifactId>pessoa-service-restapi-common</artifactId>
-				<groupId>br.edu.unoesc.pessoaservice.restapi-common</groupId>
+				<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>

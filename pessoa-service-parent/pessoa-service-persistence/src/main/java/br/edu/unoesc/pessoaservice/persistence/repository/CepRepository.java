@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import br.edu.unoesc.pessoaservice.common.model.Cep;
-import br.edu.unoesc.sistemautils.arquitetura.persistence.IRepository;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudRepository;
 
 @Repository
-public interface CepRepository extends IRepository<Cep, Long> {
+public interface CepRepository extends ICrudRepository<Cep, Long> {
 
     List<Cep> findAllByCidade_Estado_IdEstadoAndCidade_IdCidade(Long idEstado, Long idCidade);
 
     List<Cep> findAllByCepStartingWithOrderByCep(String cep);
+
+    Cep findByCep(String cep);
 }

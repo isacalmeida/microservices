@@ -16,19 +16,15 @@
 	<dependencies>
 		<!-- architecture dependencies -->
 		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+			<artifactId>sistema-utils-arquitetura-common</artifactId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
 			<artifactId>sistema-utils-shared-common</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 		<!-- architecture dependencies -->
-
-		<!-- spring-boot dependencies -->
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<!-- spring-cloud dependencies -->
-
-		<!-- other dependencies -->
-		<!-- other dependencies -->
 	</dependencies>
 </project>
