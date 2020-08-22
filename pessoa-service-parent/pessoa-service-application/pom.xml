@@ -5,17 +5,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pessoa-service-parent</artifactId>
 		<groupId>br.edu.unoesc.pessoaservice</groupId>
+		<artifactId>pessoa-service-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<name>pessoa-service</name>
-	<artifactId>pessoa-service-application</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.application</groupId>
+	<artifactId>pessoa-service-application</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
 			<groupId>br.edu.unoesc.pessoaservice.business</groupId>
 			<artifactId>pessoa-service-business</artifactId>
@@ -28,28 +28,18 @@
 			<groupId>br.edu.unoesc.pessoaservice.restapi</groupId>
 			<artifactId>pessoa-service-restapi</artifactId>
 		</dependency>
-		<!-- project dependencies -->
 		
-		<!-- architecture dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-application</artifactId>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
-			<version>${sistema-utils.version}</version>
-		</dependency>
-		<dependency>
-			<artifactId>sistema-utils-shared-application</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.shared.application</groupId>
+			<artifactId>sistema-utils-shared-application</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
-		<!-- architecture dependencies -->
 		
-		<!-- test dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- test dependency -->
 	</dependencies>
 
 	<profiles>

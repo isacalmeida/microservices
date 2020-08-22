@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +25,6 @@ public class Cep extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCep;
@@ -42,7 +41,6 @@ public class Cep extends AbstractEntity {
     @Column(length = 10, nullable = false)
     private String ibge;
 
-    // == relations-fields ==
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idCidade", foreignKey = @ForeignKey(name="FK_cep_cidade"))
     private Cidade cidade;

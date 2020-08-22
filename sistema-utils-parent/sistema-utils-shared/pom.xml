@@ -5,13 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>sistema-utils-parent</artifactId>
 		<groupId>br.edu.unoesc.sistemautils</groupId>
+		<artifactId>sistema-utils-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared</groupId>
+	<artifactId>sistema-utils-shared</artifactId>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -20,45 +20,51 @@
 		<module>sistema-utils-shared-business-common</module>
 		<module>sistema-utils-shared-common</module>
 		<module>sistema-utils-shared-persistence</module>
-		<module>sistema-utils-shared-restapi-common</module>
 		<module>sistema-utils-shared-restapi</module>
+		<module>sistema-utils-shared-restapi-common</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>sistema-utils-shared-application</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.application</groupId>
+				<artifactId>sistema-utils-shared-application</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-shared-business</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
+				<artifactId>sistema-utils-shared-business</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-shared-business-common</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.business.common</groupId>
+				<artifactId>sistema-utils-shared-business-common</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-shared-common</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
+				<artifactId>sistema-utils-shared-common</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-shared-persistence</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.shared.persistence</groupId>
+				<artifactId>sistema-utils-shared-persistence</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-shared-restapi-common</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.shared.restapi</groupId>
+				<artifactId>sistema-utils-shared-restapi</artifactId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
 				<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
+				<artifactId>sistema-utils-shared-restapi-common</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>

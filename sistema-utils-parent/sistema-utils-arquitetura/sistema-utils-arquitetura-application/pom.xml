@@ -10,12 +10,11 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-arquitetura-application</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
+	<artifactId>sistema-utils-arquitetura-application</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- spring-boot dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -43,9 +42,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- spring-boot dependencies -->
 
-		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -54,18 +51,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-all</artifactId>
 		</dependency>
-		<!-- spring-cloud dependencies -->
 
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
-		<!-- other dependencies -->
 		
 		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>

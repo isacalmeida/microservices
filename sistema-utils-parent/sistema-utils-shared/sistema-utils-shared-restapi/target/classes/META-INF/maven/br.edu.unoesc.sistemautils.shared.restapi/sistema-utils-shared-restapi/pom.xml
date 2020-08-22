@@ -10,8 +10,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared-restapi</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared.restapi</groupId>
+	<artifactId>sistema-utils-shared-restapi</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -32,6 +32,12 @@
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
 			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 			<version>${sistema-utils.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

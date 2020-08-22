@@ -10,28 +10,20 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>pessoa-service-persistence</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
+	<artifactId>pessoa-service-persistence</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
-			<artifactId>pessoa-service-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
+			<artifactId>pessoa-service-common</artifactId>
 		</dependency>
-		<!-- project dependencies -->
 
-		<!-- architecture dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-persistence</artifactId>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
-			<version>${sistema-utils.version}</version>
-		</dependency>
-		<dependency>
-			<artifactId>sistema-utils-shared-persistence</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.shared.persistence</groupId>
+			<artifactId>sistema-utils-shared-persistence</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
-		<!-- architecture dependencies -->
 	</dependencies>
 </project>

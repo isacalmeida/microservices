@@ -10,8 +10,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared-persistence</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared.persistence</groupId>
+	<artifactId>sistema-utils-shared-persistence</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -19,6 +19,7 @@
 			<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
 			<artifactId>sistema-utils-shared-common</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
 			<artifactId>sistema-utils-arquitetura-persistence</artifactId>

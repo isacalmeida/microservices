@@ -36,5 +36,4 @@ public class PessoaJuridica extends Pessoa {
 	@Column(name = "data_fundacao")
 	@DateTimeFormat(pattern = "dd/MM/yyyy", iso = DateTimeFormat.ISO.DATE)
 	private Date dataFundacao;
-
 }

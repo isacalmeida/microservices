@@ -10,21 +10,23 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+	<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-business</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+			<artifactId>sistema-utils-arquitetura-business</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-common</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+			<artifactId>sistema-utils-arquitetura-common</artifactId>
 		</dependency>
-		<!-- project dependencies -->
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi.common</groupId>
+			<artifactId>sistema-utils-arquitetura-restapi-common</artifactId>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.modelmapper</groupId>

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +25,6 @@ public class Cidade extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCidade;
@@ -33,7 +32,6 @@ public class Cidade extends AbstractEntity {
     @Column(length = 50, nullable = false)
     private String descricao;
 
-    // == relations-fields ==
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idEstado", foreignKey = @ForeignKey(name="FK_cidade_estado"))
     private Estado estado;

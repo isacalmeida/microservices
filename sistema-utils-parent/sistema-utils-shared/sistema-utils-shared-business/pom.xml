@@ -10,8 +10,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared-business</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared.business</groupId>
+	<artifactId>sistema-utils-shared-business</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -27,11 +27,17 @@
 			<groupId>br.edu.unoesc.sistemautils.shared.persistence</groupId>
 			<artifactId>sistema-utils-shared-persistence</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
 			<artifactId>sistema-utils-arquitetura-business</artifactId>
 			<version>${sistema-utils.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

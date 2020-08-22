@@ -2,8 +2,8 @@ package br.edu.unoesc.sistemautils.arquitetura.restapi.converter;
 
 import java.util.List;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
-import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 
 public interface IIdentityDTOConverter<E extends IIdentityEntity<ID>, ID extends Number, DTO extends AbstractDTO<DTO>> {
 

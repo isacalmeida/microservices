@@ -10,8 +10,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.business.common.IDetailCrudService;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
 import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IDetailRepository;
 import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IMasterRepository;
 

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

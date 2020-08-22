@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 
 public class DetailDTOConverter<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>, DTO extends AbstractDTO<DTO>> implements IDetailDTOConverter<EM, ED, DTO> {
 

@@ -10,14 +10,14 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared-restapi-common</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
+	<artifactId>sistema-utils-shared-restapi-common</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
-			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
+			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi.common</groupId>
+			<artifactId>sistema-utils-arquitetura-restapi-common</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 	</dependencies>

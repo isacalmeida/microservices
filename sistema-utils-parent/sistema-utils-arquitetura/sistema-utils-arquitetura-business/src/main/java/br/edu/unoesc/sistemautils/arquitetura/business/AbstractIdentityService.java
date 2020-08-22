@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.business.common.IIdentityService;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
 import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IIdentityRepository;
 
 public abstract class AbstractIdentityService<E extends IIdentityEntity<ID>, ID extends Number, R extends IIdentityRepository<E, ID>> implements IIdentityService<E, ID> {

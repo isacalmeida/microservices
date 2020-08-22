@@ -21,8 +21,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>zuul-server-application</artifactId>
 				<groupId>br.edu.unoesc.zuulserver.application</groupId>
+				<artifactId>zuul-server-application</artifactId>
 				<version>${zuul-server.version}</version>
 				<type>jar</type>
 			</dependency>
@@ -30,10 +30,9 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- architecture dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-application</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
+			<artifactId>sistema-utils-arquitetura-application</artifactId>
 			<version>${sistema-utils.version}</version>
 			<exclusions>
 				<exclusion>
@@ -50,9 +49,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- architecture dependencies -->
 
-		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
@@ -61,7 +58,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
-		<!-- spring-cloud dependencies -->
 	</dependencies>
 
 	<build>

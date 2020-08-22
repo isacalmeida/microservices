@@ -2,7 +2,7 @@ package br.edu.unoesc.pessoaservice.restapi.common.dto;
 
 import java.util.List;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

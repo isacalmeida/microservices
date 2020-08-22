@@ -27,44 +27,44 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>pessoa-service-application</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.application</groupId>
+				<artifactId>pessoa-service-application</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-business</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.business</groupId>
+				<artifactId>pessoa-service-business</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-business-common</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
+				<artifactId>pessoa-service-business-common</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-common</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.common</groupId>
+				<artifactId>pessoa-service-common</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-persistence</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.persistence</groupId>
+				<artifactId>pessoa-service-persistence</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-restapi</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.restapi</groupId>
+				<artifactId>pessoa-service-restapi</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-restapi-common</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
+				<artifactId>pessoa-service-restapi-common</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>

@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.business.common.IMasterCrudService;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
 import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IMasterRepository;
 
 public abstract class AbstractMasterCrudService<EM extends AbstractMasterEntity, R extends IMasterRepository<EM, Long>> implements IMasterCrudService<EM> {

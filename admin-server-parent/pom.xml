@@ -21,8 +21,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>admin-server-application</artifactId>
 				<groupId>br.edu.unoesc.adminserver.application</groupId>
+				<artifactId>admin-server-application</artifactId>
 				<version>${admin-server.version}</version>
 				<type>jar</type>
 			</dependency>
@@ -30,7 +30,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- spring-boot dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -55,9 +54,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- spring-boot dependencies -->
 
-		<!-- spring-cloud dependencies -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -66,13 +63,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!-- spring-cloud dependencies -->
 
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
@@ -81,7 +72,6 @@
             <groupId>org.jolokia</groupId>
             <artifactId>jolokia-core</artifactId>
         </dependency>
-		<!-- other dependencies -->
 	</dependencies>
 
 	<build>

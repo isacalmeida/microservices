@@ -1,6 +1,6 @@
 package br.edu.unoesc.pessoaservice.restapi.common.constants;
 
-import static br.edu.unoesc.sistemautils.arquitetura.common.RestapiConstants.ID_PARENT;
+import static br.edu.unoesc.sistemautils.arquitetura.restapi.common.constants.RestapiConstants.ID_PARENT;
 
 import br.edu.unoesc.sistemautils.shared.restapi.common.SistemaUtilsRestapiConstants;
 

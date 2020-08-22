@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.business.common.ICrudService;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudRepository;
 
 public abstract class AbstractCrudService<E extends AbstractEntity, R extends ICrudRepository<E, Long>> implements ICrudService<E> {

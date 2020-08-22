@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
-import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 
 public class IdentityDTOConverter<E extends IIdentityEntity<ID>, ID extends Number, DTO extends AbstractDTO<DTO>> implements IIdentityDTOConverter<E, ID, DTO> {
 

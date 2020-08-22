@@ -5,50 +5,25 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pessoa-service-parent</artifactId>
 		<groupId>br.edu.unoesc.pessoaservice</groupId>
+		<artifactId>pessoa-service-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>pessoa-service-business-common</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
+	<artifactId>pessoa-service-business-common</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
 			<artifactId>pessoa-service-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.common</groupId>
 		</dependency>
-		<!-- project dependencies -->
 
-		<!-- architecture dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-business</artifactId>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
-			<version>${sistema-utils.version}</version>
-		</dependency>
-		<dependency>
-			<artifactId>sistema-utils-shared-business-common</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.shared.business.common</groupId>
+			<artifactId>sistema-utils-shared-business-common</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
-		<!-- architecture dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-
-		<!-- other dependencies -->
 	</dependencies>
 </project>

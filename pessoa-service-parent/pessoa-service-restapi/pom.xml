@@ -5,38 +5,29 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pessoa-service-parent</artifactId>
 		<groupId>br.edu.unoesc.pessoaservice</groupId>
+		<artifactId>pessoa-service-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>pessoa-service-restapi</artifactId>
 	<groupId>br.edu.unoesc.pessoaservice.restapi</groupId>
+	<artifactId>pessoa-service-restapi</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
-			<artifactId>pessoa-service-business-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.business.common</groupId>
+			<artifactId>pessoa-service-business-common</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>pessoa-service-restapi-common</artifactId>
 			<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
+			<artifactId>pessoa-service-restapi-common</artifactId>
 		</dependency>
-		<!-- project dependencies -->
 
-		<!-- architecture dependencies -->
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-restapi</artifactId>
-			<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
-			<version>${sistema-utils.version}</version>
-		</dependency>
-		<dependency>
-			<artifactId>sistema-utils-shared-restapi</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.shared.restapi</groupId>
+			<artifactId>sistema-utils-shared-restapi</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
-		<!-- architecture dependencies -->
 	</dependencies>
 </project>

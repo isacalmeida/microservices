@@ -5,55 +5,70 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>sistema-utils-parent</artifactId>
 		<groupId>br.edu.unoesc.sistemautils</groupId>
+		<artifactId>sistema-utils-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-arquitetura</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.arquitetura</groupId>
+	<artifactId>sistema-utils-arquitetura</artifactId>
 	<packaging>pom</packaging>
 
 	<modules>
 		<module>sistema-utils-arquitetura-application</module>
 		<module>sistema-utils-arquitetura-business</module>
+		<module>sistema-utils-arquitetura-business-common</module>
 		<module>sistema-utils-arquitetura-common</module>
 		<module>sistema-utils-arquitetura-persistence</module>
 		<module>sistema-utils-arquitetura-restapi</module>
+		<module>sistema-utils-arquitetura-restapi-common</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>sistema-utils-arquitetura-application</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.application</groupId>
+				<artifactId>sistema-utils-arquitetura-application</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-arquitetura-business</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.business</groupId>
+				<artifactId>sistema-utils-arquitetura-business</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-arquitetura-common</artifactId>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.business.common</groupId>
+				<artifactId>sistema-utils-arquitetura-business-common</artifactId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+				<artifactId>sistema-utils-arquitetura-common</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-arquitetura-persistence</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.persistence</groupId>
+				<artifactId>sistema-utils-arquitetura-persistence</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 				<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi</groupId>
+				<artifactId>sistema-utils-arquitetura-restapi</artifactId>
 				<version>${sistema-utils.version}</version>
 				<type>jar</type>
 			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.sistemautils.arquitetura.restapi.common</groupId>
+				<artifactId>sistema-utils-arquitetura-restapi-common</artifactId>
+				<version>${sistema-utils.version}</version>
+				<type>jar</type>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-parent</artifactId>

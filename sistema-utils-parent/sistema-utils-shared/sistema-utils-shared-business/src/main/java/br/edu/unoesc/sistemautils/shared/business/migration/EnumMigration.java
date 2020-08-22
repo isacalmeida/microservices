@@ -9,10 +9,10 @@ import java.util.Optional;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import br.edu.unoesc.sistemautils.arquitetura.business.IIdentityService;
-import br.edu.unoesc.sistemautils.arquitetura.common.IEnumEntidade;
-import br.edu.unoesc.sistemautils.arquitetura.common.IIdentityEntity;
-import br.edu.unoesc.sistemautils.arquitetura.common.IRevisao;
+import br.edu.unoesc.sistemautils.arquitetura.business.common.IIdentityService;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IEnumEntidade;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IRevisao;
 import br.edu.unoesc.sistemautils.shared.business.service.RevisionEnumControlService;
 import br.edu.unoesc.sistemautils.shared.common.model.RevisionEnumControl;
 import lombok.extern.slf4j.Slf4j;

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,7 +27,6 @@ public class Endereco extends AbstractDetailEntity<Pessoa> {
 
 	private static final long serialVersionUID = 1L;
 
-	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEndereco;
@@ -41,7 +40,6 @@ public class Endereco extends AbstractDetailEntity<Pessoa> {
     @Column(length = 255)
     private String observacao;
 
-    // == relations-fields ==
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idPessoa", foreignKey = @ForeignKey(name = "FK_endereco_pessoa"))
     private Pessoa pessoa;

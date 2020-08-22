@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.edu.unoesc.pessoaservice.common.model.TipoPessoa;
-import br.edu.unoesc.sistemautils.arquitetura.common.IEnumEntidade;
-import br.edu.unoesc.sistemautils.arquitetura.common.IRevisao;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IEnumEntidade;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IRevisao;
 
 public enum EnumTipoPessoa implements IRevisao, IEnumEntidade<TipoPessoa> {
 	

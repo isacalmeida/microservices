@@ -10,14 +10,14 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-shared-common</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.shared.common</groupId>
+	<artifactId>sistema-utils-shared-common</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
-			<artifactId>sistema-utils-arquitetura-common</artifactId>
 			<groupId>br.edu.unoesc.sistemautils.arquitetura.common</groupId>
+			<artifactId>sistema-utils-arquitetura-common</artifactId>
 			<version>${sistema-utils.version}</version>
 		</dependency>
 	</dependencies>

@@ -2,9 +2,9 @@ package br.edu.unoesc.sistemautils.arquitetura.restapi.converter;
 
 import java.util.List;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDTO;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractDetailEntity;
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
+import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 
 public interface IDetailDTOConverter<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>, DTO extends AbstractDTO<DTO>> {
 

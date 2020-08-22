@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +21,6 @@ public class Estado extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	// == primary-fields ==
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEstado;

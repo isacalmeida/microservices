@@ -5,17 +5,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>sistema-utils-parent</artifactId>
 		<groupId>br.edu.unoesc.sistemautils</groupId>
+		<artifactId>sistema-utils-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>sistema-utils-base</artifactId>
 	<groupId>br.edu.unoesc.sistemautils.base</groupId>
+	<artifactId>sistema-utils-base</artifactId>
 	<packaging>pom</packaging>
 
 	<properties>
-		<!-- services properties -->
 		<acesso-service.version>1.0.0</acesso-service.version>
 		<admin-server.version>1.0.0</admin-server.version>
 		<auth-server.version>1.0.0</auth-server.version>
@@ -27,16 +26,12 @@
 		<ui-service.version>1.0.0</ui-service.version>
 		<zipkin-server.version>1.0.0</zipkin-server.version>
 		<zuul-server.version>1.0.0</zuul-server.version>
-		<!-- services properties -->
 
-		<!-- back-end properties -->
 		<activation-api.version>1.2.0</activation-api.version>
 		<jaxb-api.version>2.3.1</jaxb-api.version>
 		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
 		<reflections.version>0.9.12</reflections.version>
-		<!-- back-end properties -->
 
-		<!-- front-end properties -->
 		<webjars-locator.version>0.37</webjars-locator.version>
 		<webjars-jquery.version>3.4.1</webjars-jquery.version>
 		<webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
@@ -49,20 +44,14 @@
 		<webjars-jqueryui.version>1.12.1</webjars-jqueryui.version>
 		<webjars-autocomplete.version>1.4.10</webjars-autocomplete.version>
 		<webjars-icheck.version>1.0.2</webjars-icheck.version>
-		<!-- front-end properties -->
-		
-		<!-- maven properties -->
+
 		<compiler-args.properties>--enable-preview</compiler-args.properties>
 		<jar-index.properties>true</jar-index.properties>
-		<!-- maven properties -->
-		
-		<!-- docker properties -->
+
 		<dockerfile-spotify.version>1.4.13</dockerfile-spotify.version>
 		<docker-repository.properties>isacalmeida</docker-repository.properties>
 		<docker-info.properties>true</docker-info.properties>
-		<!-- docker properties -->
-		
-		<!-- graal properties -->
+
 		<graal-nativeimage.version>20.0.0</graal-nativeimage.version>
 		<graal-buildargs.properties>
 			--verbose 
@@ -75,9 +64,7 @@
 			-Dspring.graal.remove-unused-autoconfig=true 
 			-Dspring.graal.missing-selector-hints=warning 
 		</graal-buildargs.properties>
-		<!-- graal properties -->
-		
-		<!-- main classes properties -->
+
 		<acesso-service.main-class>br.edu.unoesc.acessoservice.application.boot.AcessoServiceApplication</acesso-service.main-class>
 		<admin-server.main-class>br.edu.unoesc.adminserver.application.boot.AdminServerApplication</admin-server.main-class>
 		<auth-server.main-class>br.edu.unoesc.authserver.application.boot.AuthServerApplication</auth-server.main-class>
@@ -88,74 +75,73 @@
 		<pessoa-service.main-class>br.edu.unoesc.pessoaservice.application.boot.PessoaServiceApplication</pessoa-service.main-class>
 		<zipkin-server.main-class>br.edu.unoesc.zipkinserver.application.boot.ZipkinServerApplication</zipkin-server.main-class>
 		<zuul-server.main-class>br.edu.unoesc.zuulserver.application.boot.ZuulServerApplication</zuul-server.main-class>
-		<!-- main classes properties -->
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>acesso-service-parent</artifactId>
 				<groupId>br.edu.unoesc.acessoservice</groupId>
+				<artifactId>acesso-service-parent</artifactId>
 				<version>${acesso-service.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>admin-server-parent</artifactId>
 				<groupId>br.edu.unoesc.adminserver</groupId>
+				<artifactId>admin-server-parent</artifactId>
 				<version>${admin-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>auth-server-parent</artifactId>
 				<groupId>br.edu.unoesc.authserver</groupId>
+				<artifactId>auth-server-parent</artifactId>
 				<version>${auth-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>config-server-parent</artifactId>
 				<groupId>br.edu.unoesc.configserver</groupId>
+				<artifactId>config-server-parent</artifactId>
 				<version>${config-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>consul-server-parent</artifactId>
 				<groupId>br.edu.unoesc.consulserver</groupId>
+				<artifactId>consul-server-parent</artifactId>
 				<version>${consul-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>eureka-server-parent</artifactId>
 				<groupId>br.edu.unoesc.eurekaserver</groupId>
+				<artifactId>eureka-server-parent</artifactId>
 				<version>${eureka-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>hystrix-server-parent</artifactId>
 				<groupId>br.edu.unoesc.hystrixserver</groupId>
+				<artifactId>hystrix-server-parent</artifactId>
 				<version>${hystrix-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>pessoa-service-parent</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice</groupId>
+				<artifactId>pessoa-service-parent</artifactId>
 				<version>${pessoa-service.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>ui-service-parent</artifactId>
 				<groupId>br.edu.unoesc.uiservice</groupId>
+				<artifactId>ui-service-parent</artifactId>
 				<version>${ui-service.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>zipkin-server-parent</artifactId>
 				<groupId>br.edu.unoesc.zipkinserver</groupId>
+				<artifactId>zipkin-server-parent</artifactId>
 				<version>${zipkin-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
-				<artifactId>zuul-server-parent</artifactId>
 				<groupId>br.edu.unoesc.zuulserver</groupId>
+				<artifactId>zuul-server-parent</artifactId>
 				<version>${zuul-server.version}</version>
 				<type>pom</type>
 			</dependency>
