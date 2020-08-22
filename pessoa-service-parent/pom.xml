@@ -22,7 +22,6 @@
 		<module>pessoa-service-persistence</module>
 		<module>pessoa-service-restapi</module>
 		<module>pessoa-service-restapi-common</module>
-		<module>pessoa-service-web</module>
 	</modules>
 
 	<dependencyManagement>
@@ -66,12 +65,6 @@
 			<dependency>
 				<artifactId>pessoa-service-restapi-common</artifactId>
 				<groupId>br.edu.unoesc.pessoaservice.restapi.common</groupId>
-				<version>${pessoa-service.version}</version>
-				<type>jar</type>
-			</dependency>
-			<dependency>
-				<artifactId>pessoa-service-web</artifactId>
-				<groupId>br.edu.unoesc.pessoaservice.web</groupId>
 				<version>${pessoa-service.version}</version>
 				<type>jar</type>
 			</dependency>
