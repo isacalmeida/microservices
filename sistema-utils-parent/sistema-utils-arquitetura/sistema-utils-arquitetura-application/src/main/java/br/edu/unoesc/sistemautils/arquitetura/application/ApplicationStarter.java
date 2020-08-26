@@ -5,15 +5,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
-import org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType;
 
 import brave.sampler.Sampler;
 
 @Configuration
 @EnableDiscoveryClient
 @EnableAutoConfiguration
-@EnableHypermediaSupport(type = { HypermediaType.HAL })
 public abstract class ApplicationStarter {
 
 	@Bean

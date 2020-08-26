@@ -13,9 +13,14 @@
 	<name>admin-server</name>
 	<groupId>br.edu.unoesc.adminserver.application</groupId>
 	<artifactId>admin-server-application</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<dependencies>
+		<dependency>	
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<profiles>

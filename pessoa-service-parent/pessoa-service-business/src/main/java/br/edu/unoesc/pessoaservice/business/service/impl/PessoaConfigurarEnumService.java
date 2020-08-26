@@ -20,9 +20,9 @@ public class PessoaConfigurarEnumService extends AbstractEnumMigration {
 		
 		enumMigration.doMigration(EnumGeneroPessoa.class);
 		enumMigration.doMigration(EnumTipoContato.class);
-		enumMigration.doMigration(EnumTipoDocumento.class);
 		enumMigration.doMigration(EnumTipoEndereco.class);
 		enumMigration.doMigration(EnumTipoPessoa.class);
+		enumMigration.doMigration(EnumTipoDocumento.class);
 		
 		log.info("Finished startMigration");
 	}

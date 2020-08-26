@@ -2,9 +2,13 @@ spring:
   application:
     name: admin-server
   cloud:
-    config:
-      #uri: http://localhost:8888
-      #uri: http://172.31.25.120:8888
-      uri: http://3.17.57.215:8888
+    consul:
+      config:
+        format: YAML
+      discovery:
+        instanceZone: zone1
+        instance-id: "${spring.cloud.client.hostname}:${spring.application.name}:${random.int[1,999999]}"
+      host: http://ec2-34-201-164-172.compute-1.amazonaws.com
+      port: 8500
   profiles:
-    active: homolog
+    active: desenv,zone1

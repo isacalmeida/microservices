@@ -8,8 +8,7 @@ spring:
       discovery:
         instanceZone: zone1
         instance-id: "${spring.cloud.client.hostname}:${spring.application.name}:${random.int[1,999999]}"
-      #host: 127.0.0.1
-      host: ec2-52-201-190-114.compute-1.amazonaws.com
+      host: http://ec2-34-201-164-172.compute-1.amazonaws.com
       port: 8500
   profiles:
     active: desenv,zone1

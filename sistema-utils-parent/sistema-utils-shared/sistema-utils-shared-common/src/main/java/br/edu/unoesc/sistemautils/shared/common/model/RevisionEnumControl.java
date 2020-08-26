@@ -6,18 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
+import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class RevisionEnumControl extends AbstractEntity {
+public class RevisionEnumControl implements IIdentityEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
 

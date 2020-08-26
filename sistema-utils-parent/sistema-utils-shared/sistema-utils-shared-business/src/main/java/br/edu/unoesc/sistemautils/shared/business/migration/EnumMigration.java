@@ -2,7 +2,6 @@ package br.edu.unoesc.sistemautils.shared.business.migration;
 
 import java.beans.Introspector;
 import java.text.MessageFormat;
-import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -37,8 +36,6 @@ public class EnumMigration {
 			revisionEnumControl = new RevisionEnumControl();
 
 			revisionEnumControl.setRevisao(-1L);
-			revisionEnumControl.setDataCriacao(new Date());
-			revisionEnumControl.setDataAlteracao(new Date());
 			revisionEnumControl.setDescricaoEnum(enumClass.getSimpleName());
 			revisionEnumControl.setEnumHash(String.valueOf(enumClass.hashCode()));
 			
