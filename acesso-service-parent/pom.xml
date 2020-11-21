@@ -15,69 +15,61 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>acesso-service-restapi</module>
 		<module>acesso-service-application</module>
+		<module>acesso-service-business</module>
+		<module>acesso-service-business-common</module>
 		<module>acesso-service-common</module>
 		<module>acesso-service-persistence</module>
-		<module>acesso-service-web</module>
+		<module>acesso-service-restapi</module>
+		<module>acesso-service-restapi-common</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<artifactId>acesso-service-restapi</artifactId>
-				<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
-				<version>${acesso-service.version}</version>
-				<type>jar</type>
-			</dependency>
-			<dependency>
-				<artifactId>acesso-service-application</artifactId>
 				<groupId>br.edu.unoesc.acessoservice.application</groupId>
+				<artifactId>acesso-service-application</artifactId>
 				<version>${acesso-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>acesso-service-common</artifactId>
+				<groupId>br.edu.unoesc.acessoservice.business</groupId>
+				<artifactId>acesso-service-business</artifactId>
+				<version>${acesso-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.acessoservice.business.common</groupId>
+				<artifactId>acesso-service-business-common</artifactId>
+				<version>${acesso-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
 				<groupId>br.edu.unoesc.acessoservice.common</groupId>
+				<artifactId>acesso-service-common</artifactId>
 				<version>${acesso-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>acesso-service-persistence</artifactId>
 				<groupId>br.edu.unoesc.acessoservice.persistence</groupId>
+				<artifactId>acesso-service-persistence</artifactId>
 				<version>${acesso-service.version}</version>
 				<type>jar</type>
 			</dependency>
 			<dependency>
-				<artifactId>acesso-service-web</artifactId>
-				<groupId>br.edu.unoesc.acessoservice.web</groupId>
+				<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
+				<artifactId>acesso-service-restapi</artifactId>
+				<version>${acesso-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.acessoservice.restapi.common</groupId>
+				<artifactId>acesso-service-restapi-common</artifactId>
 				<version>${acesso-service.version}</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<dependencies>
-		<!-- spring-boot dependencies -->
-		
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- other dependencies -->
-	</dependencies>
 
 	<build>
 		<plugins>

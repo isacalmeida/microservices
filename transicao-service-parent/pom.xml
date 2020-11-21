@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.edu.unoesc.sistemautils.base</groupId>
+		<artifactId>sistema-utils-base</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>br.edu.unoesc.transicaoservice</groupId>
+	<artifactId>transicao-service-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>transicao-service-application</module>
+		<module>transicao-service-business</module>
+		<module>transicao-service-business-common</module>
+		<module>transicao-service-common</module>
+		<module>transicao-service-persistence</module>
+		<module>transicao-service-restapi</module>
+		<module>transicao-service-restapi-common</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.application</groupId>
+				<artifactId>transicao-service-application</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.business</groupId>
+				<artifactId>transicao-service-business</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.business.common</groupId>
+				<artifactId>transicao-service-business-common</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.common</groupId>
+				<artifactId>transicao-service-common</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.persistence</groupId>
+				<artifactId>transicao-service-persistence</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.restapi</groupId>
+				<artifactId>transicao-service-restapi</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice.restapi.common</groupId>
+				<artifactId>transicao-service-restapi-common</artifactId>
+				<version>${transicao-service.version}</version>
+				<type>jar</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<index>${jar-index.properties}</index>
+						<manifest>
+							<mainClass>${transicao-service.main-class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

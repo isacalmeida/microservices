@@ -1,9 +1,5 @@
 package br.edu.unoesc.acessoservice.common.model;
 
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,17 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
+import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -32,56 +22,53 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ace_acesso")
 @ToString(exclude = "perfil")
-public class Acesso implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Acesso extends AbstractDetailEntity<Perfil> {
 
 	private static final long serialVersionUID = 1L;
 
-	// == primary-fields ==
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ace_id")
-    private Long id;
-    
-    @Column(name = "ace_ler", nullable = false)
-    private Boolean ler;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idAcesso;
 
-    @Column(name = "ace_criar", nullable = false)
-    private Boolean criar;
+	@Column(nullable = false)
+	private Boolean ler;
 
-    @Column(name = "ace_alterar", nullable = false)
-    private Boolean alterar;
-    
-    @Column(name = "ace_remover", nullable = false)
-    private Boolean remover;
-    
-    
-    // == extra-fields ==
-    @Column(name = "ace_ativo", nullable = false)
-    private Boolean ativo = true;
+	@Column(nullable = false)
+	private Boolean criar;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "ace_data_criacao", nullable = false)
-    private Date dataCriacao = Calendar.getInstance().getTime();
+	@Column(nullable = false)
+	private Boolean alterar;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-    @Column(name = "ace_data_alteracao")
-    private Date dataAlteracao;
-    
-    
-    // == relations-fields ==
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ace_id_programa", foreignKey = @ForeignKey(name="FK_acesso_programa"))
-    private Programa programa;
-    
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ace_id_perfil", foreignKey = @ForeignKey(name="FK_acesso_perfil"))
-    private Perfil perfil;
-    
+	@Column(nullable = false)
+	private Boolean remover;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPrograma", foreignKey = @ForeignKey(name = "FK_acesso_programa"))
+	private Programa programa;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPerfil", foreignKey = @ForeignKey(name = "FK_acesso_perfil"))
+	private Perfil perfil;
+
+	@Override
+	public Long getId() {
+		return getIdAcesso();
+	}
+
+	@Override
+	public void setId(Long id) {
+		setIdAcesso(id);
+	}
+
+	@Override
+	public Perfil getMasterEntity() {
+		return getPerfil();
+	}
+
+	@Override
+	public void setMasterEntity(Perfil masterEntity) {
+		setPerfil(masterEntity);
+	}
 }

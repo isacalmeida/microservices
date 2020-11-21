@@ -12,7 +12,7 @@ public interface CepRepository extends ICrudRepository<Cep, Long> {
 
     List<Cep> findAllByCidade_Estado_IdEstadoAndCidade_IdCidade(Long idEstado, Long idCidade);
 
-    List<Cep> findAllByCepStartingWithOrderByCep(String cep);
+    List<Cep> findAllByCepAndIsExcluidoStartingWithOrderByCep(String cep, Boolean isExcluido);
 
-    Cep findByCep(String cep);
+    Cep findByCepAndIsExcluido(String cep, Boolean isExcluido);
 }

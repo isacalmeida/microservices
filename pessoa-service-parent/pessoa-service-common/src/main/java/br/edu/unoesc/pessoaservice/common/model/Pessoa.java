@@ -12,6 +12,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,12 +44,15 @@ public abstract class Pessoa extends AbstractMasterEntity {
 	@Column(nullable = false)
 	private Boolean isFuncionario = false;
 
+	@Fetch(FetchMode.SUBSELECT)
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
 	private List<Endereco> enderecos;
 
+	@Fetch(FetchMode.SUBSELECT)
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
 	private List<Contato> contatos;
 
+	@Fetch(FetchMode.SUBSELECT)
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
 	private List<TipoDocumentoPessoa> tipoDocumentoPessoa;
 

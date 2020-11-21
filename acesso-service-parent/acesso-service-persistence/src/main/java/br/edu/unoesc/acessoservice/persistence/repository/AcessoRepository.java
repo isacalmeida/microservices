@@ -1,9 +1,11 @@
 package br.edu.unoesc.acessoservice.persistence.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import br.edu.unoesc.acessoservice.common.model.Acesso;
+import br.edu.unoesc.acessoservice.common.model.Perfil;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IDetailRepository;
 
-public interface AcessoRepository extends JpaRepository<Acesso, Long> {
-
+@Repository
+public interface AcessoRepository extends IDetailRepository<Perfil, Acesso, Long> {
 }

@@ -8,7 +8,7 @@ import br.edu.unoesc.pessoaservice.common.model.GeneroPessoa;
 import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IEnumEntidade;
 import br.edu.unoesc.sistemautils.arquitetura.common.model.enums.IRevisao;
 
-public enum EnumGeneroPessoa implements IRevisao, IEnumEntidade<GeneroPessoa>  {
+public enum EnumGeneroPessoa implements IRevisao, IEnumEntidade<GeneroPessoa> {
     
 	HOMEM(new GeneroPessoa(1L, "Homem")),
     MULHER(new GeneroPessoa(2L, "Mulher")),

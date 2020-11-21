@@ -5,28 +5,29 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>acesso-service-parent</artifactId>
 		<groupId>br.edu.unoesc.acessoservice</groupId>
+		<artifactId>acesso-service-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>acesso-service-restapi</artifactId>
 	<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
+	<artifactId>acesso-service-restapi</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
-		<!-- project dependencies -->
+		<dependency>
+			<groupId>br.edu.unoesc.acessoservice.business.common</groupId>
+			<artifactId>acesso-service-business-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.edu.unoesc.acessoservice.restapi.common</groupId>
+			<artifactId>acesso-service-restapi-common</artifactId>
+		</dependency>
 
-		<!-- spring-boot dependencies -->
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<!-- other dependencies -->
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.shared.restapi</groupId>
+			<artifactId>sistema-utils-shared-restapi</artifactId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
 	</dependencies>
 </project>

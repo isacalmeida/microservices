@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import lombok.AllArgsConstructor;
@@ -32,7 +32,7 @@ public class Cidade extends AbstractEntity {
     @Column(length = 50, nullable = false)
     private String descricao;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idEstado", foreignKey = @ForeignKey(name="FK_cidade_estado"))
     private Estado estado;
 

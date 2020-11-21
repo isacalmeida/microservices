@@ -13,8 +13,8 @@ import br.edu.unoesc.sistemautils.arquitetura.business.AbstractCrudService;
 public class CidadeServiceImpl extends AbstractCrudService<Cidade, CidadeRepository> implements CidadeService {
 
     @Override
-    public List<Cidade> findAllCidadeBySiglaAndDescricao(String sigla, String descricao) {
-        return getRepository().findAllByEstado_SiglaAndDescricao(sigla, descricao);
+    public Cidade findOneCidadeBySiglaAndDescricao(String siglaEstado, String descricao) {
+        return getRepository().findByEstado_SiglaAndDescricao(siglaEstado, descricao);
     }
 
 	@Override

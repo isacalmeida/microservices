@@ -5,4 +5,5 @@ import br.edu.unoesc.sistemautils.arquitetura.business.common.ICrudService;
 
 public interface EstadoService extends ICrudService<Estado> {
 
+	Estado getOneBySigla(String sigla);
 }

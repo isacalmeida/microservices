@@ -10,4 +10,8 @@ import br.edu.unoesc.sistemautils.arquitetura.business.AbstractCrudService;
 @Service
 public class EstadoServiceImpl extends AbstractCrudService<Estado, EstadoRepository> implements EstadoService {
 
+	@Override
+	public Estado getOneBySigla(String sigla) {
+		return getRepository().findBySiglaAndIsExcluido(sigla, Boolean.FALSE);
+	}
 }

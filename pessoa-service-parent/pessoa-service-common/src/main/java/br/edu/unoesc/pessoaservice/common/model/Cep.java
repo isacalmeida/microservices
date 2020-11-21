@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 import lombok.AllArgsConstructor;
@@ -41,7 +41,7 @@ public class Cep extends AbstractEntity {
     @Column(length = 10, nullable = false)
     private String ibge;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idCidade", foreignKey = @ForeignKey(name="FK_cep_cidade"))
     private Cidade cidade;
 

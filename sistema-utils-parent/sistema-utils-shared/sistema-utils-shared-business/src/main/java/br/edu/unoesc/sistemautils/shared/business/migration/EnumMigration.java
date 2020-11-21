@@ -76,6 +76,9 @@ public class EnumMigration {
 				if(find.isEmpty()) {
 					entidade = service.create((E) entidade);
 				}
+				else {
+					entidade = service.update((E) entidade);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

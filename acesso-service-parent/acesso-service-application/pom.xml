@@ -5,84 +5,98 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>acesso-service-parent</artifactId>
 		<groupId>br.edu.unoesc.acessoservice</groupId>
+		<artifactId>acesso-service-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<name>acesso-service</name>
-	<artifactId>acesso-service-application</artifactId>
 	<groupId>br.edu.unoesc.acessoservice.application</groupId>
+	<artifactId>acesso-service-application</artifactId>
+	<packaging>jar</packaging>
 
 	<dependencies>
-		<!-- project dependencies -->
 		<dependency>
-			<artifactId>acesso-service-restapi</artifactId>
-			<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
+			<groupId>br.edu.unoesc.acessoservice.business</groupId>
+			<artifactId>acesso-service-business</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>acesso-service-common</artifactId>
-			<groupId>br.edu.unoesc.acessoservice.common</groupId>
-		</dependency>
-		<dependency>
-			<artifactId>acesso-service-persistence</artifactId>
 			<groupId>br.edu.unoesc.acessoservice.persistence</groupId>
+			<artifactId>acesso-service-persistence</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>acesso-service-web</artifactId>
-			<groupId>br.edu.unoesc.acessoservice.web</groupId>
+			<groupId>br.edu.unoesc.acessoservice.restapi</groupId>
+			<artifactId>acesso-service-restapi</artifactId>
 		</dependency>
-		<!-- project dependencies -->
-
-		<!-- spring-boot dependencies -->
+		
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
+			<groupId>br.edu.unoesc.sistemautils.shared.application</groupId>
+			<artifactId>sistema-utils-shared-application</artifactId>
+			<version>${sistema-utils.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- spring-boot dependencies -->
-
-		<!-- spring-cloud dependencies -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-		</dependency>
-		<!-- spring-cloud dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- spring-security dependencies -->
-
-		<!-- other dependencies -->
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-starter-client</artifactId>
-		</dependency>
-		<!-- other dependencies -->
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<build>
+			<finalName>${project.name}</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<release>${java.version}</release>
+							<compilerArgs>${compiler-args.propeties}</compilerArgs>
+						</configuration>
+						<executions>
+							<execution>
+								<id>repackage</id>
+								<goals>
+									<goal>repackage</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>build-info</id>
+								<goals>
+									<goal>build-info</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>push</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+							<repository>${docker-repository.properties}/${project.name}</repository>
+							<tag>${project.version}</tag>
+							<skipDockerInfo>${docker-info.properties}</skipDockerInfo>
+							<buildArgs>
+								<JAR_FILE>target/${project.name}.jar</JAR_FILE>
+							</buildArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<build>
 		<finalName>${project.name}</finalName>
@@ -92,7 +106,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<release>${java.version}</release>
-					<compilerArgs>--enable-preview</compilerArgs>
+					<compilerArgs>${compiler-args.propeties}</compilerArgs>
 				</configuration>
 				<executions>
 					<execution>
@@ -104,27 +118,10 @@
 					<execution>
 						<id>build-info</id>
 						<goals>
-                        	<goal>build-info</goal>
-                    	</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
+							<goal>build-info</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<repository>isacalmeida/${project.name}</repository>
-					<tag>${project.version}</tag>
-					<skipDockerInfo>true</skipDockerInfo>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpEntity;
@@ -39,22 +38,23 @@ public abstract class AbstractRestController<E extends AbstractEntity, DTO exten
 
 	@Override
 	public ResponseEntity<List<DTO>> getAll() {
-		List<DTO> all = service.getAll().stream()
-				.map(entity -> converter.convertToDTO(entity))
+		List<DTO> all = getService().getAll().stream()
+				.map(entity -> getConverter().convertToDTO(entity))
 				.collect(Collectors.toList());
 		return ResponseEntity.ok().body(all);
 	}
 	
 	@Override
-	public Page<DTO> getAllPaged(Integer page, Integer size) {
-		Page<E> allPaged = service.getAllPaged(page, size);
-		return new PageImpl<DTO>(converter.convertToDTO(allPaged.getContent()), Pageable.unpaged(), allPaged.getTotalElements());
+	public Page<DTO> getAllPaged(Pageable pageable) {
+		Page<E> allPaged = getService().getAllPaged(pageable);
+		return allPaged.map(getConverter()::convertToDTO);
 	}
 
 	@Override
 	public ResponseEntity<DTO> getOne(Long id) {
-		return service.getOne(id)
-			.map(entity -> ResponseEntity.ok().body(converter.convertToDTO(entity)))
+		return getService().getOne(id)
+			.filter(entity -> Boolean.FALSE.equals(entity.getIsExcluido()))
+			.map(entity -> ResponseEntity.ok().body(getConverter().convertToDTO(entity)))
 			.orElse(ResponseEntity.notFound().build());
 	}
 
@@ -63,8 +63,8 @@ public abstract class AbstractRestController<E extends AbstractEntity, DTO exten
 		if(Objects.isNull(dto)) {
             return ResponseEntity.noContent().build();
         }
-		E entityCreated = service.create(converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(entityCreated);
+		E entityCreated = getService().create(getConverter().convertToEntity(dto));
+		DTO DTOCreated = getConverter().convertToDTO(entityCreated);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 		        .buildAndExpand(DTOCreated.getId()).toUri();
@@ -74,7 +74,7 @@ public abstract class AbstractRestController<E extends AbstractEntity, DTO exten
 
 	@Override
 	public ResponseEntity<DTO> update(Long id, DTO dto) {
-		Optional<E> entity = service.getOne(id);
+		Optional<E> entity = getService().getOne(id);
         if(entity.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -82,17 +82,17 @@ public abstract class AbstractRestController<E extends AbstractEntity, DTO exten
 		    return ResponseEntity.noContent().build();
 		}
 		dto.setId(entity.get().getId());
-		E entityUpdated = service.update(converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(entityUpdated);
+		E entityUpdated = getService().update(getConverter().convertToEntity(dto));
+		DTO DTOCreated = getConverter().convertToDTO(entityUpdated);
 		
 		return ResponseEntity.ok(DTOCreated);
 	}
 
 	@Override
 	public ResponseEntity<Long> delete(Long id) {
-		return service.getOne(id)
+		return getService().getOne(id)
                 .map(entity -> {
-                	service.delete(id);
+                	getService().delete(id);
                     return ResponseEntity.ok().body(id);
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -124,5 +124,13 @@ public abstract class AbstractRestController<E extends AbstractEntity, DTO exten
 		links.add(delete);
 		links.add(environmentPort);
 		return new HttpEntity<List<Link>>(links);
+	}
+
+	public S getService() {
+		return service;
+	}
+
+	public C getConverter() {
+		return converter;
 	}
 }

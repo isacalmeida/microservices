@@ -1,5 +1,5 @@
 package br.edu.unoesc.sistemautils.arquitetura.common.model;
 
-public interface IMasterEntity {
+public interface IMasterEntity extends IIdentityEntity<Long> {
 
 }

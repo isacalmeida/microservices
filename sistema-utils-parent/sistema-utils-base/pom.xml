@@ -21,17 +21,18 @@
 		<config-server.version>1.0.0</config-server.version>
 		<consul-server.version>1.0.0</consul-server.version>
 		<eureka-server.version>1.0.0</eureka-server.version>
+		<frontend-server.version>1.0.0</frontend-server.version>
 		<hystrix-server.version>1.0.0</hystrix-server.version>
+		<operacao-service.version>1.0.0</operacao-service.version>
 		<pessoa-service.version>1.0.0</pessoa-service.version>
+		<transicao-service.version>1.0.0</transicao-service.version>
 		<ui-service.version>1.0.0</ui-service.version>
 		<zipkin-server.version>1.0.0</zipkin-server.version>
 		<zuul-server.version>1.0.0</zuul-server.version>
-
-		<activation-api.version>1.2.0</activation-api.version>
-		<jaxb-api.version>2.3.1</jaxb-api.version>
-		<jaxb-runtime.version>2.3.2</jaxb-runtime.version>
-		<reflections.version>0.9.12</reflections.version>
-
+		
+		<node.version>v12.11.1</node.version>
+		<npm.version>6.12.1</npm.version>
+		
 		<webjars-locator.version>0.37</webjars-locator.version>
 		<webjars-jquery.version>3.4.1</webjars-jquery.version>
 		<webjars-bootstrap.version>3.4.1</webjars-bootstrap.version>
@@ -48,7 +49,6 @@
 		<compiler-args.properties>--enable-preview</compiler-args.properties>
 		<jar-index.properties>true</jar-index.properties>
 
-		<dockerfile-spotify.version>1.4.13</dockerfile-spotify.version>
 		<docker-repository.properties>isacalmeida</docker-repository.properties>
 		<docker-info.properties>true</docker-info.properties>
 
@@ -65,16 +65,19 @@
 			-Dspring.graal.missing-selector-hints=warning 
 		</graal-buildargs.properties>
 
-		<acesso-service.main-class>br.edu.unoesc.acessoservice.application.boot.AcessoServiceApplication</acesso-service.main-class>
-		<admin-server.main-class>br.edu.unoesc.adminserver.application.boot.AdminServerApplication</admin-server.main-class>
-		<auth-server.main-class>br.edu.unoesc.authserver.application.boot.AuthServerApplication</auth-server.main-class>
-		<config-server.main-class>br.edu.unoesc.configserver.application.boot.ConfigServerApplication</config-server.main-class>
-		<consul-server.main-class>br.edu.unoesc.consulserver.application.boot.ConsulServerApplication</consul-server.main-class>
-		<eureka-server.main-class>br.edu.unoesc.eurekaserver.application.boot.EurekaServerApplication</eureka-server.main-class>
-		<hystrix-server.main-class>br.edu.unoesc.hystrixserver.application.boot.HystrixServerApplication</hystrix-server.main-class>
-		<pessoa-service.main-class>br.edu.unoesc.pessoaservice.application.boot.PessoaServiceApplication</pessoa-service.main-class>
-		<zipkin-server.main-class>br.edu.unoesc.zipkinserver.application.boot.ZipkinServerApplication</zipkin-server.main-class>
-		<zuul-server.main-class>br.edu.unoesc.zuulserver.application.boot.ZuulServerApplication</zuul-server.main-class>
+		<acesso-service.main-class>br.edu.unoesc.acessoservice.application.AcessoServiceApplication</acesso-service.main-class>
+		<admin-server.main-class>br.edu.unoesc.adminserver.application.AdminServerApplication</admin-server.main-class>
+		<auth-server.main-class>br.edu.unoesc.authserver.application.AuthServerApplication</auth-server.main-class>
+		<config-server.main-class>br.edu.unoesc.configserver.application.ConfigServerApplication</config-server.main-class>
+		<consul-server.main-class>br.edu.unoesc.consulserver.application.ConsulServerApplication</consul-server.main-class>
+		<eureka-server.main-class>br.edu.unoesc.eurekaserver.application.EurekaServerApplication</eureka-server.main-class>
+		<frontend-server.main-class>br.edu.unoesc.frontendserver.application.FrontendServerApplication</frontend-server.main-class>
+		<hystrix-server.main-class>br.edu.unoesc.hystrixserver.application.HystrixServerApplication</hystrix-server.main-class>
+		<operacao-service.main-class>br.edu.unoesc.operacaoservice.application.OperacaoServiceApplication</operacao-service.main-class>
+		<pessoa-service.main-class>br.edu.unoesc.pessoaservice.application.PessoaServiceApplication</pessoa-service.main-class>
+		<transicao-service.main-class>br.edu.unoesc.transicaoservice.application.TransicaoServiceApplication</transicao-service.main-class>
+		<zipkin-server.main-class>br.edu.unoesc.zipkinserver.application.ZipkinServerApplication</zipkin-server.main-class>
+		<zuul-server.main-class>br.edu.unoesc.zuulserver.application.ZuulServerApplication</zuul-server.main-class>
 	</properties>
 
 	<dependencyManagement>
@@ -116,15 +119,33 @@
 				<type>pom</type>
 			</dependency>
 			<dependency>
+				<groupId>br.edu.unoesc.frontendserver</groupId>
+				<artifactId>frontend-server-parent</artifactId>
+				<version>${frontend-server.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
 				<groupId>br.edu.unoesc.hystrixserver</groupId>
 				<artifactId>hystrix-server-parent</artifactId>
 				<version>${hystrix-server.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
+				<groupId>br.edu.unoesc.operacaoservice</groupId>
+				<artifactId>operacao-service-parent</artifactId>
+				<version>${operacao-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
 				<groupId>br.edu.unoesc.pessoaservice</groupId>
 				<artifactId>pessoa-service-parent</artifactId>
 				<version>${pessoa-service.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>br.edu.unoesc.transicaoservice</groupId>
+				<artifactId>transicao-service-parent</artifactId>
+				<version>${transicao-service.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>

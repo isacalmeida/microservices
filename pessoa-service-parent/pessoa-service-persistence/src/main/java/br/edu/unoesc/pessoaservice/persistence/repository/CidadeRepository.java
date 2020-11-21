@@ -10,7 +10,7 @@ import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudReposi
 @Repository
 public interface CidadeRepository extends ICrudRepository<Cidade, Long> {
 
-    List<Cidade> findAllByEstado_IdEstado(Long idEstado);
+	Cidade findByEstado_SiglaAndDescricao(String sigla, String descricao);
 
-    List<Cidade> findAllByEstado_SiglaAndDescricao(String sigla, String descricao);
+	List<Cidade> findAllByEstado_IdEstado(Long idEstado);
 }

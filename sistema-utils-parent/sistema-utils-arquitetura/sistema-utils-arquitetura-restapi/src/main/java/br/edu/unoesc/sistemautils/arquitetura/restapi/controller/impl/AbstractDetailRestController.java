@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -29,23 +28,23 @@ public abstract class AbstractDetailRestController<EM extends AbstractMasterEnti
 	private C converter;
 
 	@Override
-	public ResponseEntity<List<DTO>> getAll(Long idParent, Class<ED> detailEntityClass) {
-		List<DTO> all = service.getAll(idParent, detailEntityClass).stream()
-				.map(detailEntity -> converter.convertToDTO(detailEntity))
+	public ResponseEntity<List<DTO>> getAll(Long idParent) {
+		List<DTO> all = getService().getAll(idParent).stream()
+				.map(detailEntity -> getConverter().convertToDTO(detailEntity))
 				.collect(Collectors.toList());
 		return ResponseEntity.ok().body(all);
 	}
 
 	@Override
-	public Page<DTO> getAllPaged(Long idParent, Class<ED> detailEntityClass, Integer page, Integer size) {
-		Page<ED> allPaged = service.getAllPaged(idParent, detailEntityClass, page, size);
-		return new PageImpl<DTO>(converter.convertToDTO(allPaged.getContent()), Pageable.unpaged(), allPaged.getTotalElements());
+	public Page<DTO> getAllPaged(Long idParent, Pageable pageable) {
+		Page<ED> allPaged = getService().getAllPaged(idParent, pageable);
+		return allPaged.map(getConverter()::convertToDTO);
 	}
 
 	@Override
 	public ResponseEntity<DTO> getOne(Long idParent, Long id) {
-		return service.getOne(idParent, id)
-				.map(detailEntity -> ResponseEntity.ok().body(converter.convertToDTO(detailEntity)))
+		return getService().getOne(idParent, id)
+				.map(detailEntity -> ResponseEntity.ok().body(getConverter().convertToDTO(detailEntity)))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
@@ -54,8 +53,8 @@ public abstract class AbstractDetailRestController<EM extends AbstractMasterEnti
 		if(Objects.isNull(dto)) {
             return ResponseEntity.noContent().build();
         }
-		ED detailEntityCreated = service.create(idParent, converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(detailEntityCreated);
+		ED detailEntityCreated = getService().create(idParent, getConverter().convertToEntity(dto));
+		DTO DTOCreated = getConverter().convertToDTO(detailEntityCreated);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 		        .buildAndExpand(DTOCreated.getId()).toUri();
@@ -65,7 +64,7 @@ public abstract class AbstractDetailRestController<EM extends AbstractMasterEnti
 
 	@Override
 	public ResponseEntity<DTO> update(Long idParent, Long id, DTO dto) {
-		Optional<ED> detailEntity = service.getOne(idParent, id);
+		Optional<ED> detailEntity = getService().getOne(idParent, id);
         if(detailEntity.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -73,19 +72,27 @@ public abstract class AbstractDetailRestController<EM extends AbstractMasterEnti
 		    return ResponseEntity.noContent().build();
 		}
 		dto.setId(detailEntity.get().getId());
-		ED detailEntityUpdated = service.update(idParent, converter.convertToEntity(dto));
-		DTO DTOCreated = converter.convertToDTO(detailEntityUpdated);
+		ED detailEntityUpdated = getService().update(idParent, getConverter().convertToEntity(dto));
+		DTO DTOCreated = getConverter().convertToDTO(detailEntityUpdated);
 		
 		return ResponseEntity.ok(DTOCreated);
 	}
 
 	@Override
 	public ResponseEntity<Long> delete(Long idParent, Long id) {
-		return service.getOne(idParent, id)
+		return getService().getOne(idParent, id)
                 .map(detailEntity -> {
-                	service.delete(idParent, id);
+                	getService().delete(idParent, id);
                     return ResponseEntity.ok().body(id);
                 })
                 .orElse(ResponseEntity.notFound().build());
+	}
+
+	protected S getService() {
+		return service;
+	}
+
+	protected C getConverter() {
+		return converter;
 	}
 }

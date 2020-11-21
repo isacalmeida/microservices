@@ -8,4 +8,5 @@ import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.ICrudReposi
 @Repository
 public interface EstadoRepository extends ICrudRepository<Estado, Long> {
 
+	Estado findBySiglaAndIsExcluido(String sigla, Boolean excluido);
 }

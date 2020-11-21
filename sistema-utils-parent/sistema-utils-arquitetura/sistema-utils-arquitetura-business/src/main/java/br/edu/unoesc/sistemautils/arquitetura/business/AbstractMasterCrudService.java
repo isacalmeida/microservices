@@ -2,11 +2,12 @@ package br.edu.unoesc.sistemautils.arquitetura.business;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import br.edu.unoesc.sistemautils.arquitetura.business.common.IMasterCrudService;
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
@@ -18,8 +19,8 @@ public abstract class AbstractMasterCrudService<EM extends AbstractMasterEntity,
 	private R repository;
 
 	@Override
-	public Page<EM> getAllPaged(Integer page, Integer size) {
-		return repository.findAll(PageRequest.of(page, size));
+	public Page<EM> getAllPaged(Pageable pageable) {
+		return repository.findByIsExcluido(Boolean.FALSE, pageable);
 	}
 
 	@Override
@@ -35,6 +36,7 @@ public abstract class AbstractMasterCrudService<EM extends AbstractMasterEntity,
 	@Override
 	public EM create(EM entity) {
 		entity.setDataCriacao(Calendar.getInstance().getTime());
+		popularPersistable(entity);
 		return repository.save(entity);
 	}
 
@@ -49,5 +51,17 @@ public abstract class AbstractMasterCrudService<EM extends AbstractMasterEntity,
 		EM entity = getOne(id).get();
 		entity.setIsExcluido(Boolean.TRUE);
 		update(entity);
+	}
+
+	private void popularPersistable(EM entity) {
+		if(Objects.isNull(entity.getIsAtivo())) {
+			entity.setIsAtivo(Boolean.TRUE);
+		}
+		if(Objects.isNull(entity.getIsCancelado())) {
+			entity.setIsCancelado(Boolean.FALSE);
+		}
+		if(Objects.isNull(entity.getIsExcluido())) {
+			entity.setIsExcluido(Boolean.FALSE);
+		}
 	}
 }

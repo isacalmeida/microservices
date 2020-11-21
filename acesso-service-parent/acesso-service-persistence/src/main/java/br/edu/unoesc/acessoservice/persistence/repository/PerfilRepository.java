@@ -1,9 +1,7 @@
 package br.edu.unoesc.acessoservice.persistence.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import br.edu.unoesc.acessoservice.common.model.Perfil;
+import br.edu.unoesc.sistemautils.arquitetura.persistence.repository.IMasterRepository;
 
-public interface PerfilRepository extends JpaRepository<Perfil, Long> {
-
+public interface PerfilRepository extends IMasterRepository<Perfil, Long> {
 }

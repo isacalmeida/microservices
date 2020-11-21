@@ -1,14 +1,42 @@
 spring:
   application:
-    name: pessoa-service
+    name: pessoa-service  
+  
+---
+spring:
   cloud:
     consul:
       config:
         format: YAML
       discovery:
-        instanceZone: zone1
-        instance-id: "${spring.cloud.client.hostname}:${spring.application.name}:${random.int[1,999999]}"
-      host: http://ec2-34-201-164-172.compute-1.amazonaws.com
+        instanceZone: zone0
+        instance-id: "${spring.application.name}:${server.port}"
+      host: http://localhost
       port: 8500
-  profiles:
-    active: desenv,zone1
+  profiles: desenv
+
+---
+spring:
+  cloud:
+    consul:
+      config:
+        format: YAML
+      discovery:
+        instanceZone: zone0
+        instance-id: "${spring.application.name}:${server.port}"
+      host: http://ec2-34-206-175-192.compute-1.amazonaws.com
+      port: 8500
+  profiles: homolog
+  
+---
+spring:
+  cloud:
+    consul:
+      config:
+        format: YAML
+      discovery:
+        instanceZone: zone0
+        instance-id: "${spring.application.name}:${server.port}"
+      host: http://172.31.55.58
+      port: 8500
+  profiles: prod

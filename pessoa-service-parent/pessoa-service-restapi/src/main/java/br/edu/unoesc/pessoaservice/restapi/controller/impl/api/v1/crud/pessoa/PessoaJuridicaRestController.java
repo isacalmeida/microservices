@@ -11,7 +11,7 @@ import br.edu.unoesc.pessoaservice.restapi.converter.PessoaJuridicaDTOConverter;
 import br.edu.unoesc.sistemautils.arquitetura.restapi.controller.impl.AbstractMasterRestController;
 
 @RestController
-@RequestMapping(PessoaRestapiConstants.PESSOAJURIDICA_V1)
+@RequestMapping(PessoaRestapiConstants.PESSOA_JURIDICA_V1)
 public class PessoaJuridicaRestController extends AbstractMasterRestController<PessoaJuridica, PessoaJuridicaDTO, PessoaJuridicaService, PessoaJuridicaDTOConverter> {
 
 }

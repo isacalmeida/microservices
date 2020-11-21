@@ -1,0 +1,4 @@
+br\edu\unoesc\sistemautils\shared\application\configuration\FlywayConfiguration.class
+br\edu\unoesc\sistemautils\shared\application\configuration\ModelMapperConfiguration.class
+br\edu\unoesc\sistemautils\shared\application\configuration\HateoasConfiguration.class
+br\edu\unoesc\sistemautils\shared\application\events\ReadyEvent.class

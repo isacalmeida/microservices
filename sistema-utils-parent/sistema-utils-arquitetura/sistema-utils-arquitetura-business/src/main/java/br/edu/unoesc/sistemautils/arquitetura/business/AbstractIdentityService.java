@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import br.edu.unoesc.sistemautils.arquitetura.business.common.IIdentityService;
 import br.edu.unoesc.sistemautils.arquitetura.common.model.IIdentityEntity;
@@ -17,8 +17,8 @@ public abstract class AbstractIdentityService<E extends IIdentityEntity<ID>, ID 
 	private R repository;
 
 	@Override
-	public Page<E> getAllPaged(Integer page, Integer size) {
-		return getRepository().findAll(PageRequest.of(page, size));
+	public Page<E> getAllPaged(Pageable pageable) {
+		return getRepository().findAll(pageable);
 	}
 
 	@Override

@@ -6,5 +6,4 @@ import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractDetailEntity;
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractMasterEntity;
 
 public interface IDetailRepository<EM extends AbstractMasterEntity, ED extends AbstractDetailEntity<EM>, ID extends Number> extends JpaRepository<ED, ID> {
-
 }

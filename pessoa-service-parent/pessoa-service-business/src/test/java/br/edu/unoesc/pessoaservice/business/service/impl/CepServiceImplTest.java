@@ -39,7 +39,7 @@ public class CepServiceImplTest {
 		Cep cep = new Cep();
 		cep.setCep("89805057");
 		
-		Mockito.when(cepRepository.findByCep(cep.getCep())).thenReturn(cep);
+		Mockito.when(cepRepository.findByCepAndIsExcluido(cep.getCep(), Boolean.FALSE)).thenReturn(cep);
 	}
 	
 	@Test

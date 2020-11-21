@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import br.edu.unoesc.sistemautils.arquitetura.common.model.AbstractEntity;
 
 public interface ICrudService<E extends AbstractEntity> {
 
-	Page<E> getAllPaged(Integer page, Integer size);
+	Page<E> getAllPaged(Pageable pageable);
 
     List<E> getAll();
 

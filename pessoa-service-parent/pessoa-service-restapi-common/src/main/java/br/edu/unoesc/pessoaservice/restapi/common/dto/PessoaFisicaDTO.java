@@ -1,8 +1,7 @@
 package br.edu.unoesc.pessoaservice.restapi.common.dto;
 
-import java.util.List;
+import java.util.Date;
 
-import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,29 +11,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class PessoaFisicaDTO extends AbstractDTO<PessoaFisicaDTO> {
+public class PessoaFisicaDTO extends PessoaDTO<PessoaFisicaDTO> {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long idPessoa;
-
-	private String cpf;
-
 	private String nomeCompleto;
 
-	List<ContatoDTO> contatos;
+	private String setor;
 
-	List<EnderecoDTO> enderecos;
+	private String cargo;
 
-	List<TipoDocumentoPessoaDTO> tipoDocumentoPessoa;
+	private Date dataNascimento;
 
-	@Override
-	public Long getId() {
-		return getIdPessoa();
-	}
+	private Date dataAdmissao;
 
-	@Override
-	public void setId(Long id) {
-		setIdPessoa(id);
-	}
+	private GeneroPessoaDTO generoPessoa;
 }

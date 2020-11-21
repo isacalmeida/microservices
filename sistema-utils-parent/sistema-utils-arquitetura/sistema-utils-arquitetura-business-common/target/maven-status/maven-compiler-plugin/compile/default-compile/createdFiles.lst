@@ -1,0 +1,4 @@
+br\edu\unoesc\sistemautils\arquitetura\business\common\IMasterCrudService.class
+br\edu\unoesc\sistemautils\arquitetura\business\common\ICrudService.class
+br\edu\unoesc\sistemautils\arquitetura\business\common\IDetailCrudService.class
+br\edu\unoesc\sistemautils\arquitetura\business\common\IIdentityService.class

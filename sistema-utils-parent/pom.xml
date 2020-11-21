@@ -16,19 +16,30 @@
 	</modules>
 
 	<properties>
+		<activation-api.version>1.2.0</activation-api.version>
+
+		<dockerfile-spotify.version>1.4.13</dockerfile-spotify.version>
+		<frontend-maven.version>1.10.3</frontend-maven.version>
+	
 		<java.version>11</java.version>
 		<jaxb-impl.version>2.3.3</jaxb-impl.version>
+		<jaxb-api.version>2.3.1</jaxb-api.version>
+		<jaxb-runtime.version>2.3.3</jaxb-runtime.version>
 
 		<maven-compiler.version>3.8.1</maven-compiler.version>
 		<maven-jar.version>3.2.0</maven-jar.version>
+		<maven-resources.version>3.2.0</maven-resources.version>
 
 		<model-mapper.version>2.3.8</model-mapper.version>
-		<sistema-utils.version>1.0.0</sistema-utils.version>
-		<spring-admin.version>2.2.4</spring-admin.version>
+		<reflections.version>0.9.12</reflections.version>
 
-		<spring-boot.version>2.3.3.RELEASE</spring-boot.version>
-		<spring-cloud.version>Hoxton.SR7</spring-cloud.version>
-		<spring-graal.version>0.7.1</spring-graal.version>
+		<sistema-utils.version>1.0.0</sistema-utils.version>
+
+		<spring-admin.version>2.3.1</spring-admin.version>
+
+		<spring-boot.version>2.3.6.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+		<spring-graal.version>0.8.2</spring-graal.version>
 
 		<spring-exclude-devtools.properties>true</spring-exclude-devtools.properties>
 	</properties>
@@ -55,6 +66,26 @@
 			</dependency>
 
 			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb-impl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${model-mapper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${spring-admin.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-parent</artifactId>
 				<version>${spring-boot.version}</version>
@@ -73,32 +104,22 @@
 				<artifactId>spring-graalvm-native</artifactId>
 				<version>${spring-graal.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-starter-server</artifactId>
-				<version>${spring-admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-starter-client</artifactId>
-				<version>${spring-admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.modelmapper</groupId>
-				<artifactId>modelmapper</artifactId>
-				<version>${model-mapper.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sun.xml.bind</groupId>
-				<artifactId>jaxb-impl</artifactId>
-				<version>${jaxb-impl.version}</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>${dockerfile-spotify.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>com.github.eirslett</groupId>
+			        <artifactId>frontend-maven-plugin</artifactId>
+					<version>${frontend-maven.version}</version>				
+				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
@@ -113,17 +134,17 @@
 					<version>${maven-jar.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources.version}</version>
+				</plugin>
+				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>${spring-boot.version}</version>
 					<configuration>
 						<excludeDevtools>${spring-exclude-devtools.properties}</excludeDevtools>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>com.spotify</groupId>
-					<artifactId>dockerfile-maven-plugin</artifactId>
-					<version>${dockerfile-spotify.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -143,7 +164,7 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
-		
+
 		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>

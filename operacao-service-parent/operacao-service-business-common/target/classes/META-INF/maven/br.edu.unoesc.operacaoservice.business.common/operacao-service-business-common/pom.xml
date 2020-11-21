@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.edu.unoesc.operacaoservice</groupId>
+		<artifactId>operacao-service-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>br.edu.unoesc.operacaoservice.business.common</groupId>
+	<artifactId>operacao-service-business-common</artifactId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<artifactId>operacao-service-common</artifactId>
+			<groupId>br.edu.unoesc.operacaoservice.common</groupId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.shared.business.common</groupId>
+			<artifactId>sistema-utils-shared-business-common</artifactId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
+	</dependencies>
+</project>

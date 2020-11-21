@@ -1,5 +1,6 @@
 package br.edu.unoesc.pessoaservice.common.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -14,11 +15,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "pessoa")
 @EqualsAndHashCode(callSuper = false)
 public class TipoDocumentoPessoa extends AbstractDetailEntity<Pessoa> {
 
@@ -35,6 +38,9 @@ public class TipoDocumentoPessoa extends AbstractDetailEntity<Pessoa> {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idTipoDocumento", foreignKey = @ForeignKey(name = "FK_tipo_documento_pessoa_tipo_documento"))
 	private TipoDocumento tipoDocumento;
+
+	@Column(length = 50)
+	private String valor;
 
 	@Override
 	public Long getId() {

@@ -1,0 +1,7 @@
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\dto\IIdentityDTO.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\controller\IIdentityRestController.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\constants\RestapiConstants.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\dto\AbstractDTO.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\controller\IMasterCrudController.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\controller\IDetailCrudController.class
+br\edu\unoesc\sistemautils\arquitetura\restapi\common\controller\ICrudRestController.class

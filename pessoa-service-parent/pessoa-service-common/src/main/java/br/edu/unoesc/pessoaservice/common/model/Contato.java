@@ -32,7 +32,7 @@ public class Contato extends AbstractDetailEntity<Pessoa> {
     private Long idContato;
 
     @Column(length = 100, nullable = false)
-    private String descricao;
+    private String valor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idTipoContato", foreignKey = @ForeignKey(name = "FK_contato_tipo_contato"))

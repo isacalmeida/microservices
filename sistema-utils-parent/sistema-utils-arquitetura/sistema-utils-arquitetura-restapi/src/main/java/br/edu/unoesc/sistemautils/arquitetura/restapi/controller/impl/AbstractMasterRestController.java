@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpEntity;
@@ -46,9 +45,9 @@ public abstract class AbstractMasterRestController<EM extends AbstractMasterEnti
 	}
 	
 	@Override
-	public Page<DTO> getAllPaged(Integer page, Integer size) {
-		Page<EM> allPaged = service.getAllPaged(page, size);
-		return new PageImpl<DTO>(converter.convertToDTO(allPaged.getContent()), Pageable.unpaged(), allPaged.getTotalElements());
+	public Page<DTO> getAllPaged(Pageable pageable) {
+		Page<EM> allPaged = service.getAllPaged(pageable);
+		return allPaged.map(converter::convertToDTO);
 	}
 
 	@Override

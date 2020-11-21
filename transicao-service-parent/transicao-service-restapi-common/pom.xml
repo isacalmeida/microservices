@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.edu.unoesc.transicaoservice</groupId>
+		<artifactId>transicao-service-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>br.edu.unoesc.transicaoservice.restapi.common</groupId>
+	<artifactId>transicao-service-restapi-common</artifactId>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.edu.unoesc.transicaoservice.common</groupId>
+			<artifactId>transicao-service-common</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.edu.unoesc.sistemautils.shared.restapi.common</groupId>
+			<artifactId>sistema-utils-shared-restapi-common</artifactId>
+			<version>${sistema-utils.version}</version>
+		</dependency>
+	</dependencies>
+</project>

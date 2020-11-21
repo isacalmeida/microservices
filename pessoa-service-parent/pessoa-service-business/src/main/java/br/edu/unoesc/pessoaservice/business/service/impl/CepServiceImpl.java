@@ -19,11 +19,11 @@ public class CepServiceImpl extends AbstractCrudService<Cep, CepRepository> impl
 
     @Override
     public List<Cep> getAllByCep(String cep){
-        return getRepository().findAllByCepStartingWithOrderByCep(cep);
+        return getRepository().findAllByCepAndIsExcluidoStartingWithOrderByCep(cep, Boolean.FALSE);
     }
 
 	@Override
 	public Cep getOneByCep(String cep) {
-		return getRepository().findByCep(cep);
+		return getRepository().findByCepAndIsExcluido(cep, Boolean.FALSE);
 	}
 }

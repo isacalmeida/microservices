@@ -1,8 +1,6 @@
 package br.edu.unoesc.sistemautils.arquitetura.common.model;
 
-import java.io.Serializable;
-
-public interface IDetailEntity<EM extends AbstractMasterEntity> extends Serializable, IIdentityEntity<Long> {
+public interface IDetailEntity<EM extends AbstractMasterEntity> extends IIdentityEntity<Long> {
 
 	EM getMasterEntity();
 	
