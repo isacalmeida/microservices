@@ -1,9 +1,9 @@
-package br.edu.unoesc.transicaoservice.restapi.common.dto;
+package br.edu.unoesc.sistemautils.shared.restapi.common.transicao;
 
 import java.util.Date;
-import java.util.List;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.pessoa.PessoaFisicaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,13 +35,11 @@ public class MudancaDTO extends PersistableDTO<MudancaDTO> {
 
 	private Long protocoloPessoa;
 
-	private Long protocoloProblema;
-
 	private String atividades;
 
 	private String planoRetorno;
 
-	private List<MudancaItemConfiguracaoDTO> mudancaItemConfiguracao;
+	private PessoaFisicaDTO pessoaFisica;
 
 	@Override
 	public Long getId() {

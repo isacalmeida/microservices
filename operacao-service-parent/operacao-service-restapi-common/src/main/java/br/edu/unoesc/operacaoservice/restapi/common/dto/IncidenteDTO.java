@@ -1,6 +1,7 @@
 package br.edu.unoesc.operacaoservice.restapi.common.dto;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.transicao.ItemConfiguracaoDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +32,8 @@ public class IncidenteDTO extends PersistableDTO<IncidenteDTO> {
 	private String resolucao;
 
 	private Long protocoloItemConfiguracao;
+
+	private ItemConfiguracaoDTO itemConfiguracao;
 
 	@Override
 	public Long getId() {

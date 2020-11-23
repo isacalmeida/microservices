@@ -68,8 +68,6 @@ public class Mudanca extends AbstractMasterEntity {
 
 	private Long protocoloPessoa;
 
-	private Long protocoloProblema;
-
 	@Column(length = 500, nullable = false)
 	private String atividades;
 

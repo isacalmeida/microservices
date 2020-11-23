@@ -11,5 +11,12 @@ public class UsuarioDTOConverter extends DTOConverter<Usuario, UsuarioDTO> {
 
 	public UsuarioDTOConverter() {
 		super(Usuario.class, UsuarioDTO.class);
+		
+//		getModelMapper().addMappings(new PropertyMap<UsuarioDTO, Usuario>() {
+//			@Override
+//			protected void configure() {
+//				skip(source.getPessoaFisica());
+//			}
+//		});
 	}
 }

@@ -1,6 +1,8 @@
 spring:
   application:
-    name: operacao-service  
+    name: operacao-service
+  main:
+    allow-bean-definition-overriding: true
   
 ---
 spring:

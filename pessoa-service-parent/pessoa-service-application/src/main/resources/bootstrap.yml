@@ -1,6 +1,8 @@
 spring:
   application:
-    name: pessoa-service  
+    name: pessoa-service
+  main:
+    allow-bean-definition-overriding: true
   
 ---
 spring:

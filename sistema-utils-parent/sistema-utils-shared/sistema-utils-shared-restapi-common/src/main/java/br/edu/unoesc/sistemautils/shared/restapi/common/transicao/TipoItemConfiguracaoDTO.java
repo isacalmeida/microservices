@@ -1,4 +1,4 @@
-package br.edu.unoesc.transicaoservice.restapi.common.dto;
+package br.edu.unoesc.sistemautils.shared.restapi.common.transicao;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 import lombok.AllArgsConstructor;
@@ -10,21 +10,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class CategoriaItemConfiguracaoDTO extends AbstractDTO<CategoriaItemConfiguracaoDTO> {
+public class TipoItemConfiguracaoDTO extends AbstractDTO<TipoItemConfiguracaoDTO> {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long idCategoriaItemConfiguracao;
+	private Long idTipoItemConfiguracao;
 
 	private String descricao;
 
 	@Override
 	public Long getId() {
-		return getIdCategoriaItemConfiguracao();
+		return getIdTipoItemConfiguracao();
 	}
 
 	@Override
 	public void setId(Long id) {
-		setIdCategoriaItemConfiguracao(id);
+		setIdTipoItemConfiguracao(id);
 	}
 }

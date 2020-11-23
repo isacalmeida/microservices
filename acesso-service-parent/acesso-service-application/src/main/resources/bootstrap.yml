@@ -1,6 +1,8 @@
 spring:
   application:
-    name: acesso-service  
+    name: acesso-service
+  main:
+    allow-bean-definition-overriding: true
   
 ---
 spring:

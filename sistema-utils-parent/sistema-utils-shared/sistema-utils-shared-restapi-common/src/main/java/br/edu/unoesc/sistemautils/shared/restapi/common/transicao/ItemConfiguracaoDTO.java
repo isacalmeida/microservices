@@ -1,6 +1,8 @@
-package br.edu.unoesc.transicaoservice.restapi.common.dto;
+package br.edu.unoesc.sistemautils.shared.restapi.common.transicao;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.pessoa.PessoaFisicaDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.pessoa.PessoaJuridicaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,6 +39,10 @@ public class ItemConfiguracaoDTO extends PersistableDTO<ItemConfiguracaoDTO> {
 	private Long protocoloPessoaResponsavel;
 
 	private Long protocoloPessoaFornecedor;
+
+	private PessoaFisicaDTO pessoaFisica;
+
+	private PessoaJuridicaDTO pessoaJuridica;
 
 	@Override
 	public Long getId() {

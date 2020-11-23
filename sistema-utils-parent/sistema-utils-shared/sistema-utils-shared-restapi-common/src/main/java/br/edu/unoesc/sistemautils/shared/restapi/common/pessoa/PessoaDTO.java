@@ -1,6 +1,4 @@
-package br.edu.unoesc.pessoaservice.restapi.common.dto;
-
-import java.util.List;
+package br.edu.unoesc.sistemautils.shared.restapi.common.pessoa;
 
 import org.springframework.hateoas.RepresentationModel;
 
@@ -21,12 +19,6 @@ public abstract class PessoaDTO<DTO extends RepresentationModel<DTO>> extends Pe
 	private Boolean isFornecedor;
 
 	private Boolean isFuncionario;
-
-	private List<ContatoDTO> contatos;
-
-	private List<EnderecoDTO> enderecos;
-
-	private List<TipoDocumentoPessoaDTO> tipoDocumentoPessoa;
 
 	@Override
 	public Long getId() {

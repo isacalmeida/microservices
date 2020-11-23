@@ -1,4 +1,4 @@
-package br.edu.unoesc.transicaoservice.restapi.common.dto;
+package br.edu.unoesc.sistemautils.shared.restapi.common.transicao;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
 import lombok.AllArgsConstructor;

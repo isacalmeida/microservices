@@ -52,7 +52,7 @@ public class Incidente extends AbstractEntity {
 	@JoinColumn(name = "idRequisicao", foreignKey = @ForeignKey(name = "FK_incidente_requisicao"))
 	private Requisicao requisicao;
 
-	@Column(length = 500, nullable = false)
+	@Column(length = 500)
 	private String resolucao;
 
 	private Long protocoloItemConfiguracao;

@@ -1,6 +1,7 @@
 package br.edu.unoesc.operacaoservice.restapi.common.dto;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.transicao.MudancaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,6 +22,8 @@ public class EventoDTO extends PersistableDTO<EventoDTO> {
 	private StatusEventoDTO statusEvento;
 
 	private Long protocoloMudanca;
+
+	private MudancaDTO mudanca;
 
 	@Override
 	public Long getId() {

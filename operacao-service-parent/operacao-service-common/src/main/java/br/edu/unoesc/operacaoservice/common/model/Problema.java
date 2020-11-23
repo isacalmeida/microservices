@@ -44,7 +44,7 @@ public class Problema extends AbstractEntity {
 	@JoinColumn(name = "idErroConhecido", foreignKey = @ForeignKey(name = "FK_problema_erro_conhecido"))
 	private ErroConhecido erroConhecido;
 
-	@Column(length = 500, nullable = false)
+	@Column(length = 500)
 	private String resolucao;
 
 	private Long protocoloMudanca;

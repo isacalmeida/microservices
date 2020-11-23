@@ -42,4 +42,8 @@ public class DetailDTOConverter<EM extends AbstractMasterEntity, ED extends Abst
 	public List<ED> convertToEntity(List<DTO> dtoList) {
 		return dtoList.stream().map(dto -> convertToEntity(dto)).collect(Collectors.toList());
 	}
+
+	public ModelMapper getModelMapper() {
+		return modelMapper;
+	}
 }

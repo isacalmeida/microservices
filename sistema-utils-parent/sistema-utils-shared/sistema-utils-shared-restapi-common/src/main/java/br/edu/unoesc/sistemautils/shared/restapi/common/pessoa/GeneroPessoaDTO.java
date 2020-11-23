@@ -1,4 +1,4 @@
-package br.edu.unoesc.pessoaservice.restapi.common.dto;
+package br.edu.unoesc.sistemautils.shared.restapi.common.pessoa;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.AbstractDTO;
 import lombok.AllArgsConstructor;

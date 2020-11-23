@@ -1,6 +1,7 @@
 package br.edu.unoesc.acessoservice.restapi.common.dto;
 
 import br.edu.unoesc.sistemautils.arquitetura.restapi.common.dto.PersistableDTO;
+import br.edu.unoesc.sistemautils.shared.restapi.common.pessoa.PessoaFisicaDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,9 +21,11 @@ public class UsuarioDTO extends PersistableDTO<UsuarioDTO> {
 
 	private String senha;
 
+	private PerfilDTO perfil;
+
 	private Long protocoloPessoa;
 
-	private PerfilDTO perfil;
+	private PessoaFisicaDTO pessoaFisica;
 
 	@Override
 	public Long getId() {

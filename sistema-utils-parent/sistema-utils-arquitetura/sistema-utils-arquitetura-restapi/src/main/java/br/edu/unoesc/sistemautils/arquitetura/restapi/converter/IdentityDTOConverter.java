@@ -41,4 +41,8 @@ public class IdentityDTOConverter<E extends IIdentityEntity<ID>, ID extends Numb
 	public List<E> convertToEntity(List<DTO> dtoList) {
 		return dtoList.stream().map(dto -> convertToEntity(dto)).collect(Collectors.toList());
 	}
+
+	public ModelMapper getModelMapper() {
+		return modelMapper;
+	}
 }

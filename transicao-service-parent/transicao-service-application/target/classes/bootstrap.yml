@@ -1,6 +1,8 @@
 spring:
   application:
-    name: transicao-service  
+    name: transicao-service
+  main:
+    allow-bean-definition-overriding: true
   
 ---
 spring:
